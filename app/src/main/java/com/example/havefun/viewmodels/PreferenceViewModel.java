@@ -1,4 +1,4 @@
-package com.example.havefun.ui.preference;
+package com.example.havefun.viewmodels;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

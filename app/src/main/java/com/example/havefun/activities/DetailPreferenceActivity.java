@@ -1,7 +1,9 @@
-package com.example.havefun;
+package com.example.havefun.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.havefun.R;
 
 public class DetailPreferenceActivity extends AppCompatActivity {
 

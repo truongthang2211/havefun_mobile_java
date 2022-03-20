@@ -1,7 +1,8 @@
-package com.example.havefun;
+package com.example.havefun.activities;
 
 import android.os.Bundle;
 
+import com.example.havefun.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;

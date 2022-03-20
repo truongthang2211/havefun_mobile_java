@@ -1,14 +1,16 @@
-package com.example.havefun;
+package com.example.havefun.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class ListVoucherActivity extends AppCompatActivity {
+import com.example.havefun.R;
+
+public class HotelDetailActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_voucher);
+        setContentView(R.layout.activity_hotel_detail);
     }
 }

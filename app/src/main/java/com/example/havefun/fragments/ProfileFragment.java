@@ -1,4 +1,4 @@
-package com.example.havefun.ui.profile;
+package com.example.havefun.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.havefun.databinding.FragmentProfileBinding;
+import com.example.havefun.viewmodels.ProfileViewModel;
 
 public class ProfileFragment extends Fragment {
 

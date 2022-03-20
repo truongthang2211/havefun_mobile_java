@@ -1,4 +1,4 @@
-package com.example.havefun.ui.preference;
+package com.example.havefun.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,23 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.havefun.databinding.FragmentPreferenceBinding;
+import com.example.havefun.databinding.FragmentHomeBinding;
+import com.example.havefun.viewmodels.HomeViewModel;
 
-public class PreferenceFragment extends Fragment {
+public class HomeFragment extends Fragment {
 
-    private FragmentPreferenceBinding binding;
+    private FragmentHomeBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        PreferenceViewModel preferenceViewModel =
-                new ViewModelProvider(this).get(PreferenceViewModel.class);
+        HomeViewModel homeViewModel =
+                new ViewModelProvider(this).get(HomeViewModel.class);
 
-        binding = FragmentPreferenceBinding.inflate(inflater, container, false);
+        binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textDashboard;
-        preferenceViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textHome;
+        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
