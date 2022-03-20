@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">HaveFun</string>
+    <string name="title_home">Trang chủ</string>
+    <string name="title_preference">Ưu đãi</string>
+    <string name="title_profile">Tài khoản</string>
+</resources>
