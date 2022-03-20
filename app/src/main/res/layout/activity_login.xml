@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/log_bg"
     tools:context=".LoginActivity">
 
 
@@ -16,7 +17,6 @@
         android:gravity="center"
         android:text="HaveFun Xin Chào!"
         android:textSize="45sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,7 +31,7 @@
         android:fontFamily="sans-serif-black"
         android:gravity="center"
         android:text="Sign In"
-        android:textSize="35sp"
+        android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,6 +46,7 @@
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
+        android:textColor="@color/black"
         android:drawableLeft="@drawable/ic_user"
         android:background="@drawable/text_bg"
         android:drawablePadding="20dp"
@@ -78,21 +79,36 @@
         app:layout_constraintTop_toBottomOf="@+id/email"
         app:layout_constraintWidth_percent=".8" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_bg"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/log_btn"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
         android:text="Login"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent=".8"
+        app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias=".7"
-        app:layout_constraintWidth_percent=".5" />
+        app:layout_constraintVertical_bias="0.65"
+        app:layout_constraintWidth_percent=".3" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/resg_btn"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:text="Resgister"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65"
+        app:layout_constraintWidth_percent=".4" />
 
     <TextView
         android:id="@+id/forget_pass"
@@ -103,6 +119,8 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:text="Forget Password"
+        android:textStyle="italic"
+        android:textSize="15dp"
         app:layout_constraintVertical_bias="0"
         app:layout_constraintHorizontal_bias="1"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -114,15 +132,19 @@
         android:id="@+id/log_oth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign With"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0"
         android:layout_margin="30dp"
-        app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="0" />
+        android:text="Sign With"
+        android:textSize="20dp"
+        android:textStyle="italic"
+        app:flow_firstHorizontalBias="0"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -130,7 +152,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button">
+        app:layout_constraintTop_toBottomOf="@+id/log_btn">
 
         <ImageView
             android:layout_width="50dp"
