@@ -11,22 +11,22 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.havefun.databinding.FragmentPreferenceBinding;
-import com.example.havefun.viewmodels.PreferenceViewModel;
+import com.example.havefun.viewmodels.PromotionViewModel;
 
-public class PreferenceFragment extends Fragment {
+public class PromotionFragment extends Fragment {
 
     private FragmentPreferenceBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        PreferenceViewModel preferenceViewModel =
-                new ViewModelProvider(this).get(PreferenceViewModel.class);
+        PromotionViewModel promotionViewModel =
+                new ViewModelProvider(this).get(PromotionViewModel.class);
 
         binding = FragmentPreferenceBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textDashboard;
-        preferenceViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        promotionViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
