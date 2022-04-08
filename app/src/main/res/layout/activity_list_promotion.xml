@@ -6,4 +6,169 @@
     android:layout_height="match_parent"
     tools:context=".activities.ListPromotionActivity">
 
+    <!--    SCREEN TITLE-->
+    <TextView
+        android:id="@+id/title_promolist_screen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="32dp"
+        android:text="Ưu đãi độc quyền"
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"></TextView>
+
+    <!--    DISPLAY SUMMARY PROMOTIONS, POINTS, STAMPS-->
+    <LinearLayout
+        android:id="@+id/promotion_summary_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_promolist_screen"
+        tools:ignore="MissingConstraints">
+
+        <!--        BTN01-->
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="116dp"
+            android:layout_height="120dp"
+            android:layout_margin="2dp"
+            android:background="@drawable/effect_shadow"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ticket"></ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:text="27"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="12dp"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="4dp"
+                android:text="Ưu đãi"
+                android:textColor="@color/black"
+                android:textSize="12dp"></TextView>
+        </LinearLayout>
+        <!--        BTN02-->
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="116dp"
+            android:layout_height="120dp"
+            android:layout_margin="2dp"
+            android:background="@drawable/effect_shadow"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/credit_cards"></ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:text="7.100"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="12dp"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="4dp"
+                android:text="Điểm"
+                android:textColor="@color/black"
+                android:textSize="12dp"></TextView>
+        </LinearLayout>
+        <!--        BTN03-->
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="116dp"
+            android:layout_height="120dp"
+            android:layout_margin="2dp"
+            android:background="@drawable/effect_shadow"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/stamp"></ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:text="0"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="12dp"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="4dp"
+                android:text="Tem"
+                android:textColor="@color/black"
+                android:textSize="12dp"></TextView>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--    DISPLAY LIST VOUCHER-->
+    <ScrollView
+        android:id="@+id/scrollView_listVoucher"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="220dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/promotion_summary_layout">
+
+        <!--        LIST VOUCHER LAYOUT CONTAINER-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--        VOUCHER ITEM-->
+            <include layout="@layout/voucher_item"></include>
+
+            <!--        VOUCHER ITEM-->
+            <include layout="@layout/voucher_item"></include>
+
+            <!--        VOUCHER ITEM-->
+            <include layout="@layout/voucher_item"></include>
+
+            <!--        VOUCHER ITEM-->
+            <include layout="@layout/voucher_item"></include>
+
+            <!--        VOUCHER ITEM-->
+            <include layout="@layout/voucher_item"></include>
+
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,5 +6,159 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.DetailPromotionActivity">
+  <ImageView
+      android:id="@+id/voucher_banner"
+      android:layout_width="match_parent"
+      android:layout_height="228dp"
+      android:layout_marginTop="-4dp"
+      android:src="@drawable/detail_voucher_banner"
+      app:layout_constraintTop_toTopOf="parent"></ImageView>
 
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginTop="228dp"
+      app:layout_constraintTop_toBottomOf="@id/voucher_banner">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+      <TextView
+          android:id="@+id/tv_voucher_title_1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="24dp"
+          android:text="ĐĂNG KÝ TÀI KHOẢN"
+          android:textAllCaps="true"
+          android:textColor="@color/colorPrimary"
+          android:textSize="14dp"
+          android:textStyle="bold"
+          app:layout_constraintLeft_toLeftOf="parent"
+          app:layout_constraintRight_toRightOf="parent"
+          app:layout_constraintTop_toTopOf="parent"></TextView>
+
+      <TextView
+          android:id="@+id/tv_voucher_title_2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="16dp"
+          android:text="ưu đãi đặc biệt đến 50%"
+          android:textAllCaps="true"
+          android:textColor="@color/colorPrimary"
+          android:textSize="14dp"
+          android:textStyle="bold"
+          app:layout_constraintLeft_toLeftOf="parent"
+          app:layout_constraintRight_toRightOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/tv_voucher_title_1"></TextView>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:gravity="left"
+          android:orientation="vertical"
+          android:layout_marginBottom="36dp"
+          android:layout_marginLeft="24dp"
+          android:layout_marginRight="24dp"
+          app:layout_constraintTop_toBottomOf="@id/tv_voucher_title_2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Quy định và điều khoản áp dụng Coupon:"
+            android:textColor="@color/black"
+            android:textSize="14dp"></TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="- Áp dụng cho người dùng đăng ký tài khoản trên Go2Joy"
+            android:textColor="@color/black"
+            android:textSize="14dp"></TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="- Tặng ngay Coupon 50% (tối đa 50.000đ) cho tất cả người dùng mới"
+            android:textColor="@color/black"
+            android:textSize="14dp"></TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="- Áp dụng tại các khách sạn trong danh sách"
+            android:textColor="@color/black"
+            android:textSize="14dp"></TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="- Áp dụng đặt phòng Theo giờ, Qua đêm, Theo ngày"
+            android:textColor="@color/black"
+            android:textSize="14dp"></TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="- Thời gian đặt phòng: từ Thứ Hai đến Chủ Nhật"
+            android:textColor="@color/black"
+            android:textSize="14dp"></TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text='- Coupon có giá trị 30 ngày kể từ ngày nhận và sẽ tự động được tặng vào tài khoản khi đăng ký thành công. Bạn có thể kiểm tra lại Coupon trong mục "Ưu đãi"'
+            android:textColor="@color/black"
+            android:textSize="14dp"></TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text='- Coupon có giá trị 30 ngày kể từ ngày nhận và sẽ tự động được tặng vào tài khoản khi đăng ký thành công. Bạn có thể kiểm tra lại Coupon trong mục "Ưu đãi"'
+            android:textColor="@color/black"
+            android:textSize="14dp"></TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text='- Coupon có giá trị 30 ngày kể từ ngày nhận và sẽ tự động được tặng vào tài khoản khi đăng ký thành công. Bạn có thể kiểm tra lại Coupon trong mục "Ưu đãi"'
+            android:textColor="@color/black"
+            android:textSize="14dp"></TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text='- Coupon có giá trị 30 ngày kể từ ngày nhận và sẽ tự động được tặng vào tài khoản khi đăng ký thành công. Bạn có thể kiểm tra lại Coupon trong mục "Ưu đãi"'
+            android:textColor="@color/black"
+            android:textSize="14dp"></TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text='- Coupon có giá trị 30 ngày kể từ ngày nhận và sẽ tự động được tặng vào tài khoản khi đăng ký thành công. Bạn có thể kiểm tra lại Coupon trong mục "Ưu đãi"'
+            android:textColor="@color/black"
+            android:textSize="14dp"></TextView>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="36dp"
+            android:text="Xem khách sạn"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="14dp"></Button>
+      </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </ScrollView>
   </androidx.constraintlayout.widget.ConstraintLayout>
