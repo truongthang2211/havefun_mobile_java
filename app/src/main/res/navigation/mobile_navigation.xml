@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.havefun.fragments.PreferenceFragment"
+        android:name="com.example.havefun.fragments.PromotionFragment"
         android:label="@string/title_preference"
         tools:layout="@layout/fragment_preference" />
 

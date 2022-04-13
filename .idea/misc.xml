@@ -15,6 +15,33 @@
         <entry key="..\:/Users/nvtru/Downloads/Project/havefun_mobile_java/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Users/nvtru/Downloads/Project/havefun_mobile_java/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
         <entry key="..\:/Users/nvtru/Downloads/Project/havefun_mobile_java/app/src/main/res/layout/fragment_login.xml" value="0.17958459979736577" />
+        <entry key="app/src/main/res/drawable-v24/effect_btn_shadow_no_radius.xml" value="0.239" />
+        <entry key="app/src/main/res/drawable-v24/effect_shadow_noradius.xml" value="0.1185" />
+        <entry key="app/src/main/res/drawable-v24/effect_shadow_noradius_noleft.xml" value="0.239" />
+        <entry key="app/src/main/res/drawable-v24/effect_shadow_noradius_orange.xml" value="0.1185" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.282" />
+        <entry key="app/src/main/res/drawable/btn_bg.xml" value="0.1566688842773437" />
+        <entry key="app/src/main/res/drawable/btn_summary_promotion.xml" value="0.239" />
+        <entry key="app/src/main/res/drawable/effect_btn_shadow.xml" value="0.239" />
+        <entry key="app/src/main/res/drawable/effect_shadow.xml" value="0.1185" />
+        <entry key="app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.282" />
+        <entry key="app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.282" />
+        <entry key="app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.282" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.282" />
+        <entry key="app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.282" />
+        <entry key="app/src/main/res/drawable/text_bg.xml" value="0.239" />
+        <entry key="app/src/main/res/layout/activity_detail_preference.xml" value="0.3292572463768116" />
+        <entry key="app/src/main/res/layout/activity_detail_promotion.xml" value="0.16018518518518518" />
+        <entry key="app/src/main/res/layout/activity_hotel_detail.xml" value="0.3292572463768116" />
+        <entry key="app/src/main/res/layout/activity_list_promotion.xml" value="0.22151646268540537" />
+        <entry key="app/src/main/res/layout/activity_list_voucher.xml" value="0.23550724637681159" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.3292572463768116" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/btn_summary_promotion.xml" value="0.9647079910057179" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.16018518518518518" />
+        <entry key="app/src/main/res/layout/new_file.xml" value="0.3292572463768116" />
+        <entry key="app/src/main/res/layout/voucher_item.xml" value="0.1887031408308004" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.3880208333333333" />
       </map>
     </option>
   </component>
@@ -23,5 +50,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.3735" />
+      </ProjectState>
+    </option>
   </component>
 </project>

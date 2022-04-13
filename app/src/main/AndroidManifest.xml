@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HaveFun" >
         <activity
-            android:name=".activities.DetailPreferenceActivity"
+            android:name=".activities.DetailPromotionActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.ListVoucherActivity"
+            android:name=".activities.ListPromotionActivity"
             android:exported="false" />
         <activity
             android:name=".activities.RoomDetailActivity"
