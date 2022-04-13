@@ -8,12 +8,10 @@
     tools:context=".fragments.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="52dp">
 
         <TextView
-            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_marginStart="@dimen/activity_horizontal_margin"
@@ -26,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/home_imgbutton_search"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginEnd="@dimen/activity_horizontal_margin"
@@ -38,14 +36,13 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/imageButton2"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/ic_noti"
             android:src="@drawable/ic_baseline_notifications_none_30"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageButton"
+            app:layout_constraintEnd_toStartOf="@+id/home_imgbutton_search"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -65,7 +62,7 @@
 
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button"
+                android:id="@+id/home_btn_location"
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
@@ -83,7 +80,6 @@
                 tools:ignore="TouchTargetSizeCheck" />
 
             <TextView
-                android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
@@ -101,12 +97,12 @@
                 android:paddingBottom="12dp">
 
                 <LinearLayout
+                    android:id="@+id/home_linear_nearyou"
                     android:layout_width="64dp"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/imageButton4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -115,7 +111,6 @@
                         tools:ignore="SpeakableTextPresentCheck" />
 
                     <TextView
-                        android:id="@+id/textView5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -126,13 +121,13 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/home_linear_byiime"
                     android:layout_width="64dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="24dp"
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/imageButton5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -142,7 +137,6 @@
                         tools:ignore="SpeakableTextPresentCheck" />
 
                     <TextView
-                        android:id="@+id/textView6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -152,13 +146,13 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/home_linear_overnight"
                     android:layout_width="64dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="24dp"
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/imageButton6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -167,7 +161,6 @@
                         tools:ignore="SpeakableTextPresentCheck" />
 
                     <TextView
-                        android:id="@+id/textView7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -177,13 +170,13 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/home_linear_byday"
                     android:layout_width="64dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="24dp"
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/imageButton7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -192,7 +185,6 @@
                         tools:ignore="SpeakableTextPresentCheck" />
 
                     <TextView
-                        android:id="@+id/textView8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -217,7 +209,7 @@
                 </androidx.viewpager2.widget.ViewPager2>
 
                 <TextView
-                    android:id="@+id/textView10"
+                    android:id="@+id/home_tv_slidepos"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
@@ -243,7 +235,7 @@
                 android:paddingBottom="0dp">
 
                 <TextView
-                    android:id="@+id/textView11"
+                    android:id="@+id/home_tv_hotdeal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -256,23 +248,23 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/home_hotdeal_viewpager"
+                    android:id="@+id/home_viewpager_hotdeal"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_marginTop="8dp"
 
 
                     app:layout_constraintHorizontal_weight="1"
-                    app:layout_constraintTop_toBottomOf="@+id/textView11"
+                    app:layout_constraintTop_toBottomOf="@+id/home_tv_hotdeal"
                     app:layout_constraintVertical_weight="1" />
 
                 <TextView
-                    android:id="@+id/textView9"
+                    android:id="@+id/home_tv_morehotdeal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Xem tất cả ➟"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/textView11" />
+                    app:layout_constraintTop_toTopOf="@+id/home_tv_hotdeal" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -283,7 +275,7 @@
                 >
 
                 <TextView
-                    android:id="@+id/textView12"
+                    android:id="@+id/home_tv_specialpromo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -296,23 +288,23 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/home_speacial_viewpager"
+                    android:id="@+id/home_viewpager_specialpromo"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_marginTop="8dp"
 
 
                     app:layout_constraintHorizontal_weight="1"
-                    app:layout_constraintTop_toBottomOf="@id/textView12"
+                    app:layout_constraintTop_toBottomOf="@id/home_tv_specialpromo"
                     app:layout_constraintVertical_weight="1" />
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/home_tv_morespecial"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Xem tất cả ➟"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/textView12" />
+                    app:layout_constraintTop_toTopOf="@+id/home_tv_specialpromo" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -323,7 +315,7 @@
                 >
 
                 <TextView
-                    android:id="@+id/textView16"
+                    android:id="@+id/home_tv_hothotel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -340,10 +332,10 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="8dp"
                     android:fillViewport="true"
-                    app:layout_constraintTop_toBottomOf="@id/textView16">
+                    app:layout_constraintTop_toBottomOf="@id/home_tv_hothotel">
 
                     <LinearLayout
-                        android:id="@+id/home_hotHotel_linear"
+                        android:id="@+id/home_linear_hothotel"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:showDividers="middle"
@@ -352,12 +344,12 @@
                 </HorizontalScrollView>
 
                 <TextView
-                    android:id="@+id/textView17"
+                    android:id="@+id/home_tv_morehothotel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Xem tất cả ➟"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/textView16" />
+                    app:layout_constraintTop_toTopOf="@+id/home_tv_hothotel" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -368,7 +360,7 @@
                 >
 
                 <TextView
-                    android:id="@+id/textView18"
+                    android:id="@+id/home_tv_toprate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -385,10 +377,10 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="8dp"
                     android:fillViewport="true"
-                    app:layout_constraintTop_toBottomOf="@id/textView18">
+                    app:layout_constraintTop_toBottomOf="@id/home_tv_toprate">
 
                     <LinearLayout
-                        android:id="@+id/home_topHotel_linear"
+                        android:id="@+id/home_linear_toprate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:showDividers="middle"
@@ -397,12 +389,12 @@
                 </HorizontalScrollView>
 
                 <TextView
-                    android:id="@+id/textView19"
+                    android:id="@+id/home_tv_moretoprate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Xem tất cả ➟"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/textView18" />
+                    app:layout_constraintTop_toTopOf="@+id/home_tv_toprate" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -413,7 +405,7 @@
                 android:paddingBottom="24dp">
 
                 <TextView
-                    android:id="@+id/textView20"
+                    android:id="@+id/home_tv_morehotel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -428,8 +420,8 @@
 
 
                     <LinearLayout
-                        app:layout_constraintTop_toBottomOf="@id/textView20"
-                        android:id="@+id/home_moreHotel_linear"
+                        app:layout_constraintTop_toBottomOf="@id/home_tv_morehotel"
+                        android:id="@+id/home_linear_morehotel"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:showDividers="middle"
@@ -437,12 +429,12 @@
                         android:orientation="vertical" />
 
                 <TextView
-                    android:id="@+id/textView21"
+                    android:id="@+id/home_tv_moremorehotel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Xem tất cả ➟"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/textView20" />
+                    app:layout_constraintTop_toTopOf="@+id/home_tv_morehotel" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,8 +25,6 @@ import com.example.havefun.adapters.PromotionSlideAdapter;
 import com.example.havefun.databinding.FragmentHomeBinding;
 import com.example.havefun.models.Hotel;
 import com.example.havefun.viewmodels.HomeViewModel;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -65,13 +62,13 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        HotDeal_viewpager = (ViewPager2) getView().findViewById(R.id.home_hotdeal_viewpager);
+        HotDeal_viewpager = (ViewPager2) getView().findViewById(R.id.home_viewpager_hotdeal);
         Promotion_viewpager = (ViewPager2) getView().findViewById(R.id.home_viewpager_promotion);
-        Special_viewpager = (ViewPager2) getView().findViewById(R.id.home_speacial_viewpager);
+        Special_viewpager = (ViewPager2) getView().findViewById(R.id.home_viewpager_specialpromo);
 
-        linearHotHotel=getView().findViewById(R.id.home_hotHotel_linear);
-        linearTopHotel=getView().findViewById(R.id.home_topHotel_linear);
-        linearMoreHotel=getView().findViewById(R.id.home_moreHotel_linear);
+        linearHotHotel=getView().findViewById(R.id.home_linear_hothotel);
+        linearTopHotel=getView().findViewById(R.id.home_linear_toprate);
+        linearMoreHotel=getView().findViewById(R.id.home_linear_morehotel);
 
 
         loadCard();

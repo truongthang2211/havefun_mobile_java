@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:strokeColor="#9ccc"
@@ -7,8 +8,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="10dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:paddingBottom="16dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -84,7 +84,7 @@
             app:layout_constraintStart_toEndOf="@+id/home_cardview_priceTv" />
 
         <ImageButton
-            android:id="@+id/imageButton3"
+            android:id="@+id/home_cardview_imgbtn_location"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginEnd="8dp"
@@ -92,7 +92,8 @@
             android:scaleType="fitXY"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/home_cardview_promotionTimeTv"
-            app:srcCompat="@drawable/ic_baseline_location_on_30" />
+            app:srcCompat="@drawable/ic_baseline_location_on_30"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
         <TextView
             android:id="@+id/home_cardview_locationTv"
@@ -100,19 +101,20 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:text="em dep lam"
-            app:layout_constraintEnd_toStartOf="@+id/imageButton3"
-            app:layout_constraintTop_toTopOf="@+id/imageButton3" />
+            app:layout_constraintEnd_toStartOf="@+id/home_cardview_imgbtn_location"
+            app:layout_constraintTop_toTopOf="@+id/home_cardview_imgbtn_location" />
 
         <ImageButton
-            android:id="@+id/imageButton8"
+            android:id="@+id/home_cardview_imgbtn_rate"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginEnd="8dp"
             android:background="@android:color/transparent"
-            app:tint="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/home_cardview_priceTv"
-            app:srcCompat="@drawable/ic_baseline_star_24" />
+            app:srcCompat="@drawable/ic_baseline_star_24"
+            app:tint="@color/colorPrimary"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         <TextView
             android:id="@+id/home_cardview_numRateTv"
@@ -120,8 +122,8 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:text="em dep lam"
-            app:layout_constraintEnd_toStartOf="@+id/imageButton8"
-            app:layout_constraintTop_toTopOf="@+id/imageButton8" />
+            app:layout_constraintEnd_toStartOf="@+id/home_cardview_imgbtn_rate"
+            app:layout_constraintTop_toTopOf="@+id/home_cardview_imgbtn_rate" />
 
         <TextView
             android:id="@+id/home_cardview_rateTv"

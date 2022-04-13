@@ -26,7 +26,7 @@
             app:layout_constraintHeight_percent="0.5" />
 
         <ImageButton
-            android:id="@+id/imageButton9"
+            android:id="@+id/home_smallcard_imgbtn_rate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/activity_horizontal_margin"
@@ -35,7 +35,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/ic_baseline_star_24"
-            app:tint="@color/colorPrimary" />
+            app:tint="@color/colorPrimary"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         <TextView
             android:id="@+id/home_smallcard_rate"
@@ -45,8 +46,8 @@
             android:text="TextView"
             android:textColor="@color/white"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/imageButton9"
-            app:layout_constraintTop_toTopOf="@+id/imageButton9" />
+            app:layout_constraintStart_toEndOf="@+id/home_smallcard_imgbtn_rate"
+            app:layout_constraintTop_toTopOf="@+id/home_smallcard_imgbtn_rate" />
 
         <TextView
             android:id="@+id/home_smallcard_numrate"
@@ -68,7 +69,7 @@
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/imageButton9"
+            app:layout_constraintBottom_toTopOf="@+id/home_smallcard_imgbtn_rate"
             app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
