@@ -27,20 +27,20 @@
             <!--                app:layout_constraintLeft_toLeftOf="parent"-->
             <!--                app:layout_constraintBottom_toTopOf="@+id/tvTypeOfOption"/>-->
             <androidx.viewpager.widget.ViewPager
-                android:id="@+id/imgViewPager"
+                android:id="@+id/imgRoomDetailViewPager"
                 android:layout_width="match_parent"
                 android:layout_height="260dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/tvTypeOfOption"/>
+                app:layout_constraintBottom_toTopOf="@+id/tvRoomDetailTypeOfOption"/>
 
             <TextView
-                android:id="@+id/tvTypeOfOption"
+                android:id="@+id/tvRoomDetailTypeOfOption"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/imgViewPager"
+                app:layout_constraintTop_toBottomOf="@+id/imgRoomDetailViewPager"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/tvTypeOfRoom"
+                app:layout_constraintBottom_toTopOf="@+id/tvRoomDetailTypeOfRoom"
                 android:text="Qua đêm"
                 android:textStyle="bold"
                 android:textAllCaps="true"
@@ -50,55 +50,55 @@
                 android:layout_marginTop="20dp"/>
 
             <TextView
-                android:id="@+id/tvTypeOfRoom"
+                android:id="@+id/tvRoomDetailTypeOfRoom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Phòng đôi"
                 android:textAllCaps="true"
                 android:textSize="26sp"
                 android:textColor="@color/black"
-                app:layout_constraintTop_toBottomOf="@id/tvTypeOfOption"
+                app:layout_constraintTop_toBottomOf="@id/tvRoomDetailTypeOfOption"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/tvTypeOfChoose"
+                app:layout_constraintBottom_toTopOf="@id/tvRoomDetailTypeOfChoose"
                 android:layout_marginTop="12dp"
                 android:layout_marginLeft="20dp"/>
 
             <TextView
-                android:id="@+id/tvTypeOfChoose"
+                android:id="@+id/tvRoomDetailTypeOfChoose"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Qua đêm"
                 android:textSize="16dp"
-                app:layout_constraintTop_toBottomOf="@id/tvTypeOfRoom"
+                app:layout_constraintTop_toBottomOf="@id/tvRoomDetailTypeOfRoom"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/tvPriceOfChoose"
+                app:layout_constraintBottom_toTopOf="@id/tvRoomDetailPriceOfChoose"
                 android:layout_marginTop="24dp"
                 android:layout_marginLeft="20dp"
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
 
             <TextView
-                android:id="@+id/tvPriceOfChoose"
+                android:id="@+id/tvRoomDetailPriceOfChoose"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="200.000đ"
                 android:textColor="@color/black"
                 android:textSize="24sp"
-                app:layout_constraintTop_toBottomOf="@id/tvTypeOfChoose"
-                app:layout_constraintBottom_toTopOf="@+id/llTableInformation"
+                app:layout_constraintTop_toBottomOf="@id/tvRoomDetailTypeOfChoose"
+                app:layout_constraintBottom_toTopOf="@+id/llRoomDetailTableInformation"
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:layout_marginTop="16dp"
                 android:layout_marginLeft="20dp"/>
             <LinearLayout
-                android:id="@+id/llTableInformation"
+                android:id="@+id/llRoomDetailTableInformation"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="36dp"
-                app:layout_constraintTop_toBottomOf="@id/tvPriceOfChoose"
-                app:layout_constraintBottom_toTopOf="@+id/vLineBreak"
+                app:layout_constraintTop_toBottomOf="@id/tvRoomDetailPriceOfChoose"
+                app:layout_constraintBottom_toTopOf="@+id/vRoomDetailLineBreak"
                 app:layout_constraintLeft_toLeftOf="parent">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -109,7 +109,7 @@
                     android:background="@drawable/item_background_left">
 
                     <TextView
-                        android:id="@+id/tvCheckInRoom"
+                        android:id="@+id/tvRoomDetailCheckInRoom"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Nhận phòng"
@@ -119,9 +119,9 @@
                         app:layout_constraintVertical_chainStyle="spread"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintBottom_toTopOf="@+id/tvDayCheckIn"/>
+                        app:layout_constraintBottom_toTopOf="@+id/tvRoomDetailDayCheckIn"/>
                     <TextView
-                        android:id="@+id/tvDayCheckIn"
+                        android:id="@+id/tvRoomDetailDayCheckIn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
@@ -129,11 +129,11 @@
                         android:textStyle="bold"
                         android:textColor="@color/black"
                         android:textSize="16sp"
-                        app:layout_constraintBottom_toTopOf="@+id/tvTimeCheckIn"
-                        app:layout_constraintTop_toBottomOf="@id/tvCheckInRoom"
+                        app:layout_constraintBottom_toTopOf="@+id/tvRoomDetailTimeCheckIn"
+                        app:layout_constraintTop_toBottomOf="@id/tvRoomDetailCheckInRoom"
                         app:layout_constraintLeft_toLeftOf="parent"/>
                     <TextView
-                        android:id="@+id/tvTimeCheckIn"
+                        android:id="@+id/tvRoomDetailTimeCheckIn"
                         android:layout_marginLeft="16dp"
                         android:layout_marginBottom="16dp"
                         android:layout_width="wrap_content"
@@ -142,7 +142,7 @@
                         android:textStyle="bold"
                         android:textColor="@color/black"
                         android:textSize="24sp"
-                        app:layout_constraintTop_toBottomOf="@id/tvDayCheckIn"
+                        app:layout_constraintTop_toBottomOf="@id/tvRoomDetailDayCheckIn"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -155,7 +155,7 @@
                     android:background="@drawable/item_background_right">
 
                     <TextView
-                        android:id="@+id/tvCheckOutRoom"
+                        android:id="@+id/tvRoomDetailCheckOutRoom"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="18sp"
@@ -164,9 +164,9 @@
                         android:text="Trả phòng"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintBottom_toTopOf="@+id/tvDayCheckOut"/>
+                        app:layout_constraintBottom_toTopOf="@+id/tvRoomDetailDayCheckOut"/>
                     <TextView
-                        android:id="@+id/tvDayCheckOut"
+                        android:id="@+id/tvRoomDetailDayCheckOut"
                         android:layout_marginLeft="16dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -174,11 +174,11 @@
                         android:textStyle="bold"
                         android:textColor="@color/black"
                         android:textSize="16sp"
-                        app:layout_constraintBottom_toTopOf="@+id/tvTimeCheckOut"
-                        app:layout_constraintTop_toBottomOf="@id/tvCheckOutRoom"
+                        app:layout_constraintBottom_toTopOf="@+id/tvRoomDetailTimeCheckOut"
+                        app:layout_constraintTop_toBottomOf="@id/tvRoomDetailCheckOutRoom"
                         app:layout_constraintLeft_toLeftOf="parent"/>
                     <TextView
-                        android:id="@+id/tvTimeCheckOut"
+                        android:id="@+id/tvRoomDetailTimeCheckOut"
                         android:layout_marginLeft="16dp"
                         android:layout_marginBottom="16dp"
                         android:layout_width="wrap_content"
@@ -187,7 +187,7 @@
                         android:textStyle="bold"
                         android:textColor="@color/black"
                         android:textSize="24sp"
-                        app:layout_constraintTop_toBottomOf="@id/tvDayCheckOut"
+                        app:layout_constraintTop_toBottomOf="@id/tvRoomDetailDayCheckOut"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -195,7 +195,7 @@
             </LinearLayout>
 
             <View
-                android:id="@+id/vLineBreak"
+                android:id="@+id/vRoomDetailLineBreak"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#BDBDBD"
@@ -203,18 +203,18 @@
                 android:layout_marginRight="20dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/llTableInformation"
-                app:layout_constraintBottom_toTopOf="@+id/llRoomConditions" />
+                app:layout_constraintTop_toBottomOf="@+id/llRoomDetailTableInformation"
+                app:layout_constraintBottom_toTopOf="@+id/llRoomDetailRoomConditions" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/llRoomConditions"
-                app:layout_constraintTop_toBottomOf="@id/vLineBreak"
+                android:id="@+id/llRoomDetailRoomConditions"
+                app:layout_constraintTop_toBottomOf="@id/vRoomDetailLineBreak"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/clObjectInformationRoom">
+                app:layout_constraintBottom_toTopOf="@+id/clRoomDetailObjectInformationRoom">
                 <TextView
-                    android:id="@+id/tvTextRoomConditions"
+                    android:id="@+id/tvRoomDetailTextRoomConditions"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Điều kiện phòng"
@@ -226,26 +226,26 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"/>
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    app:layout_constraintTop_toBottomOf="@id/tvTextRoomConditions"
+                    app:layout_constraintTop_toBottomOf="@id/tvRoomDetailTextRoomConditions"
                     android:layout_width="match_parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/clObjectConditionItem"
+                    android:id="@+id/clRoomDetailObjectConditionItem"
                     android:orientation="horizontal">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/clItem1"
+                        android:id="@+id/clRoomDetailItem1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintRight_toLeftOf="@+id/clItem2"
+                        app:layout_constraintRight_toLeftOf="@+id/clRoomDetailItem2"
                         app:layout_constraintLeft_toLeftOf="parent">
                         <ImageView
-                            android:id="@+id/imgItem1"
+                            android:id="@+id/imgRoomDetailItem1"
                             android:layout_width="60dp"
                             android:layout_height="60dp"
                             android:src="@drawable/bedroom"
-                            app:layout_constraintBottom_toTopOf="@+id/tvItem1"
+                            app:layout_constraintBottom_toTopOf="@+id/tvRoomDetailItem1"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintRight_toRightOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"/>
@@ -253,8 +253,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/tvItem1"
-                            app:layout_constraintTop_toBottomOf="@+id/imgItem1"
+                            android:id="@+id/tvRoomDetailItem1"
+                            app:layout_constraintTop_toBottomOf="@+id/imgRoomDetailItem1"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintRight_toRightOf="parent"
                             android:text="Giường đôi"
@@ -264,18 +264,18 @@
 
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/clItem2"
+                        android:id="@+id/clRoomDetailItem2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintRight_toLeftOf="@+id/clItem3"
-                        app:layout_constraintLeft_toRightOf="@+id/clItem1">
+                        app:layout_constraintRight_toLeftOf="@+id/clRoomDetailItem3"
+                        app:layout_constraintLeft_toRightOf="@+id/clRoomDetailItem1">
                         <ImageView
-                            android:id="@+id/imgItem2"
+                            android:id="@+id/imgRoomDetailItem2"
                             android:layout_width="60dp"
                             android:layout_height="60dp"
                             android:src="@drawable/cube"
-                            app:layout_constraintBottom_toTopOf="@+id/tvItem2"
+                            app:layout_constraintBottom_toTopOf="@+id/tvRoomDetailItem2"
                             app:layout_constraintTop_toTopOf="parent"
 
                             app:layout_constraintLeft_toLeftOf="parent"/>
@@ -283,8 +283,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/tvItem2"
-                            app:layout_constraintTop_toBottomOf="@+id/imgItem2"
+                            android:id="@+id/tvRoomDetailItem2"
+                            app:layout_constraintTop_toBottomOf="@+id/imgRoomDetailItem2"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintRight_toRightOf="parent"
                             android:text="50m2"
@@ -294,18 +294,18 @@
 
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/clItem3"
+                        android:id="@+id/clRoomDetailItem3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintLeft_toRightOf="@+id/clItem2">
+                        app:layout_constraintLeft_toRightOf="@+id/clRoomDetailItem2">
                         <ImageView
-                            android:id="@+id/imgItem3"
+                            android:id="@+id/imgRoomDetailItem3"
                             android:layout_width="60dp"
                             android:layout_height="60dp"
                             android:src="@drawable/curtain"
-                            app:layout_constraintBottom_toTopOf="@+id/tvItem3"
+                            app:layout_constraintBottom_toTopOf="@+id/tvRoomDetailItem3"
                             app:layout_constraintTop_toTopOf="parent"
 
                             app:layout_constraintLeft_toLeftOf="parent"/>
@@ -313,8 +313,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/tvItem3"
-                            app:layout_constraintTop_toBottomOf="@+id/imgItem3"
+                            android:id="@+id/tvRoomDetailItem3"
+                            app:layout_constraintTop_toBottomOf="@+id/imgRoomDetailItem3"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintRight_toRightOf="parent"
                             android:text="Cửa sổ"
@@ -328,7 +328,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <View
-                    android:id="@+id/vLineBreakRoomConditions"
+                    android:id="@+id/vRoomDetailLineBreakRoomConditions"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="#BDBDBD"
@@ -337,27 +337,27 @@
                     android:layout_marginTop="30dp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/clObjectConditionItem"
+                    app:layout_constraintTop_toBottomOf="@+id/clRoomDetailObjectConditionItem"
                     app:layout_constraintBottom_toBottomOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/clObjectInformationRoom"
+                android:id="@+id/clRoomDetailObjectInformationRoom"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/llRoomConditions"
-                app:layout_constraintBottom_toTopOf="@id/clObjectPriceOption"
+                app:layout_constraintTop_toBottomOf="@+id/llRoomDetailRoomConditions"
+                app:layout_constraintBottom_toTopOf="@id/clRoomDetailObjectPriceOption"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/tvTitleReviewRoom"
+                    android:id="@+id/tvRoomDetailTitleReviewRoom"
                     android:layout_marginTop="30dp"
                     android:layout_marginLeft="20dp"
                     android:text="Mô tả phòng"
                     android:textSize="24sp"
                     android:textColor="@color/black"
-                    app:layout_constraintBottom_toTopOf="@+id/tvSubReview"
+                    app:layout_constraintBottom_toTopOf="@+id/tvRoomDetailSubReview"
                     android:textStyle="bold"
 
                     app:layout_constraintTop_toTopOf="parent"
@@ -366,18 +366,18 @@
                     android:layout_height="wrap_content"/>
 
                 <TextView
-                    android:id="@+id/tvSubReview"
+                    android:id="@+id/tvRoomDetailSubReview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/tvTitleReviewRoom"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRoomDetailTitleReviewRoom"
                     android:text="Đang cập nhật"
                     app:layout_constraintLeft_toLeftOf="parent"
                     android:layout_marginLeft="20dp"
-                    app:layout_constraintBottom_toTopOf="@+id/vLIneBreakInformationRoom"
+                    app:layout_constraintBottom_toTopOf="@+id/vRoomDetailLIneBreakInformationRoom"
                     android:textSize="18sp"/>
 
                 <View
-                    android:id="@+id/vLIneBreakInformationRoom"
+                    android:id="@+id/vRoomDetailLIneBreakInformationRoom"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="#BDBDBD"
@@ -386,7 +386,7 @@
                     android:layout_marginTop="30dp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvSubReview"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRoomDetailSubReview"
                     app:layout_constraintBottom_toBottomOf="parent" />
 
 
@@ -395,19 +395,19 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/clObjectInformationRoom"
-                android:id="@+id/clObjectPriceOption">
+                app:layout_constraintTop_toBottomOf="@+id/clRoomDetailObjectInformationRoom"
+                android:id="@+id/clRoomDetailObjectPriceOption">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tvNaturePriceRoom"
+                    android:id="@+id/tvRoomDetailNaturePriceRoom"
                     android:text="Giá phòng gốc"
                     android:textStyle="bold"
                     android:textSize="24sp"
                     android:textColor="@color/black"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toTopOf="@id/tvTextFirstHour"
+                    app:layout_constraintBottom_toTopOf="@id/tvRoomDetailTextFirstHour"
                     app:layout_constraintHorizontal_chainStyle="spread"
                     android:layout_marginTop="20dp"
                     android:layout_marginLeft="20dp"
@@ -416,20 +416,20 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tvTextFirstHour"
+                    android:id="@+id/tvRoomDetailTextFirstHour"
                     android:text="Giá 1 giờ đầu:"
-                    app:layout_constraintTop_toBottomOf="@+id/tvNaturePriceRoom"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRoomDetailNaturePriceRoom"
                     android:textStyle="bold"
                     android:textSize="16sp"
                     android:textColor="@color/black"
                     android:layout_marginTop="20dp"
-                    app:layout_constraintBottom_toTopOf="@id/tvTextAddHour"
+                    app:layout_constraintBottom_toTopOf="@id/tvRoomDetailTextAddHour"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@id/tvPriceFirstHour"
+                    app:layout_constraintRight_toLeftOf="@id/tvRoomDetailPriceFirstHour"
                     android:layout_marginLeft="20dp"/>
 
                 <TextView
-                    android:id="@+id/tvPriceFirstHour"
+                    android:id="@+id/tvRoomDetailPriceFirstHour"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textAlignment="textEnd"
@@ -439,28 +439,28 @@
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="20dp"
                     android:gravity="end"
-                    app:layout_constraintLeft_toRightOf="@+id/tvTextFirstHour"
+                    app:layout_constraintLeft_toRightOf="@+id/tvRoomDetailTextFirstHour"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvNaturePriceRoom"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRoomDetailNaturePriceRoom"
                     android:text="80.000đ" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tvTextAddHour"
+                    android:id="@+id/tvRoomDetailTextAddHour"
                     android:text="Giá 1 giờ thêm:"
-                    app:layout_constraintTop_toBottomOf="@+id/tvTextFirstHour"
-                    app:layout_constraintBottom_toTopOf="@+id/tvTextOverNight"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRoomDetailTextFirstHour"
+                    app:layout_constraintBottom_toTopOf="@+id/tvRoomDetailTextOverNight"
                     android:textStyle="bold"
                     android:textSize="16sp"
                     android:textColor="@color/black"
                     android:layout_marginTop="10dp"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@id/tvPriceAddHour"
+                    app:layout_constraintRight_toLeftOf="@id/tvRoomDetailPriceAddHour"
                     android:layout_marginLeft="20dp"/>
 
                 <TextView
-                    android:id="@+id/tvPriceAddHour"
+                    android:id="@+id/tvRoomDetailPriceAddHour"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textAlignment="textEnd"
@@ -470,28 +470,28 @@
                     android:gravity="end"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
-                    app:layout_constraintLeft_toRightOf="@id/tvTextAddHour"
+                    app:layout_constraintLeft_toRightOf="@id/tvRoomDetailTextAddHour"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvTextFirstHour"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRoomDetailTextFirstHour"
                     android:text="20.000đ" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tvTextOverNight"
+                    android:id="@+id/tvRoomDetailTextOverNight"
                     android:text="Giá qua đêm:"
-                    app:layout_constraintTop_toBottomOf="@+id/tvTextAddHour"
-                    app:layout_constraintBottom_toTopOf="@id/tvTextOneDay"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRoomDetailTextAddHour"
+                    app:layout_constraintBottom_toTopOf="@id/tvRoomDetailTextOneDay"
                     android:textStyle="bold"
                     android:textSize="16sp"
                     android:textColor="@color/black"
                     android:layout_marginTop="10dp"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@id/tvPriceOverNight"
+                    app:layout_constraintRight_toLeftOf="@id/tvRoomDetailPriceOverNight"
                     android:layout_marginLeft="20dp"/>
 
                 <TextView
-                    android:id="@+id/tvPriceOverNight"
+                    android:id="@+id/tvRoomDetailPriceOverNight"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textAlignment="textEnd"
@@ -501,21 +501,21 @@
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
                     android:gravity="end"
-                    app:layout_constraintLeft_toRightOf="@id/tvTextOverNight"
+                    app:layout_constraintLeft_toRightOf="@id/tvRoomDetailTextOverNight"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvTextAddHour"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRoomDetailTextAddHour"
 
                     android:text="200.000đ" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tvTextOneDay"
+                    android:id="@+id/tvRoomDetailTextOneDay"
                     android:text="Giá 1 ngày:"
                     android:layout_marginTop="10dp"
-                    app:layout_constraintTop_toBottomOf="@+id/tvTextOverNight"
-                    app:layout_constraintRight_toLeftOf="@id/tvPriceOneDay"
-                    app:layout_constraintBottom_toTopOf="@+id/vLineBreakPriceOption"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRoomDetailTextOverNight"
+                    app:layout_constraintRight_toLeftOf="@id/tvRoomDetailPriceOneDay"
+                    app:layout_constraintBottom_toTopOf="@+id/vRoomDetailLineBreakPriceOption"
                     android:textStyle="bold"
                     android:textSize="16sp"
                     android:textColor="@color/black"
@@ -523,7 +523,7 @@
                     android:layout_marginLeft="20dp"/>
 
                 <TextView
-                    android:id="@+id/tvPriceOneDay"
+                    android:id="@+id/tvRoomDetailPriceOneDay"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textAlignment="textEnd"
@@ -533,13 +533,13 @@
                     android:layout_marginRight="20dp"
                     android:gravity="end"
                     android:layout_marginTop="10dp"
-                    app:layout_constraintLeft_toRightOf="@id/tvTextOneDay"
+                    app:layout_constraintLeft_toRightOf="@id/tvRoomDetailTextOneDay"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvTextOverNight"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRoomDetailTextOverNight"
                     android:text="250.000đ" />
 
                 <View
-                    android:id="@+id/vLineBreakPriceOption"
+                    android:id="@+id/vRoomDetailLineBreakPriceOption"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="#BDBDBD"
@@ -548,7 +548,7 @@
                     android:layout_marginRight="20dp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvTextOneDay"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRoomDetailTextOneDay"
                     app:layout_constraintBottom_toBottomOf="parent"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -557,8 +557,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/clObjectPriceOption"
-                android:id="@+id/clObjectFeatures">
+                app:layout_constraintTop_toBottomOf="@+id/clRoomDetailObjectPriceOption"
+                android:id="@+id/clRoomDetailObjectFeatures">
 
                 <TextView
                     android:id="@+id/tvTextFeatureTitle"
@@ -569,7 +569,7 @@
                     android:textSize="24sp"
                     android:textColor="@color/black"
                     android:layout_marginLeft="20dp"
-                    app:layout_constraintBottom_toTopOf="@+id/tvSubTitle"
+                    app:layout_constraintBottom_toTopOf="@+id/tvRoomDetailSubTitle"
                     android:layout_marginTop="30dp"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"/>
@@ -577,10 +577,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tvSubTitle"
+                    android:id="@+id/tvRoomDetailSubTitle"
                     app:layout_constraintTop_toBottomOf="@+id/tvTextFeatureTitle"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintBottom_toTopOf="@+id/tvSubFeature1"
+                    app:layout_constraintBottom_toTopOf="@+id/tvRoomDetailSubFeature1"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
                     android:textSize="16sp"
@@ -589,26 +589,26 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tvSubFeature1"
-                    app:layout_constraintTop_toBottomOf="@+id/tvSubTitle"
+                    android:id="@+id/tvRoomDetailSubFeature1"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRoomDetailSubTitle"
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:text="Sàn gỗ/gỗ miếng"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toTopOf="@+id/tvSubFeature2"
+                    app:layout_constraintBottom_toTopOf="@+id/tvRoomDetailSubFeature2"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@+id/imgViewIconFeature1"
+                    app:layout_constraintRight_toLeftOf="@+id/imgRoomDetailViewIconFeature1"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"/>
                 <ImageView
-                    android:id="@+id/imgViewIconFeature1"
+                    android:id="@+id/imgRoomDetailViewIconFeature1"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginTop="10dp"
                     android:src="@drawable/tatami"
-                    app:layout_constraintLeft_toRightOf="@+id/tvSubFeature1"
-                    app:layout_constraintTop_toBottomOf="@+id/tvSubTitle"
+                    app:layout_constraintLeft_toRightOf="@+id/tvRoomDetailSubFeature1"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRoomDetailSubTitle"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginRight="20dp"/>
@@ -616,26 +616,26 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tvSubFeature2"
-                    app:layout_constraintTop_toBottomOf="@+id/tvSubFeature1"
+                    android:id="@+id/tvRoomDetailSubFeature2"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRoomDetailSubFeature1"
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:text="Internet không dây (WIFI)"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toTopOf="@+id/tvSubFeature3"
+                    app:layout_constraintBottom_toTopOf="@+id/tvRoomDetailSubFeature3"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@+id/imgViewIconFeature2"
+                    app:layout_constraintRight_toLeftOf="@+id/imgRoomDetailViewIconFeature2"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"/>
                 <ImageView
-                    android:id="@+id/imgViewIconFeature2"
+                    android:id="@+id/imgRoomDetailViewIconFeature2"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginTop="10dp"
                     android:src="@drawable/wifi_router"
-                    app:layout_constraintLeft_toRightOf="@+id/tvSubFeature2"
-                    app:layout_constraintTop_toBottomOf="@+id/tvSubFeature1"
+                    app:layout_constraintLeft_toRightOf="@+id/tvRoomDetailSubFeature2"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRoomDetailSubFeature1"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginRight="20dp"/>
@@ -643,26 +643,26 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tvSubFeature3"
-                    app:layout_constraintTop_toBottomOf="@+id/tvSubFeature2"
+                    android:id="@+id/tvRoomDetailSubFeature3"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRoomDetailSubFeature2"
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:text="Lễ tân 24/24"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toTopOf="@+id/tvSubFeature4"
+                    app:layout_constraintBottom_toTopOf="@+id/tvRoomDetailSubFeature4"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@+id/imgViewIconFeature3"
+                    app:layout_constraintRight_toLeftOf="@+id/imgRoomDetailViewIconFeature3"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"/>
                 <ImageView
-                    android:id="@+id/imgViewIconFeature3"
+                    android:id="@+id/imgRoomDetailViewIconFeature3"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginTop="10dp"
                     android:src="@drawable/winner"
-                    app:layout_constraintLeft_toRightOf="@+id/tvSubFeature3"
-                    app:layout_constraintTop_toBottomOf="@+id/tvSubFeature2"
+                    app:layout_constraintLeft_toRightOf="@+id/tvRoomDetailSubFeature3"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRoomDetailSubFeature2"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginRight="20dp"/>
@@ -670,26 +670,26 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tvSubFeature4"
-                    app:layout_constraintTop_toBottomOf="@+id/tvSubFeature3"
+                    android:id="@+id/tvRoomDetailSubFeature4"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRoomDetailSubFeature3"
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:text="Máy lạnh"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toTopOf="@+id/tvSubFeature5"
+                    app:layout_constraintBottom_toTopOf="@+id/tvRoomDetailSubFeature5"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@+id/imgViewIconFeature4"
+                    app:layout_constraintRight_toLeftOf="@+id/imgRoomDetailViewIconFeature4"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"/>
                 <ImageView
-                    android:id="@+id/imgViewIconFeature4"
+                    android:id="@+id/imgRoomDetailViewIconFeature4"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginTop="10dp"
                     android:src="@drawable/air_conditioner"
-                    app:layout_constraintLeft_toRightOf="@+id/tvSubFeature4"
-                    app:layout_constraintTop_toBottomOf="@+id/tvSubFeature3"
+                    app:layout_constraintLeft_toRightOf="@+id/tvRoomDetailSubFeature4"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRoomDetailSubFeature3"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginRight="20dp"/>
@@ -697,26 +697,26 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tvSubFeature5"
-                    app:layout_constraintTop_toBottomOf="@+id/tvSubFeature4"
+                    android:id="@+id/tvRoomDetailSubFeature5"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRoomDetailSubFeature4"
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:text="TV"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toTopOf="@+id/tvSubFeature6"
+                    app:layout_constraintBottom_toTopOf="@+id/tvRoomDetailSubFeature6"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@+id/imgViewIconFeature5"
+                    app:layout_constraintRight_toLeftOf="@+id/imgRoomDetailViewIconFeature5"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"/>
                 <ImageView
-                    android:id="@+id/imgViewIconFeature5"
+                    android:id="@+id/imgRoomDetailViewIconFeature5"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginTop="10dp"
                     android:src="@drawable/pc"
-                    app:layout_constraintLeft_toRightOf="@+id/tvSubFeature5"
-                    app:layout_constraintTop_toBottomOf="@+id/tvSubFeature4"
+                    app:layout_constraintLeft_toRightOf="@+id/tvRoomDetailSubFeature5"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRoomDetailSubFeature4"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginRight="20dp"/>
@@ -724,27 +724,27 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tvSubFeature6"
-                    app:layout_constraintTop_toBottomOf="@+id/tvSubFeature5"
+                    android:id="@+id/tvRoomDetailSubFeature6"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRoomDetailSubFeature5"
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:text="Thang máy"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toTopOf="@+id/tvSubFeature7"
+                    app:layout_constraintBottom_toTopOf="@+id/tvRoomDetailSubFeature7"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@+id/imgViewIconFeature6"
+                    app:layout_constraintRight_toLeftOf="@+id/imgRoomDetailViewIconFeature6"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"/>
                 <ImageView
-                    android:id="@+id/imgViewIconFeature6"
+                    android:id="@+id/imgRoomDetailViewIconFeature6"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginTop="10dp"
                     android:src="@drawable/elevator"
                     android:scaleType="fitXY"
-                    app:layout_constraintLeft_toRightOf="@+id/tvSubFeature6"
-                    app:layout_constraintTop_toBottomOf="@+id/tvSubFeature5"
+                    app:layout_constraintLeft_toRightOf="@+id/tvRoomDetailSubFeature6"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRoomDetailSubFeature5"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginRight="20dp"/>
@@ -752,26 +752,26 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tvSubFeature7"
-                    app:layout_constraintTop_toBottomOf="@+id/tvSubFeature6"
+                    android:id="@+id/tvRoomDetailSubFeature7"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRoomDetailSubFeature6"
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:text="Truyền hình Cáp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toTopOf="@+id/vLineBreakFeature"
+                    app:layout_constraintBottom_toTopOf="@+id/vRoomDetailLineBreakFeature"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@+id/imgViewIconFeature7"
+                    app:layout_constraintRight_toLeftOf="@+id/imgRoomDetailViewIconFeature7"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"/>
                 <ImageView
-                    android:id="@+id/imgViewIconFeature7"
+                    android:id="@+id/imgRoomDetailViewIconFeature7"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginTop="10dp"
                     android:src="@drawable/responsive"
-                    app:layout_constraintLeft_toRightOf="@+id/tvSubFeature7"
-                    app:layout_constraintTop_toBottomOf="@+id/tvSubFeature6"
+                    app:layout_constraintLeft_toRightOf="@+id/tvRoomDetailSubFeature7"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRoomDetailSubFeature6"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginRight="20dp"/>
@@ -779,7 +779,7 @@
 
 
                 <View
-                    android:id="@+id/vLineBreakFeature"
+                    android:id="@+id/vRoomDetailLineBreakFeature"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="#BDBDBD"
@@ -788,16 +788,16 @@
                     android:layout_marginTop="20dp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvSubFeature7"
-                    app:layout_constraintBottom_toTopOf="@+id/spaceWhite"/>
+                    app:layout_constraintTop_toBottomOf="@+id/tvRoomDetailSubFeature7"
+                    app:layout_constraintBottom_toTopOf="@+id/spaceRoomDetailWhite"/>
 
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
-                    android:id="@+id/spaceWhite"
+                    android:id="@+id/spaceRoomDetailWhite"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/vLineBreakFeature"
+                    app:layout_constraintTop_toBottomOf="@+id/vRoomDetailLineBreakFeature"
                     app:layout_constraintBottom_toBottomOf="parent"/>
 
 
@@ -806,7 +806,7 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/btnCheckOut"
+        android:id="@+id/btnRoomDetailCheckOut"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

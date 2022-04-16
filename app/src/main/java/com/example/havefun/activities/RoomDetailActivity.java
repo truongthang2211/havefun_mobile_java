@@ -17,7 +17,7 @@ public class RoomDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_room_detail);
 
-        ViewPager viewPager = findViewById(R.id.imgViewPager);
+        ViewPager viewPager = findViewById(R.id.imgRoomDetailViewPager);
         ImageAdapter imageAdapter = new ImageAdapter(this);
         viewPager.setAdapter(imageAdapter);
     }
