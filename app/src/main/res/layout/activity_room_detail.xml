@@ -1,9 +1,822 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.RoomDetailActivity">
+    android:layout_width="match_parent">
 
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".RoomDetailActivity">
+
+            <!--            <ImageView-->
+            <!--                android:id="@+id/img"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="260dp"-->
+            <!--                android:background="@color/teal_700"-->
+            <!--                app:layout_constraintTop_toTopOf="parent"-->
+            <!--                app:layout_constraintLeft_toLeftOf="parent"-->
+            <!--                app:layout_constraintBottom_toTopOf="@+id/tvTypeOfOption"/>-->
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/imgViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="260dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/tvTypeOfOption"/>
+
+            <TextView
+                android:id="@+id/tvTypeOfOption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/imgViewPager"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/tvTypeOfRoom"
+                android:text="Qua đêm"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:textColor="#D3895C"
+                android:textSize="16sp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:id="@+id/tvTypeOfRoom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phòng đôi"
+                android:textAllCaps="true"
+                android:textSize="26sp"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/tvTypeOfOption"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/tvTypeOfChoose"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="20dp"/>
+
+            <TextView
+                android:id="@+id/tvTypeOfChoose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Qua đêm"
+                android:textSize="16dp"
+                app:layout_constraintTop_toBottomOf="@id/tvTypeOfRoom"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/tvPriceOfChoose"
+                android:layout_marginTop="24dp"
+                android:layout_marginLeft="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/tvPriceOfChoose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="200.000đ"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                app:layout_constraintTop_toBottomOf="@id/tvTypeOfChoose"
+                app:layout_constraintBottom_toTopOf="@+id/llTableInformation"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="20dp"/>
+            <LinearLayout
+                android:id="@+id/llTableInformation"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="36dp"
+                app:layout_constraintTop_toBottomOf="@id/tvPriceOfChoose"
+                app:layout_constraintBottom_toTopOf="@+id/vLineBreak"
+                app:layout_constraintLeft_toLeftOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingRight="0.5dp"
+                    android:background="@drawable/item_background_left">
+
+                    <TextView
+                        android:id="@+id/tvCheckInRoom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Nhận phòng"
+                        android:textSize="18sp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintVertical_chainStyle="spread"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/tvDayCheckIn"/>
+                    <TextView
+                        android:id="@+id/tvDayCheckIn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="xx/xx/2022"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toTopOf="@+id/tvTimeCheckIn"
+                        app:layout_constraintTop_toBottomOf="@id/tvCheckInRoom"
+                        app:layout_constraintLeft_toLeftOf="parent"/>
+                    <TextView
+                        android:id="@+id/tvTimeCheckIn"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="00:00"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textSize="24sp"
+                        app:layout_constraintTop_toBottomOf="@id/tvDayCheckIn"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingLeft="0.5dp"
+                    android:background="@drawable/item_background_right">
+
+                    <TextView
+                        android:id="@+id/tvCheckOutRoom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Trả phòng"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/tvDayCheckOut"/>
+                    <TextView
+                        android:id="@+id/tvDayCheckOut"
+                        android:layout_marginLeft="16dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="xx/xx/2022"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toTopOf="@+id/tvTimeCheckOut"
+                        app:layout_constraintTop_toBottomOf="@id/tvCheckOutRoom"
+                        app:layout_constraintLeft_toLeftOf="parent"/>
+                    <TextView
+                        android:id="@+id/tvTimeCheckOut"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="00:00"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textSize="24sp"
+                        app:layout_constraintTop_toBottomOf="@id/tvDayCheckOut"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/vLineBreak"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#BDBDBD"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/llTableInformation"
+                app:layout_constraintBottom_toTopOf="@+id/llRoomConditions" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/llRoomConditions"
+                app:layout_constraintTop_toBottomOf="@id/vLineBreak"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/clObjectInformationRoom">
+                <TextView
+                    android:id="@+id/tvTextRoomConditions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Điều kiện phòng"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"/>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    app:layout_constraintTop_toBottomOf="@id/tvTextRoomConditions"
+                    android:layout_width="match_parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/clObjectConditionItem"
+                    android:orientation="horizontal">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clItem1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintRight_toLeftOf="@+id/clItem2"
+                        app:layout_constraintLeft_toLeftOf="parent">
+                        <ImageView
+                            android:id="@+id/imgItem1"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:src="@drawable/bedroom"
+                            app:layout_constraintBottom_toTopOf="@+id/tvItem1"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tvItem1"
+                            app:layout_constraintTop_toBottomOf="@+id/imgItem1"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            android:text="Giường đôi"
+                            android:textSize="16dp"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clItem2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintRight_toLeftOf="@+id/clItem3"
+                        app:layout_constraintLeft_toRightOf="@+id/clItem1">
+                        <ImageView
+                            android:id="@+id/imgItem2"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:src="@drawable/cube"
+                            app:layout_constraintBottom_toTopOf="@+id/tvItem2"
+                            app:layout_constraintTop_toTopOf="parent"
+
+                            app:layout_constraintLeft_toLeftOf="parent"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tvItem2"
+                            app:layout_constraintTop_toBottomOf="@+id/imgItem2"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            android:text="50m2"
+                            android:textSize="16dp"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clItem3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintLeft_toRightOf="@+id/clItem2">
+                        <ImageView
+                            android:id="@+id/imgItem3"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:src="@drawable/curtain"
+                            app:layout_constraintBottom_toTopOf="@+id/tvItem3"
+                            app:layout_constraintTop_toTopOf="parent"
+
+                            app:layout_constraintLeft_toLeftOf="parent"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tvItem3"
+                            app:layout_constraintTop_toBottomOf="@+id/imgItem3"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            android:text="Cửa sổ"
+                            android:textSize="16dp"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:id="@+id/vLineBreakRoomConditions"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#BDBDBD"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="30dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/clObjectConditionItem"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clObjectInformationRoom"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/llRoomConditions"
+                app:layout_constraintBottom_toTopOf="@id/clObjectPriceOption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvTitleReviewRoom"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="Mô tả phòng"
+                    android:textSize="24sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toTopOf="@+id/tvSubReview"
+                    android:textStyle="bold"
+
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tvSubReview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTitleReviewRoom"
+                    android:text="Đang cập nhật"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginLeft="20dp"
+                    app:layout_constraintBottom_toTopOf="@+id/vLIneBreakInformationRoom"
+                    android:textSize="18sp"/>
+
+                <View
+                    android:id="@+id/vLIneBreakInformationRoom"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#BDBDBD"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="30dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSubReview"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/clObjectInformationRoom"
+                android:id="@+id/clObjectPriceOption">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvNaturePriceRoom"
+                    android:text="Giá phòng gốc"
+                    android:textStyle="bold"
+                    android:textSize="24sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/tvTextFirstHour"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvTextFirstHour"
+                    android:text="Giá 1 giờ đầu:"
+                    app:layout_constraintTop_toBottomOf="@+id/tvNaturePriceRoom"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintBottom_toTopOf="@id/tvTextAddHour"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/tvPriceFirstHour"
+                    android:layout_marginLeft="20dp"/>
+
+                <TextView
+                    android:id="@+id/tvPriceFirstHour"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="end"
+                    app:layout_constraintLeft_toRightOf="@+id/tvTextFirstHour"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvNaturePriceRoom"
+                    android:text="80.000đ" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvTextAddHour"
+                    android:text="Giá 1 giờ thêm:"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTextFirstHour"
+                    app:layout_constraintBottom_toTopOf="@+id/tvTextOverNight"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/tvPriceAddHour"
+                    android:layout_marginLeft="20dp"/>
+
+                <TextView
+                    android:id="@+id/tvPriceAddHour"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:gravity="end"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintLeft_toRightOf="@id/tvTextAddHour"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTextFirstHour"
+                    android:text="20.000đ" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvTextOverNight"
+                    android:text="Giá qua đêm:"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTextAddHour"
+                    app:layout_constraintBottom_toTopOf="@id/tvTextOneDay"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/tvPriceOverNight"
+                    android:layout_marginLeft="20dp"/>
+
+                <TextView
+                    android:id="@+id/tvPriceOverNight"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="end"
+                    app:layout_constraintLeft_toRightOf="@id/tvTextOverNight"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTextAddHour"
+
+                    android:text="200.000đ" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvTextOneDay"
+                    android:text="Giá 1 ngày:"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTextOverNight"
+                    app:layout_constraintRight_toLeftOf="@id/tvPriceOneDay"
+                    app:layout_constraintBottom_toTopOf="@+id/vLineBreakPriceOption"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginLeft="20dp"/>
+
+                <TextView
+                    android:id="@+id/tvPriceOneDay"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginRight="20dp"
+                    android:gravity="end"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintLeft_toRightOf="@id/tvTextOneDay"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTextOverNight"
+                    android:text="250.000đ" />
+
+                <View
+                    android:id="@+id/vLineBreakPriceOption"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#BDBDBD"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTextOneDay"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/clObjectPriceOption"
+                android:id="@+id/clObjectFeatures">
+
+                <TextView
+                    android:id="@+id/tvTextFeatureTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tiện ích"
+                    android:textStyle="bold"
+                    android:textSize="24sp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="20dp"
+                    app:layout_constraintBottom_toTopOf="@+id/tvSubTitle"
+                    android:layout_marginTop="30dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvSubTitle"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTextFeatureTitle"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/tvSubFeature1"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="16sp"
+                    android:text="Tiện ích khác nhau tùy thuộc vào từng loại phòng."/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvSubFeature1"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSubTitle"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:text="Sàn gỗ/gỗ miếng"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/tvSubFeature2"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/imgViewIconFeature1"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"/>
+                <ImageView
+                    android:id="@+id/imgViewIconFeature1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/tatami"
+                    app:layout_constraintLeft_toRightOf="@+id/tvSubFeature1"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSubTitle"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginRight="20dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvSubFeature2"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSubFeature1"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:text="Internet không dây (WIFI)"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/tvSubFeature3"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/imgViewIconFeature2"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"/>
+                <ImageView
+                    android:id="@+id/imgViewIconFeature2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/wifi_router"
+                    app:layout_constraintLeft_toRightOf="@+id/tvSubFeature2"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSubFeature1"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginRight="20dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvSubFeature3"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSubFeature2"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:text="Lễ tân 24/24"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/tvSubFeature4"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/imgViewIconFeature3"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"/>
+                <ImageView
+                    android:id="@+id/imgViewIconFeature3"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/winner"
+                    app:layout_constraintLeft_toRightOf="@+id/tvSubFeature3"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSubFeature2"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginRight="20dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvSubFeature4"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSubFeature3"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:text="Máy lạnh"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/tvSubFeature5"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/imgViewIconFeature4"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"/>
+                <ImageView
+                    android:id="@+id/imgViewIconFeature4"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/air_conditioner"
+                    app:layout_constraintLeft_toRightOf="@+id/tvSubFeature4"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSubFeature3"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginRight="20dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvSubFeature5"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSubFeature4"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:text="TV"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/tvSubFeature6"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/imgViewIconFeature5"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"/>
+                <ImageView
+                    android:id="@+id/imgViewIconFeature5"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/pc"
+                    app:layout_constraintLeft_toRightOf="@+id/tvSubFeature5"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSubFeature4"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginRight="20dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvSubFeature6"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSubFeature5"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:text="Thang máy"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/tvSubFeature7"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/imgViewIconFeature6"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"/>
+                <ImageView
+                    android:id="@+id/imgViewIconFeature6"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/elevator"
+                    android:scaleType="fitXY"
+                    app:layout_constraintLeft_toRightOf="@+id/tvSubFeature6"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSubFeature5"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginRight="20dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvSubFeature7"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSubFeature6"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:text="Truyền hình Cáp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/vLineBreakFeature"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/imgViewIconFeature7"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"/>
+                <ImageView
+                    android:id="@+id/imgViewIconFeature7"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/responsive"
+                    app:layout_constraintLeft_toRightOf="@+id/tvSubFeature7"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSubFeature6"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginRight="20dp"/>
+
+
+
+                <View
+                    android:id="@+id/vLineBreakFeature"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#BDBDBD"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSubFeature7"
+                    app:layout_constraintBottom_toTopOf="@+id/spaceWhite"/>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:id="@+id/spaceWhite"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/vLineBreakFeature"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnCheckOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:elevation="10dp"
+        android:textColor="@color/white"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="30dp"
+        android:text="@string/title_button"
+        android:background="@drawable/item_background_button"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

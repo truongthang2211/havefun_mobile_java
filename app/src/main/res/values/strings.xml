@@ -7,4 +7,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="ic_noti">notifications</string>
     <string name="ic_search">search</string>
+    <string name="title_button">Đặt phòng ngay</string>
+
 </resources>
