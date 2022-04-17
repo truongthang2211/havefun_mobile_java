@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.LoginActivity">
+    tools:context=".activities.RegisterActivity">
 
 
     <TextView
-        android:id="@+id/chao_sign_txt"
+        android:id="@+id/chao_reg_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="50dp"
@@ -23,21 +23,22 @@
         app:layout_constraintVertical_bias="0" />
 
     <TextView
-        android:id="@+id/sign_txt"
+        android:id="@+id/regis_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="150dp"
         android:fontFamily="sans-serif-black"
         android:gravity="center"
-        android:text="Sign In"
+        android:text="Register"
         android:textSize="40sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0" />
     <EditText
-        android:id="@+id/email_sign"
+        android:id="@+id/email_reg"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Email"
@@ -58,30 +59,53 @@
         app:layout_constraintWidth_percent=".8" />
 
     <EditText
-        android:id="@+id/pass_sign"
+        android:id="@+id/phone_reg"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:hint="Password"
+        android:background="@drawable/text_bg"
+        android:drawableLeft="@drawable/ic_phone"
+        android:drawablePadding="20dp"
+        android:hint="Phone"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintVertical_bias="0"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias=".5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email_reg"
+        app:layout_constraintWidth_percent=".8" />
+
+    <EditText
+        android:id="@+id/pass_reg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/text_bg"
         android:drawableLeft="@drawable/ic_password"
         android:drawablePadding="20dp"
-        android:background="@drawable/text_bg"
+        android:hint="Password"
+        android:paddingLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         app:layout_constraintVertical_bias="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias=".5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email_sign"
+        app:layout_constraintTop_toBottomOf="@+id/phone_reg"
         app:layout_constraintWidth_percent=".8" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/log_sign_btn"
+        android:id="@+id/res_log_btn"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="130dp"
         android:layout_height="50dp"
         android:text="Login"
+        android:onClick="onLoginClick"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -93,12 +117,10 @@
         app:layout_constraintWidth_percent=".3" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/resg_ign_btn"
+        android:id="@+id/res_resg_btn"
         android:layout_width="130dp"
         android:layout_height="50dp"
         android:text="Resgister"
-        android:onClick="onLoginClick"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -109,26 +131,9 @@
         app:layout_constraintVertical_bias="0.65"
         app:layout_constraintWidth_percent=".4" />
 
-    <TextView
-        android:id="@+id/forget_pass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:text="Forget Password"
-        android:textStyle="italic"
-        android:textSize="15dp"
-        app:layout_constraintVertical_bias="0"
-        app:layout_constraintHorizontal_bias="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/pass_sig"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pass_sign" />
 
     <TextView
-        android:id="@+id/log_oth_sign"
+        android:id="@+id/log_oth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
@@ -136,14 +141,14 @@
         android:textSize="20dp"
         android:textStyle="italic"
         app:flow_firstHorizontalBias="0"
-        app:layout_constraintBottom_toTopOf="@+id/othlog_sign"
-        app:layout_constraintEnd_toEndOf="@+id/othlog_sign"
+        app:layout_constraintBottom_toTopOf="@+id/othlog_reg"
+        app:layout_constraintEnd_toEndOf="@+id/othlog_reg"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
     <LinearLayout
-        android:id="@+id/othlog_sign"
+        android:id="@+id/othlog_reg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -151,7 +156,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/log_sign_btn">
+        app:layout_constraintTop_toBottomOf="@+id/res_resg_btn">
 
         <ImageView
             android:layout_width="50dp"
