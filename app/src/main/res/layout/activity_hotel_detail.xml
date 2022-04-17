@@ -1,9 +1,826 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.HotelDetailActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="ExtraText">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/view_pager_2"
+            android:layout_width="match_parent"
+            android:layout_height="179dp"
+            tools:ignore="MissingConstraints" />
+
+        <me.relex.circleindicator.CircleIndicator3
+            android:id="@+id/circle_indicator_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="140dp"
+            android:layout_marginTop="190dp"
+            app:ci_drawable="@drawable/bd_indicator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/view_pager_2"
+            tools:ignore="MissingConstraints,RtlHardcoded" />
+
+        <ImageView
+            android:id="@+id/img_location"
+            android:layout_width="29dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/todo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView"
+            app:srcCompat="@drawable/location"
+            tools:ignore="ImageContrastCheck,ImageContrastCheck,MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="189dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="sans-serif"
+
+            android:text="HOTEL VICTORY"
+            android:textAlignment="viewStart"
+
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/view_pager_2"
+            app:layout_constraintTop_toTopOf="@id/circle_indicator_3"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="| 255 đường 30/4,Phường 3,Tây Ninh"
+            app:layout_constraintLeft_toRightOf="@id/img_location"
+            app:layout_constraintTop_toTopOf="@id/img_location"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="28dp"
+            android:text="Chọn Phòng"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintTop_toBottomOf="@id/textView3"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="1dp" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="140dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            tools:ignore="MissingConstraints,UnknownId"
+            tools:layout_editor_absoluteX="1dp" />
+
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="310dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintStart_toStartOf="@id/divider2"
+            app:layout_constraintTop_toBottomOf="@id/divider2"
+            tools:ignore="MissingConstraints,UnknownId" />
+
+        <View
+            android:id="@+id/divider4"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="310dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintStart_toStartOf="@id/divider3"
+            app:layout_constraintTop_toBottomOf="@id/divider3"
+            tools:ignore="MissingConstraints,UnknownId" />
+
+        <View
+            android:id="@+id/divider5"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="310dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintStart_toStartOf="@id/divider4"
+            app:layout_constraintTop_toBottomOf="@id/divider4"
+            tools:ignore="MissingConstraints,UnknownId" />
+
+        <View
+            android:id="@+id/divider6"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="310dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintStart_toStartOf="@id/divider5"
+            app:layout_constraintTop_toBottomOf="@id/divider5"
+            tools:ignore="MissingConstraints,UnknownId" />
+
+        <View
+            android:id="@+id/divider7"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="580dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintStart_toStartOf="@id/divider6"
+            app:layout_constraintTop_toBottomOf="@id/divider6"
+            tools:ignore="MissingConstraints,UnknownId" />
+
+        <View
+            android:id="@+id/divider8"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="220dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintStart_toStartOf="@id/divider7"
+            app:layout_constraintTop_toBottomOf="@id/divider7"
+            tools:ignore="MissingConstraints,UnknownId" />
+
+
+        <Button
+            android:id="@+id/btn_TheoGio"
+            android:layout_width="88dp"
+            android:layout_height="48dp"
+
+            android:layout_marginTop="30dp"
+            android:backgroundTint="#f9f9f9"
+            android:shadowColor="#FFFFFF"
+            android:text="Theo giờ"
+            android:textColor="#040404"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@id/textView5"
+            app:layout_constraintTop_toTopOf="@id/textView5"
+            tools:ignore="HardcodedText,MissingConstraints,SmallSp" />
+
+        <Button
+            android:id="@+id/btn_QuaDem"
+            android:layout_width="88dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="#f9f9f9"
+            android:shadowColor="#FFFFFF"
+            android:text="Qua Đêm"
+            android:textColor="#040404"
+            android:textSize="10sp"
+            app:layout_constraintLeft_toRightOf="@id/btn_TheoGio"
+            app:layout_constraintTop_toBottomOf="@id/textView5"
+            tools:ignore="DuplicateClickableBoundsCheck,HardcodedText,MissingConstraints,RtlHardcoded,SmallSp" />
+
+        <Button
+            android:id="@+id/btn_TheoNgay"
+            android:layout_width="95dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="#f9f9f9"
+            android:shadowColor="#FFFFFF"
+            android:text="Theo Ngày"
+            android:textColor="#040404"
+            android:textSize="10sp"
+            app:layout_constraintLeft_toRightOf="@id/btn_QuaDem"
+            app:layout_constraintTop_toBottomOf="@id/textView5"
+            tools:ignore="DuplicateClickableBoundsCheck,HardcodedText,MissingConstraints,RtlHardcoded,SmallSp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="416dp"
+            android:layout_height="280dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/divider2"
+            tools:layout_editor_absoluteX="-2dp"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="68dp"
+                android:layout_height="15dp"
+                android:layout_marginStart="136dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:color/holo_orange_dark"
+                android:backgroundTint="@color/white"
+                android:text="Tặng Giờ"
+                android:textColor="#FF5622"
+                android:textSize="10sp"
+                app:drawableTint="#FF5622"
+                app:layout_constraintStart_toStartOf="@+id/textView7"
+                app:layout_constraintTop_toBottomOf="@+id/textView7"
+                tools:ignore="HardcodedText,SmallSp,TextContrastCheck" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="582dp"
+                android:layout_height="148dp"
+                android:layout_marginStart="-170dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/constraintLayout"
+                app:srcCompat="@drawable/standard"
+                tools:ignore="ContentDescription,MissingConstraints,NotSibling" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:text="Standard Room"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                tools:ignore="HardcodedText,MissingConstraints"
+                tools:layout_editor_absoluteX="35dp" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Giường đơn | 15m2"
+                android:textSize="10sp"
+                app:layout_constraintTop_toBottomOf="@+id/textView6"
+                tools:ignore="HardcodedText,MissingConstraints,SmallSp"
+                tools:layout_editor_absoluteX="37dp" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="44dp"
+                android:text="Qua đêm"
+                android:textSize="10sp"
+                app:layout_constraintTop_toBottomOf="@+id/textView6"
+                tools:ignore="HardcodedText,MissingConstraints,SmallSp"
+                tools:layout_editor_absoluteX="37dp" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="79dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="60dp"
+                android:text="700,000 đ"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/textView6"
+                tools:ignore="HardcodedText,MissingConstraints,SmallSp"
+                tools:layout_editor_absoluteX="37dp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="46dp"
+                android:layout_height="16dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:color/holo_orange_dark"
+                android:backgroundTint="@color/white"
+                android:text="Ưu đãi"
+                android:textColor="#FF5622"
+                android:textSize="10sp"
+                app:drawableTint="#FF5622"
+                app:layout_constraintStart_toStartOf="@+id/textView7"
+                app:layout_constraintTop_toBottomOf="@+id/textView7"
+                tools:ignore="HardcodedText,SmallSp,TextContrastCheck" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="69dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="56dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:color/holo_orange_dark"
+                android:backgroundTint="@color/white"
+                android:text="Giảm Ngay"
+                android:textColor="#FF5622"
+                android:textSize="10sp"
+                app:drawableTint="#FF5622"
+                app:layout_constraintStart_toStartOf="@+id/textView7"
+                app:layout_constraintTop_toBottomOf="@+id/textView7"
+                tools:ignore="HardcodedText,SmallSp,TextContrastCheck" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="90dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="120dp"
+                android:layout_marginTop="90dp"
+                android:backgroundTint="@android:color/holo_orange_dark"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:text="Chọn phòng"
+                android:textSize="10sp"
+                app:layout_constraintStart_toEndOf="@+id/textView10"
+                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                tools:ignore="HardcodedText,SmallSp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="416dp"
+            android:layout_height="280dp"
+            android:layout_marginTop="320dp"
+            app:layout_constraintTop_toBottomOf="@+id/divider2"
+            tools:layout_editor_absoluteX="-2dp"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="237dp"
+                android:layout_height="127dp"
+                android:layout_marginStart="-150dp"
+                android:layout_marginTop="688dp"
+                app:layout_constraintStart_toStartOf="@id/divider3"
+                app:layout_constraintTop_toTopOf="@id/constraintLayout"
+                app:srcCompat="@drawable/victory2"
+                tools:ignore="ContentDescription,MissingConstraints,NotSibling" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:text="Premium Standard Room"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@+id/imageView1"
+                tools:ignore="HardcodedText,MissingConstraints"
+                tools:layout_editor_absoluteX="35dp" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="3 Giường | 30m2"
+                android:textSize="10sp"
+                app:layout_constraintTop_toBottomOf="@+id/textView11"
+                tools:ignore="HardcodedText,MissingConstraints,SmallSp"
+                tools:layout_editor_absoluteX="37dp" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="46dp"
+                android:layout_height="16dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:color/holo_orange_dark"
+                android:backgroundTint="@color/white"
+                android:text="Ưu đãi"
+                android:textColor="#FF5622"
+                android:textSize="10sp"
+                app:drawableTint="#FF5622"
+                app:layout_constraintStart_toStartOf="@+id/textView12"
+                app:layout_constraintTop_toBottomOf="@+id/textView12"
+                tools:ignore="HardcodedText,SmallSp,TextContrastCheck" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="69dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="56dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:color/holo_orange_dark"
+                android:backgroundTint="@color/white"
+                android:text="Giảm Ngay"
+                android:textColor="#FF5622"
+                android:textSize="10sp"
+                app:drawableTint="#FF5622"
+                app:layout_constraintStart_toStartOf="@+id/textView12"
+                app:layout_constraintTop_toBottomOf="@+id/textView12"
+                tools:ignore="HardcodedText,SmallSp,TextContrastCheck" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="44dp"
+                android:text="Qua đêm"
+                android:textSize="10sp"
+                app:layout_constraintTop_toBottomOf="@+id/textView11"
+                tools:ignore="HardcodedText,MissingConstraints,SmallSp"
+                tools:layout_editor_absoluteX="37dp" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="79dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="60dp"
+                android:text="900,000 đ"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/textView11"
+                tools:ignore="HardcodedText,MissingConstraints,SmallSp"
+                tools:layout_editor_absoluteX="37dp" />
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="90dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="120dp"
+                android:layout_marginTop="90dp"
+                android:backgroundTint="@android:color/holo_orange_dark"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:text="Chọn phòng"
+                android:textSize="10sp"
+                app:layout_constraintStart_toEndOf="@+id/textView12"
+                app:layout_constraintTop_toBottomOf="@+id/imageView1"
+                tools:ignore="HardcodedText,SmallSp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="416dp"
+            android:layout_height="280dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/divider4"
+            tools:layout_editor_absoluteX="-2dp"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/txtBinhLuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="28dp"
+                android:text="Bình luận"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider2"
+                tools:ignore="HardcodedText,NotSibling" />
+
+            <TextView
+                android:id="@+id/TT_BinhLuan"
+                android:layout_width="240dp"
+                android:layout_height="240dp"
+                android:layout_marginTop="28dp"
+                android:text="Tên | Ngày tháng năm bình luận"
+                app:layout_constraintStart_toStartOf="@id/txtBinhLuan"
+                app:layout_constraintTop_toTopOf="@id/txtBinhLuan"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/Topic_BinhLuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Topic bình luận"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/txtBinhLuan"
+                app:layout_constraintTop_toBottomOf="@+id/txtBinhLuan"
+                tools:ignore="HardcodedText,NotSibling" />
+
+            <TextView
+                android:id="@+id/nd_BinhLuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="Noi Dung bình luận"
+                app:layout_constraintStart_toStartOf="@id/txtBinhLuan"
+                app:layout_constraintTop_toBottomOf="@+id/txtBinhLuan"
+                tools:ignore="HardcodedText,NotSibling" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/divider5"
+            tools:layout_editor_absoluteX="-2dp"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/txtTienIch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="28dp"
+                android:text="Tiện ích"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider3"
+                tools:ignore="HardcodedText,NotSibling" />
+
+            <TextView
+                android:id="@+id/txt_tienich"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="24dp"
+                android:text="Tiện ích khác nhau tuỳ thuộc vào từng loại phòng."
+                app:layout_constraintLeft_toRightOf="@id/txtTienIch"
+                app:layout_constraintStart_toStartOf="@id/txtTienIch"
+                app:layout_constraintTop_toTopOf="@id/txtTienIch"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/txt_Internet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="24dp"
+                android:text="Internet không dây (WIFI)"
+                app:layout_constraintStart_toStartOf="@id/txtTienIch"
+                app:layout_constraintTop_toBottomOf="@+id/txtTienIch" />
+
+            <ImageView
+                android:id="@+id/imageTienich"
+                android:layout_width="30dp"
+                android:layout_height="21dp"
+                android:layout_marginStart="95dp"
+                android:layout_marginTop="52dp"
+                app:layout_constraintStart_toEndOf="@+id/txt_Internet"
+                app:layout_constraintTop_toTopOf="@id/txtTienIch"
+                app:srcCompat="@drawable/wifi" />
+
+            <ImageView
+                android:id="@+id/imageNuocsuoi"
+                android:layout_width="30dp"
+                android:layout_height="21dp"
+                android:layout_marginStart="189dp"
+                android:layout_marginTop="120dp"
+                app:layout_constraintStart_toEndOf="@+id/txtNuocsuoi"
+                app:layout_constraintTop_toTopOf="@id/txtTienIch"
+                app:srcCompat="@drawable/nuocsuoi" />
+
+            <ImageView
+                android:id="@+id/imageLetan"
+                android:layout_width="30dp"
+                android:layout_height="21dp"
+                android:layout_marginStart="172dp"
+                android:layout_marginTop="140dp"
+                app:layout_constraintStart_toEndOf="@+id/txtLetan"
+                app:layout_constraintTop_toTopOf="@id/txtTienIch"
+                app:srcCompat="@drawable/letan" />
+
+            <ImageView
+                android:id="@+id/imageNetflix"
+                android:layout_width="30dp"
+                android:layout_height="21dp"
+                android:layout_marginStart="199dp"
+                android:layout_marginTop="162dp"
+                app:layout_constraintStart_toEndOf="@+id/txtNetflix"
+                app:layout_constraintTop_toTopOf="@id/txtTienIch"
+                app:srcCompat="@drawable/netflix"
+                tools:ignore="UnknownId" />
+
+            <ImageView
+                android:id="@+id/imageGhetinhnhan"
+                android:layout_width="30dp"
+                android:layout_height="21dp"
+                android:layout_marginStart="168dp"
+                android:layout_marginTop="75dp"
+                app:layout_constraintStart_toEndOf="@+id/txt_Ghetinhnhan"
+                app:layout_constraintTop_toTopOf="@id/txtTienIch"
+                app:srcCompat="@drawable/ghe"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/imageBontam"
+                android:layout_width="30dp"
+                android:layout_height="21dp"
+                android:layout_marginStart="175dp"
+                android:layout_marginTop="98dp"
+                app:layout_constraintStart_toEndOf="@+id/txtBontam"
+                app:layout_constraintTop_toTopOf="@id/txtTienIch"
+                app:srcCompat="@drawable/bontam"
+                tools:ignore="UnknownId" />
+
+            <TextView
+                android:id="@+id/txt_Ghetinhnhan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ghế tình nhân"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="48dp"
+                app:layout_constraintStart_toStartOf="@id/txtTienIch"
+                app:layout_constraintTop_toBottomOf="@+id/txtTienIch"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="83dp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/txtBontam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bồn tắm sục"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="73dp"
+                app:layout_constraintStart_toStartOf="@id/txtTienIch"
+                app:layout_constraintTop_toBottomOf="@+id/txtTienIch"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="83dp" />
+
+            <TextView
+                android:id="@+id/txtNuocsuoi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nước suối"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="99dp"
+                app:layout_constraintStart_toStartOf="@id/txtTienIch"
+                app:layout_constraintTop_toBottomOf="@+id/txtTienIch"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="83dp"/>
+
+            <TextView
+                android:id="@+id/txtLetan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lễ tân 24/24"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="125dp"
+                app:layout_constraintStart_toStartOf="@id/txtTienIch"
+                app:layout_constraintTop_toBottomOf="@+id/txtTienIch"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="83dp"/>
+
+            <TextView
+                android:id="@+id/txtNetflix"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NETFLIX"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="150dp"
+                app:layout_constraintStart_toStartOf="@id/txtTienIch"
+                app:layout_constraintTop_toBottomOf="@+id/txtTienIch"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="83dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="650dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@+id/divider6"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp">
+
+            <TextView
+                android:id="@+id/txtGioiThieu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="28dp"
+                android:text="Giới Thiệu"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider4"
+                tools:ignore="HardcodedText,NotSibling" />
+
+            <TextView
+                android:id="@+id/txt_ndGT"
+                android:layout_width="398dp"
+                android:layout_height="514dp"
+                android:text="Khách sạn Victory cung cấp những dịch vụ và tiện nghi tốt nhất để giúp du khách luôn cảm thấy thoải mái. Giữ kết nối trong suốt thời gian của bạn với truy cập Internet miễn phí được cung cấp. Để giúp sắp xếp trước thời gian đến và đi của bạn, dịch vụ đưa đón sân bay có thể được đặt trước khi bạn nhận phòng. Bãi đậu xe được cung cấp miễn phí cho khách.
+Bạn sẽ không gặp vấn đề gì khi lên kế hoạch cho các ngày và nhu cầu đi lại của mình với các dịch vụ lễ tân bao gồm dịch vụ trợ giúp đặc biệt, giữ hành lý và két an toàn. Dịch vụ đặt vé và các tour du lịch của khách sạn thậm chí có thể giúp bạn đặt vé và đặt chỗ để giải trí và khám phá. Hãy mặc đi mặc lại những bộ trang phục yêu thích của bạn nhờ dịch vụ giặt hấp và giặt là được cung cấp tại Victory Hotel. Những tiện nghi trong phòng như dịch vụ phòng và dọn phòng hàng ngày sẽ làm cho kỳ nghỉ trở thành một lựa chọn tuyệt vời.
+Hút thuốc chỉ có thể diễn ra trong các khu vực được chỉ định hạn chế.
+Phòng khách được trang bị tất cả các tiện nghi cần thiết cho một đêm ngon giấc. Để nâng cao thời gian lưu trú của bạn, các phòng tại khách sạn đi kèm dịch vụ bộ khăn trải giường, rèm cản sáng và máy lạnh. Các phòng được thiết kế đặc biệt tại Victory Hotel cung cấp nhiều lựa chọn bài trí, bao gồm các phòng có phòng khách riêng biệt. Giải trí trong phòng của khách sạn không ai sánh kịp, với tivi và truyền hình cáp được cung cấp cho tất cả các du khách.
+Bạn có thể yên tâm khi biết rằng một số phòng chọn lọc có tủ lạnh, nước đóng chai, trà hòa tan và tủ lạnh mini. Bạn có thể luôn sạch sẽ và tươi mới với máy sấy tóc, đồ vệ sinh cá nhân, áo choàng tắm và khăn tắm được cung cấp trong một số phòng tắm của khách."
+                app:layout_constraintStart_toStartOf="@id/txtGioiThieu"
+                app:layout_constraintTop_toBottomOf="@id/txtGioiThieu"
+                tools:layout_editor_absoluteY="30dp" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@+id/divider7"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="-1dp">
+
+            <TextView
+                android:id="@+id/txtCSKS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="28dp"
+                android:text="Chính sách khách sạn"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider5"
+                tools:ignore="HardcodedText,NotSibling" />
+
+            <TextView
+                android:id="@+id/txtTheoGio_CSKS"
+                android:layout_width="74dp"
+                android:layout_height="27dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Theo giờ"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/txtCSKS"
+                app:layout_constraintTop_toBottomOf="@+id/txtCSKS"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/txtTheoDem_CSKS"
+                android:layout_width="74dp"
+                android:layout_height="27dp"
+                android:layout_marginStart="120dp"
+                android:layout_marginTop="8dp"
+                android:text="Theo đêm"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/txtCSKS"
+                app:layout_constraintTop_toBottomOf="@+id/txtCSKS"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/txtTheoNgay_CSKS"
+                android:layout_width="74dp"
+                android:layout_height="27dp"
+                android:layout_marginStart="230dp"
+                android:layout_marginTop="8dp"
+                android:text="Theo ngày"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/txtCSKS"
+                app:layout_constraintTop_toBottomOf="@+id/txtCSKS"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/txt_Theogio_CSDK_gio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="18dp"
+                android:text="Từ 6:00"
+                app:layout_constraintStart_toStartOf="@id/txtTheoGio_CSKS"
+                app:layout_constraintTop_toBottomOf="@+id/txtTheoGio_CSKS" />
+
+            <TextView
+                android:id="@+id/txt_Theodem_CSDK_gio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="110dp"
+                android:layout_marginTop="18dp"
+                android:text="22:00 - 12:00"
+                app:layout_constraintStart_toStartOf="@id/txtTheoGio_CSKS"
+                app:layout_constraintTop_toBottomOf="@+id/txtTheoGio_CSKS" />
+
+            <TextView
+                android:id="@+id/txt_Theongay_CSDK_gio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="220dp"
+                android:layout_marginTop="18dp"
+                android:text="14:00 – 12:00"
+                app:layout_constraintStart_toStartOf="@id/txtTheoGio_CSKS"
+                app:layout_constraintTop_toBottomOf="@+id/txtTheoGio_CSKS" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/divider8"
+            tools:layout_editor_absoluteX="-2dp"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/txtCSHP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="28dp"
+                android:text="Chính sách hủy phòng"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider6"
+                tools:ignore="HardcodedText,NotSibling" />
+
+            <TextView
+                android:id="@+id/txt_CSHP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="6dp"
+                android:text="Hủy phòng miễn phí trước 1 tiếng trước khi nhận phòng"
+                app:layout_constraintStart_toStartOf="@id/txtCSHP"
+                app:layout_constraintTop_toBottomOf="@+id/txtCSHP" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

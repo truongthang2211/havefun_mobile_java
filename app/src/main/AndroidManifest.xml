@@ -17,7 +17,7 @@
             android:exported="false" />
         <activity
             android:name=".activities.HotelDetailActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".activities.LoginActivity"
             android:exported="false" />
