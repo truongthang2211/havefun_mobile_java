@@ -10,23 +10,23 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.havefun.databinding.FragmentPreferenceBinding;
+import com.example.havefun.databinding.FragmentPromotionBinding;
 import com.example.havefun.viewmodels.PromotionViewModel;
 
 public class PromotionFragment extends Fragment {
 
-    private FragmentPreferenceBinding binding;
+    private FragmentPromotionBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         PromotionViewModel promotionViewModel =
                 new ViewModelProvider(this).get(PromotionViewModel.class);
 
-        binding = FragmentPreferenceBinding.inflate(inflater, container, false);
+        binding = FragmentPromotionBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textDashboard;
-        promotionViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+//        final TextView textView = binding.textDashboard;
+//        promotionViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

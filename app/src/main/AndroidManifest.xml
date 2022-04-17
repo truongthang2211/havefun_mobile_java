@@ -13,9 +13,6 @@
             android:name=".activities.DetailPromotionActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.ListPromotionActivity"
-            android:exported="false" />
-        <activity
             android:name=".activities.RoomDetailActivity"
             android:exported="false" />
         <activity
@@ -23,6 +20,9 @@
             android:exported="false" />
         <activity
             android:name=".activities.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".activities.MainActivity"

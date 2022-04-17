@@ -2,6 +2,7 @@ package com.example.havefun.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,9 +20,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        TextView username = (TextView) findViewById(R.id.email);
-        TextView password = (TextView) findViewById(R.id.pass);
-        MaterialButton loginbtn = (MaterialButton) findViewById(R.id.log_btn);
+        TextView username = (TextView) findViewById(R.id.email_sign);
+        TextView password = (TextView) findViewById(R.id.pass_sign);
+        MaterialButton loginbtn = (MaterialButton) findViewById(R.id.log_sign_btn);
+        MaterialButton resbtn = findViewById(R.id.resg_ign_btn);
         //admin and admin
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +34,13 @@ public class LoginActivity extends AppCompatActivity {
                 } else
                     //incorrect
                     Toast.makeText(LoginActivity.this, "LOGIN FAILED !!!", Toast.LENGTH_SHORT).show();
+            }
+        });
+        resbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
+                startActivity(intent);
             }
         });
     }
