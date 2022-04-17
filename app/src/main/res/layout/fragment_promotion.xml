@@ -153,7 +153,9 @@
             android:orientation="vertical">
 
             <!--        VOUCHER ITEM-->
-            <include layout="@layout/voucher_item"></include>
+            <include
+                android:id="@+id/pro_item_promote_incl"
+                layout="@layout/voucher_item"></include>
 
             <!--        VOUCHER ITEM-->
             <include layout="@layout/voucher_item"></include>
