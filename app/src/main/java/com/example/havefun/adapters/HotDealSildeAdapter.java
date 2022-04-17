@@ -1,6 +1,7 @@
 package com.example.havefun.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.havefun.R;
+import com.example.havefun.activities.HotelDetailActivity;
 import com.example.havefun.models.Hotel;
+import com.google.android.material.card.MaterialCardView;
 
 import java.util.ArrayList;
 
@@ -43,6 +46,13 @@ public class HotDealSildeAdapter extends RecyclerView.Adapter<HotDealSildeAdapte
         holder.TvRate.setText(String.valueOf(modelArrayList.get(position).getRate()));
         holder.TvNumRate.setText(String.valueOf(modelArrayList.get(position).getNum_rate()));
         holder.IvImg.setImageResource(modelArrayList.get(position).getImage());
+        holder.CVContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, HotelDetailActivity.class);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -52,6 +62,7 @@ public class HotDealSildeAdapter extends RecyclerView.Adapter<HotDealSildeAdapte
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        private MaterialCardView CVContainer;
         private TextView TvHotelName;
         private TextView TvPromotion;
         private TextView TvTimePromotion;
@@ -63,6 +74,7 @@ public class HotDealSildeAdapter extends RecyclerView.Adapter<HotDealSildeAdapte
         private ImageView IvImg;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            CVContainer = (MaterialCardView) itemView.findViewById(R.id.home_large_card);
             TvHotelName = (TextView) itemView.findViewById(R.id.home_cardview_nameTv);
             TvPromotion = (TextView) itemView.findViewById(R.id.home_cardview_promotionTv);
             TvTimePromotion = (TextView) itemView.findViewById(R.id.home_cardview_promotionTimeTv);

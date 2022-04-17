@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_large_card"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:cardCornerRadius="10dp"
     app:strokeColor="#9ccc"
-    app:strokeWidth="1dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="10dp">
+    app:strokeWidth="1dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:paddingBottom="16dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingBottom="16dp">
 
         <ImageView
             android:id="@+id/home_cardview_img"
@@ -38,13 +39,13 @@
             android:id="@+id/home_cardview_promotionTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/border_home_textview"
             android:paddingLeft="8dp"
             android:paddingTop="2dp"
             android:paddingRight="8dp"
             android:paddingBottom="2dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
             android:text="em dep lam"
             android:textColor="@color/colorPrimary"
             app:layout_constraintStart_toStartOf="parent"

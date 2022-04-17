@@ -207,12 +207,13 @@
             tools:ignore="DuplicateClickableBoundsCheck,HardcodedText,MissingConstraints,RtlHardcoded,SmallSp" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/detailhotel_contrain_roomitem"
             android:layout_width="416dp"
             android:layout_height="280dp"
             android:layout_marginTop="16dp"
             app:layout_constraintTop_toBottomOf="@+id/divider2"
-            tools:layout_editor_absoluteX="-2dp"
-            tools:ignore="MissingConstraints">
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="-2dp">
 
             <TextView
                 android:id="@+id/textView8"
