@@ -261,7 +261,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView7"
                 tools:ignore="HardcodedText,SmallSp,TextContrastCheck" />
 
-            <com.makeramen.roundedimageview.RoundedImageView
+            <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="400dp"
                 android:layout_height="148dp"
@@ -377,7 +377,7 @@
             app:layout_constraintTop_toBottomOf="@+id/divider2"
             tools:ignore="MissingConstraints">
 
-            <com.makeramen.roundedimageview.RoundedImageView
+            <ImageView
                 android:id="@+id/imageView1"
                 android:layout_width="420dp"
                 android:layout_height="127dp"
