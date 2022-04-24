@@ -11,7 +11,7 @@
     <color name="blue">#0a69f0</color>
     <color name="red">#f44336</color>
     <color name="green">#48a682</color>
-
+    <color name="darkWhite">#f3f1f1</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
