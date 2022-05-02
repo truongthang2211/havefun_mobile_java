@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<!--    HEADER-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/list_demand"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="Nhu cầu"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="16dp"></TextView>
+
+<!--        CLOSE BTN-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/x"></ImageView>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--    LIST OF DEMAND SELECTION-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/list_demand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/header"
+        app:layout_constraintBottom_toTopOf="@id/time_picker"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="16dp">
+        
+<!--    BY HOUR    -->
+        <LinearLayout
+            android:id="@+id/demand_by_hour"
+            android:layout_width="80dp"
+            android:layout_height="72dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/demand_by_night"
+            android:orientation="vertical"
+            android:background="@drawable/effect_shadow"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/hourglass"></ImageView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Theo giờ"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"></TextView>
+        </LinearLayout>
+
+<!--        BY NIGHT-->
+        <LinearLayout
+            android:id="@+id/demand_by_night"
+            android:layout_width="80dp"
+            android:layout_height="72dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/demand_by_hour"
+            app:layout_constraintRight_toLeftOf="@+id/demand_by_day"
+            android:background="@drawable/effect_shadow"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/moon"></ImageView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Qua đêm"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"></TextView>
+        </LinearLayout>
+
+<!--        BY DAY-->
+        <LinearLayout
+            android:id="@+id/demand_by_day"
+            android:layout_width="80dp"
+            android:layout_height="72dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/demand_by_night"
+            android:background="@drawable/effect_shadow"
+            app:layout_constraintRight_toRightOf="parent"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/office_building"></ImageView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Theo ngày"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"></TextView>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--    PICK DAY OR TIME-->
+    <LinearLayout
+        android:id="@+id/time_picker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/list_demand"
+        app:layout_constraintBottom_toTopOf="@+id/price_range"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="Thời gian"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="16dp"></TextView>
+
+<!--        NHẬN PHÒNG-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/effect_shadow">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginLeft="8dp"
+                android:text="Nhận phòng"
+                android:textColor="@color/black"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginRight="8dp"
+                android:text="01/01/2022"
+                android:textColor="@color/black"></TextView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--        TRẢ PHÒNG-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/effect_shadow">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginLeft="8dp"
+                android:text="Trả phòng"
+                android:textColor="@color/black"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginRight="8dp"
+                android:text="01/01/2022"
+                android:textColor="@color/black"></TextView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+<!--    PRICE RANGE-->
+    <LinearLayout
+        android:id="@+id/price_range"
+        app:layout_constraintTop_toBottomOf="@+id/time_picker"
+        app:layout_constraintBottom_toTopOf="@+id/payment_method"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="Mức giá"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="16dp"></TextView>
+        <com.google.android.material.slider.RangeSlider
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></com.google.android.material.slider.RangeSlider>
+    </LinearLayout>
+
+<!--    PAYMENT METHOD-->
+    <LinearLayout
+        android:id="@+id/payment_method"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/price_range"
+        app:layout_constraintBottom_toTopOf="@+id/type_of_bed"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="Phương thức thanh toán"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="16dp"></TextView>
+
+<!--        PICK PAYMENT METHOD-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+<!--            TRỰC TIẾP-->
+            <LinearLayout
+                android:layout_width="100dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:background="@drawable/effect_shadow"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="Trực tiếp"></TextView>
+            </LinearLayout>
+
+<!--            VÍ ĐIỆN TỬ-->
+            <LinearLayout
+                android:layout_width="100dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:background="@drawable/effect_shadow"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="Ví điện tử"></TextView>
+            </LinearLayout>
+
+<!--            VISA-->
+            <LinearLayout
+                android:layout_width="100dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:background="@drawable/effect_shadow"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="VISA"></TextView>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+<!--    TYPE OF BED-->
+    <LinearLayout
+        android:id="@+id/type_of_bed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/payment_method"
+        app:layout_constraintBottom_toTopOf="@+id/filter_apply_btn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="Loại giường"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="16dp"></TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+<!--            SINGLE BED-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/filter_single_bed"
+                android:layout_width="340dp"
+                android:layout_height="36dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/effect_shadow">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginLeft="8dp"
+                    android:text="Giường đơn"
+                    android:textColor="@color/black"></TextView>
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_marginRight="8dp"
+                    android:src="@drawable/check"
+                    app:tint="@color/colorPrimary"></ImageView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--            DOUBLE BED-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/filter_double_bed"
+                android:layout_width="340dp"
+                android:layout_height="36dp"
+                android:background="@drawable/effect_shadow">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginLeft="8dp"
+                    android:text="Giường đôi"
+                    android:textColor="@color/black"></TextView>
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_marginRight="8dp"
+                    app:tint="@color/colorPrimary"></ImageView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+<!--    APPLY BUTTON-->
+    <Button
+        android:id="@+id/filter_apply_btn"
+        android:layout_width="200dp"
+        android:layout_height="52dp"
+        app:layout_constraintTop_toBottomOf="@+id/type_of_bed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textAllCaps="false"
+        android:text="Áp dụng"></Button>
+</androidx.constraintlayout.widget.ConstraintLayout>
