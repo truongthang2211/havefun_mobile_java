@@ -1,0 +1,36 @@
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginRight="20dp"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    android:background="@drawable/effect_shadow"
+    app:layout_constraintTop_toTopOf="parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--        BACK button-->
+    <LinearLayout
+        android:id="@+id/search_back_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/left"></ImageView>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/search_search_input"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:hint="Nhập khách sạn, địa chỉ"
+        android:imeOptions="actionSend"
+        android:inputType="text"
+        android:textSize="14dp"></EditText>
+</LinearLayout>

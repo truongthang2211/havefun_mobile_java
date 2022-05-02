@@ -10,42 +10,6 @@
         <entry key="..\:/Projects/Mobile/HaveFun/app/src/main/res/layout/fragment_notifications.xml" value="0.1" />
         <entry key="..\:/Projects/Mobile/HaveFun/app/src/main/res/menu/bottom_nav_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Projects/Mobile/HaveFun/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/drawable-v24/bd_indicator.xml" value="0.2595" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/drawable-v24/effect_shadow_noradius.xml" value="0.1195" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/drawable-v24/effect_shadow_noradius_noleft.xml" value="0.1195" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/drawable-v24/effect_shadow_noradius_orange.xml" value="0.1195" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2595" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/drawable/bg_home_rounded.xml" value="0.2595" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/drawable/border_home_textview.xml" value="0.1195" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/drawable/btn_bg.xml" value="0.2595" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/drawable/button_oval_bg.xml" value="0.2595" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/drawable/button_shape.xml" value="0.1195" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/drawable/custom_button.xml" value="0.1395" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/drawable/effect_shadow.xml" value="0.2595" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/drawable/empty_tall_divider.xml" value="0.1195" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/drawable/home_gradient_shape.xml" value="0.1195" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/drawable/ic_baseline_help_24.xml" value="0.2595" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2595" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.2595" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/drawable/ic_phone.xml" value="0.2595" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/drawable/item_background_button.xml" value="0.2595" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/drawable/item_background_left.xml" value="0.1" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/drawable/text_bg.xml" value="0.2595" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/layout/activity_detail_promotion.xml" value="0.25416666666666665" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/layout/activity_hotel_detail.xml" value="0.536" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/layout/activity_login.xml" value="0.4" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/layout/activity_main.xml" value="0.4" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/layout/activity_register.xml" value="0.27447916666666666" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/layout/activity_room_detail.xml" value="0.264" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/layout/fragment_home.xml" value="0.4" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/layout/fragment_photo.xml" value="0.25416666666666665" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/layout/fragment_profile.xml" value="0.25416666666666665" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/layout/fragment_promotion.xml" value="0.25416666666666665" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/layout/home_large_card.xml" value="0.27447916666666666" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/layout/home_promotion_card.xml" value="0.25416666666666665" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/layout/home_small_card.xml" value="0.25416666666666665" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/layout/voucher_item.xml" value="0.27447916666666666" />
-        <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/nvtru/Downloads/Project/havefun_mobile_java/app/src/main/res/drawable/btn_bg.xml" value="0.248" />
         <entry key="..\:/Users/nvtru/Downloads/Project/havefun_mobile_java/app/src/main/res/drawable/text_bg.xml" value="0.248" />
         <entry key="..\:/Users/nvtru/Downloads/Project/havefun_mobile_java/app/src/main/res/layout/activity_detail_promotion.xml" value="0.18385416666666668" />
@@ -64,6 +28,29 @@
         <entry key="..\:/Users/nvtru/Downloads/Project/havefun_mobile_java/app/src/main/res/layout/home_small_card.xml" value="0.18385416666666668" />
         <entry key="..\:/Users/nvtru/Downloads/Project/havefun_mobile_java/app/src/main/res/layout/voucher_item.xml" value="0.18385416666666668" />
         <entry key="..\:/Users/nvtru/Downloads/Project/havefun_mobile_java/app/src/main/res/menu/bottom_nav_menu.xml" value="0.33" />
+        <entry key="app/src/main/res/drawable-v24/effect_shadow_noleft.xml" value="0.239" />
+        <entry key="app/src/main/res/drawable/border_hotel_thumb.xml" value="0.239" />
+        <entry key="app/src/main/res/drawable/circle_location_thumb.xml" value="0.239" />
+        <entry key="app/src/main/res/drawable/effect_shadow_2.xml" value="0.239" />
+        <entry key="app/src/main/res/drawable/effect_shadow_only_right.xml" value="0.239" />
+        <entry key="app/src/main/res/layout/activity_detail_promotion.xml" value="0.1887031408308004" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.3880208333333333" />
+        <entry key="app/src/main/res/layout/activity_search.xml" value="0.39021962483723954" />
+        <entry key="app/src/main/res/layout/activity_search2.xml" value="0.2078125" />
+        <entry key="app/src/main/res/layout/activity_search_result.xml" value="0.3880208333333333" />
+        <entry key="app/src/main/res/layout/display_search_result.xml" value="0.3880208333333333" />
+        <entry key="app/src/main/res/layout/filter_hotel.xml" value="0.3880208333333333" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3880208333333333" />
+        <entry key="app/src/main/res/layout/fragment_hotel_item.xml" value="0.37216914533132534" />
+        <entry key="app/src/main/res/layout/fragment_location.xml" value="0.3880208333333333" />
+        <entry key="app/src/main/res/layout/fragment_photo.xml" value="0.3880208333333333" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.37395833333333334" />
+        <entry key="app/src/main/res/layout/fragment_promotion.xml" value="0.2078125" />
+        <entry key="app/src/main/res/layout/fragment_search_bar.xml" value="0.3880208333333333" />
+        <entry key="app/src/main/res/layout/home_large_card.xml" value="0.3880208333333333" />
+        <entry key="app/src/main/res/layout/home_promotion_card.xml" value="0.3880208333333333" />
+        <entry key="app/src/main/res/layout/list_hotel_by_category.xml" value="0.3880208333333333" />
+        <entry key="app/src/main/res/layout/voucher_item.xml" value="0.41053855146197443" />
       </map>
     </option>
   </component>

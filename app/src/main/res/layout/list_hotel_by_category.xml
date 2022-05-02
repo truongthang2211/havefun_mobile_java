@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/category_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="4dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/search_time_picker"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/left"></ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Theo đêm"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="18dp"></TextView>
+    </LinearLayout>
+
+    <!--    TIME PICKER-->
+    <LinearLayout
+        android:id="@+id/search_time_picker"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/effect_shadow"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/category_name"
+        app:layout_constraintBottom_toTopOf="@+id/separate_line"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="304dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="2dp"
+                android:text="Check in - Check out"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:text="Chọn thời gian"></TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#CABBBBBB"></LinearLayout>
+
+<!--        FILTER BUTTON-->
+        <LinearLayout
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/filter_icon"></ImageView>
+        </LinearLayout>
+    </LinearLayout>
+
+<!--    SEPARATE LINE-->
+    <LinearLayout
+        android:id="@+id/separate_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_time_picker"
+        android:background="#4A4B4E"
+        android:orientation="horizontal"></LinearLayout>
+
+<!--    LIST HOTEL-->
+    <ScrollView
+        android:id="@+id/scrollView_listHotel"
+        android:layout_width="match_parent"
+        android:layout_height="620dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/separate_line"
+        android:layout_marginTop="24dp">
+        <LinearLayout
+            android:id="@+id/li_search_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+            <include
+                layout="@layout/fragment_hotel_item"></include>
+            <include
+            layout="@layout/fragment_hotel_item"></include>
+            <include
+                layout="@layout/fragment_hotel_item"></include>
+            <include
+                layout="@layout/fragment_hotel_item"></include>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
