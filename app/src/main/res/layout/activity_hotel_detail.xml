@@ -238,7 +238,7 @@
             android:id="@+id/detailhotel_contrain_roomitem"
             android:layout_width="380dp"
             android:layout_height="280dp"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="4dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/text_bg"
             app:layout_constraintStart_toStartOf="@id/divider2"
@@ -261,12 +261,13 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView7"
                 tools:ignore="HardcodedText,SmallSp,TextContrastCheck" />
 
-            <ImageView
+            <com.makeramen.roundedimageview.RoundedImageView
                 android:id="@+id/imageView"
-                android:layout_width="400dp"
+                android:layout_width="match_parent"
                 android:layout_height="148dp"
-                android:layout_marginStart="5dp"
+                android:layout_marginStart="0dp"
                 android:layout_marginTop="16dp"
+                android:scaleType="centerCrop"
                 android:src="@drawable/standard"
                 app:layout_constraintStart_toStartOf="@id/detailhotel_contrain_roomitem"
                 app:layout_constraintTop_toTopOf="@id/constraintLayout"
@@ -370,7 +371,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="380dp"
             android:layout_height="280dp"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="4dp"
             android:layout_marginTop="320dp"
             android:background="@drawable/text_bg"
             app:layout_constraintStart_toStartOf="@id/detailhotel_contrain_roomitem"
@@ -379,9 +380,10 @@
 
             <ImageView
                 android:id="@+id/imageView1"
-                android:layout_width="420dp"
+                android:layout_width="match_parent"
                 android:layout_height="127dp"
-                android:layout_marginStart="52dp"
+                android:scaleType="centerCrop"
+                android:layout_marginStart="0dp"
                 android:src="@drawable/victory2"
                 app:layout_constraintStart_toStartOf="@id/imageView"
                 app:layout_constraintTop_toTopOf="parent"
