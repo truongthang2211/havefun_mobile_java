@@ -82,12 +82,12 @@ public class HomeFragment extends Fragment {
 
     private void loadCard() {
         modelArrayList = new ArrayList<>();
-        Hotel test1 = new Hotel("Khách sạn ma ám 1","Nghĩa trang","Giảm ngay","Qua đêm",69000,50000,1,1,R.drawable.home_hotel1);
-        Hotel test2 = new Hotel("Khách sạn ma ám 2","Nghĩa trang","Giảm ngay","Qua đêm",69000,50000,1,1,R.drawable.home_hotel2);
-        Hotel test3 = new Hotel("Khách sạn ma ám 3","Nghĩa trang","Giảm ngay","Qua đêm",69000,50000,1,1,R.drawable.home_hotel3);
-        modelArrayList.add(test1);
-        modelArrayList.add(test2);
-        modelArrayList.add(test3);
+//        Hotel test1 = new Hotel("Khách sạn ma ám 1","Nghĩa trang","Giảm ngay","Qua đêm",69000,50000,1,1,R.drawable.home_hotel1);
+//        Hotel test2 = new Hotel("Khách sạn ma ám 2","Nghĩa trang","Giảm ngay","Qua đêm",69000,50000,1,1,R.drawable.home_hotel2);
+//        Hotel test3 = new Hotel("Khách sạn ma ám 3","Nghĩa trang","Giảm ngay","Qua đêm",69000,50000,1,1,R.drawable.home_hotel3);
+//        modelArrayList.add(test1);
+//        modelArrayList.add(test2);
+//        modelArrayList.add(test3);
 
         LayoutInflater inflater = LayoutInflater.from(this.context);
         for (Hotel item : modelArrayList) {
@@ -95,12 +95,12 @@ public class HomeFragment extends Fragment {
             View view2  = inflater.inflate(R.layout.home_small_card, linearTopHotel, false);
             View view3  = inflater.inflate(R.layout.home_normal_card, linearTopHotel, false);
             // set item content in view
-            SetSmallCard(view,item);
-            SetSmallCard(view2,item);
-            SetNormalCard(view3,item);
-            linearHotHotel.addView(view);
-            linearTopHotel.addView(view2);
-            linearMoreHotel.addView(view3);
+//            SetSmallCard(view,item);
+//            SetSmallCard(view2,item);
+//            SetNormalCard(view3,item);
+//            linearHotHotel.addView(view);
+//            linearTopHotel.addView(view2);
+//            linearMoreHotel.addView(view3);
         }
 
         hotDealAdapter = new HotDealSildeAdapter(this.context,modelArrayList);
@@ -122,32 +122,32 @@ public class HomeFragment extends Fragment {
 //        HotHotel_viewpager.setOffscreenPageLimit(5);
 //        HotHotel_viewpager.setUserInputEnabled(false);
     }
-    private void SetSmallCard(View view,Hotel item){
-        TextView title = view.findViewById(R.id.home_smallcard_name);
-        TextView TvRate = (TextView) view.findViewById(R.id.home_smallcard_rate);
-        TextView TvNumRate = (TextView) view.findViewById(R.id.home_smallcard_numrate);
-        ImageView IvImg = (ImageView) view.findViewById(R.id.home_smallcard_img);
-
-        title.setText(item.getName());
-        TvRate.setText(String.valueOf(item.getRate()));
-        TvNumRate.setText(String.valueOf(item.getNum_rate()));
-        IvImg.setImageResource(item.getImage());
-    }
-    private void SetNormalCard(View view,Hotel item){
-        TextView title = view.findViewById(R.id.home_norcard_name);
-        TextView TvRate = (TextView) view.findViewById(R.id.home_norcard_rate);
-        TextView TvNumRate = (TextView) view.findViewById(R.id.home_normal_numrate);
-        ImageView IvImg = (ImageView) view.findViewById(R.id.home_norcard_img);
-        TextView TvPrice = (TextView)view.findViewById(R.id.home_norcard_price);
-        TextView TvPromotion = (TextView)view.findViewById(R.id.home_norcard_promotion);
-
-        title.setText(item.getName());
-        TvRate.setText(String.valueOf(item.getRate()));
-        TvNumRate.setText(String.valueOf(item.getNum_rate()));
-        IvImg.setImageResource(item.getImage());
-        TvPrice.setText(String.valueOf(item.getPrice()));
-        TvPromotion.setText(item.getPromotion());
-    }
+//    private void SetSmallCard(View view,Hotel item){
+//        TextView title = view.findViewById(R.id.home_smallcard_name);
+//        TextView TvRate = (TextView) view.findViewById(R.id.home_smallcard_rate);
+//        TextView TvNumRate = (TextView) view.findViewById(R.id.home_smallcard_numrate);
+//        ImageView IvImg = (ImageView) view.findViewById(R.id.home_smallcard_img);
+//
+//        title.setText(item.getName());
+//        TvRate.setText(String.valueOf(item.getRate()));
+//        TvNumRate.setText(String.valueOf(item.getNum_rate()));
+//        IvImg.setImageResource(item.getImage());
+//    }
+//    private void SetNormalCard(View view,Hotel item){
+//        TextView title = view.findViewById(R.id.home_norcard_name);
+//        TextView TvRate = (TextView) view.findViewById(R.id.home_norcard_rate);
+//        TextView TvNumRate = (TextView) view.findViewById(R.id.home_normal_numrate);
+//        ImageView IvImg = (ImageView) view.findViewById(R.id.home_norcard_img);
+//        TextView TvPrice = (TextView)view.findViewById(R.id.home_norcard_price);
+//        TextView TvPromotion = (TextView)view.findViewById(R.id.home_norcard_promotion);
+//
+//        title.setText(item.getName());
+//        TvRate.setText(String.valueOf(item.getRate()));
+//        TvNumRate.setText(String.valueOf(item.getNum_rate()));
+//        IvImg.setImageResource(item.getImage());
+//        TvPrice.setText(String.valueOf(item.getPrice()));
+//        TvPromotion.setText(item.getPromotion());
+//    }
     private void ProcessViewPager(ViewPager2 viewPager2,boolean showNext){
         viewPager2.setClipToPadding(false);
         viewPager2.setClipChildren(false);

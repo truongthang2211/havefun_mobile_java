@@ -1,40 +1,25 @@
 package com.example.havefun.models;
 
+import java.time.LocalDateTime;
+
 public class Hotel {
-    String name, location, promotion,timePromotion;
-    double price, discount, rate, num_rate;
-    int image;
-
-    public Hotel(String name, String location, String promotion, String timePromotion, double price, double discount, double rate, double num_rate, int image) {
-        this.name = name;
-        this.location = location;
-        this.promotion = promotion;
-        this.timePromotion = timePromotion;
-        this.price = price;
-        this.discount = discount;
-        this.rate = rate;
-        this.num_rate = num_rate;
-        this.image = image;
-    }
-
-    public String getTimePromotion() {
-        return timePromotion;
-    }
-
-    public void setTimePromotion(String timePromotion) {
-        this.timePromotion = timePromotion;
-    }
+    String id,name,description;
+    String [] imgs;
+    Rating[] ratings;
+    Room[] rooms;
+    Promotion[] promotions;
+    LocalDateTime created_at;
+    Location location;
 
     public Hotel() {
-
     }
 
-    public String getPromotion() {
-        return promotion;
+    public String getId() {
+        return id;
     }
 
-    public void setPromotion(String promotion) {
-        this.promotion = promotion;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -45,51 +30,71 @@ public class Hotel {
         this.name = name;
     }
 
-    public String getLocation() {
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String[] getImgs() {
+        return imgs;
+    }
+
+    public void setImgs(String[] imgs) {
+        this.imgs = imgs;
+    }
+
+    public Rating[] getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(Rating[] ratings) {
+        this.ratings = ratings;
+    }
+
+    public Room[] getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(Room[] rooms) {
+        this.rooms = rooms;
+    }
+
+    public Promotion[] getPromotions() {
+        return promotions;
+    }
+
+    public void setPromotions(Promotion[] promotions) {
+        this.promotions = promotions;
+    }
+
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
+
+    public Location getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(Location location) {
         this.location = location;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public double getDiscount() {
-        return discount;
-    }
-
-    public void setDiscount(double discount) {
-        this.discount = discount;
-    }
-
-    public double getRate() {
-        return rate;
-    }
-
-    public void setRate(double rate) {
-        this.rate = rate;
-    }
-
-    public double getNum_rate() {
-        return num_rate;
-    }
-
-    public void setNum_rate(double num_rate) {
-        this.num_rate = num_rate;
-    }
-
-    public int getImage() {
-        return image;
-    }
-
-    public void setImage(int image) {
-        this.image = image;
+    public Hotel(String id, String name, String description, String[] imgs, Rating[] ratings, Room[] rooms, Promotion[] promotions, LocalDateTime created_at, Location location) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.imgs = imgs;
+        this.ratings = ratings;
+        this.rooms = rooms;
+        this.promotions = promotions;
+        this.created_at = created_at;
+        this.location = location;
     }
 }
