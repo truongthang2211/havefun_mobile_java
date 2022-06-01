@@ -20,7 +20,7 @@
             android:id="@+id/home_norcard_img"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="fitXY" />
+            android:scaleType="centerCrop" />
     </com.google.android.material.card.MaterialCardView>
 
     <TextView
@@ -33,7 +33,7 @@
         android:paddingTop="2dp"
         android:paddingRight="8dp"
         android:paddingBottom="2dp"
-        android:text="Nổi bật"
+        android:text="Mới"
         android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/home_norcard_card"
@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text=""
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/home_norcard_card"
         app:layout_constraintTop_toBottomOf="@+id/home_norcard_tv_hot" />
@@ -62,7 +62,7 @@
         android:paddingTop="2dp"
         android:paddingRight="8dp"
         android:paddingBottom="2dp"
-        android:text="TextView"
+        android:text=""
         android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/home_norcard_card" />
@@ -73,7 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginBottom="8dp"
-        android:text="TextView"
+        android:text=""
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/home_norcard_promotion"
@@ -99,7 +99,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
-        android:text="TextView"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/home_norcard_imgbtn_rate" />
 
@@ -109,7 +109,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
-        android:text="TextView"
+        android:text=""
+        android:textStyle="bold"
         android:textColor="@color/lightBlack"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/home_normal_numrate" />

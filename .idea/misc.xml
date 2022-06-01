@@ -7,7 +7,13 @@
         <entry key="..\:/Projects/Mobile/HaveFun/app/src/main/res/layout/activity_list_voucher.xml" value="0.1" />
         <entry key="..\:/Projects/Mobile/HaveFun/app/src/main/res/layout/activity_main.xml" value="0.30117753623188404" />
         <entry key="..\:/Projects/Mobile/HaveFun/app/src/main/res/layout/fragment_dashboard.xml" value="0.30117753623188404" />
+        <entry key="..\:/Projects/Mobile/HaveFun/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Projects/Mobile/HaveFun/app/src/main/res/layout/fragment_notifications.xml" value="0.1" />
+        <entry key="..\:/Projects/Mobile/HaveFun/app/src/main/res/layout/home_large_card.xml" value="0.67" />
+        <entry key="..\:/Projects/Mobile/HaveFun/app/src/main/res/layout/home_normal_card.xml" value="0.67" />
+        <entry key="..\:/Projects/Mobile/HaveFun/app/src/main/res/layout/home_promotion_card.xml" value="0.36666666666666664" />
+        <entry key="..\:/Projects/Mobile/HaveFun/app/src/main/res/layout/home_small_card.xml" value="0.67" />
+        <entry key="..\:/Projects/Mobile/HaveFun/app/src/main/res/layout/voucher_item.xml" value="0.36666666666666664" />
         <entry key="..\:/Projects/Mobile/HaveFun/app/src/main/res/menu/bottom_nav_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Projects/Mobile/HaveFun/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14" />
         <entry key="..\:/UIT/TH MON HK6/MobileApp/ProjectFinal/havefun_mobile_java/app/src/main/res/drawable-v24/bd_indicator.xml" value="0.2595" />

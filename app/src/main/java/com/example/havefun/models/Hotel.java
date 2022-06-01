@@ -11,7 +11,16 @@ public class Hotel {
 
     public Hotel() {
     }
-
+    public float getAvgStar(){
+        float sum = 0;
+        if (ratings==null){
+            return 0;
+        }
+        for (int i = 0;i<ratings.length;i++){
+            sum+= ratings[i].start;
+        }
+        return ratings.length!=0?sum/ratings.length:0;
+    }
     public String getId() {
         return id;
     }

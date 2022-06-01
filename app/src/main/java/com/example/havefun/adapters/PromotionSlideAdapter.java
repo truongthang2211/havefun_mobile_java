@@ -9,11 +9,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.havefun.R;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 public class PromotionSlideAdapter extends RecyclerView.Adapter<PromotionSlideAdapter.ViewHolder> {
-    int[] promotion_imgs;
+    ArrayList<String> promotion_imgs;
 
-    public PromotionSlideAdapter(int[] promotion_imgs) {
+    public PromotionSlideAdapter(ArrayList<String> promotion_imgs) {
         this.promotion_imgs = promotion_imgs;
     }
 
@@ -26,12 +29,14 @@ public class PromotionSlideAdapter extends RecyclerView.Adapter<PromotionSlideAd
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.promotion_imv.setBackgroundResource(promotion_imgs[position]);
+//        holder.promotion_imv.setBackgroundResource(promotion_imgs[position]);
+        Picasso.get().load(promotion_imgs.get(position)).into( holder.promotion_imv);
+
     }
 
     @Override
     public int getItemCount() {
-        return promotion_imgs.length;
+        return promotion_imgs.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

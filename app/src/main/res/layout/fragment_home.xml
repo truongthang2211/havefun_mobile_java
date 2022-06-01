@@ -219,11 +219,11 @@
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/bg_home_rounded"
                     android:paddingLeft="12dp"
-                    android:textColor="@color/white"
                     android:paddingTop="2dp"
                     android:paddingRight="12dp"
                     android:paddingBottom="2dp"
-                    android:text="1/3" />
+                    android:text="1/3"
+                    android:textColor="@color/white" />
             </RelativeLayout>
 
 
@@ -319,7 +319,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="KHÁCH SẠN NỔI BẬT"
+                    android:text="KHÁCH SẠN MỚI"
                     android:textColor="@color/grey"
                     android:textColorLink="@color/black"
                     android:textSize="20sp"

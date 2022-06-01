@@ -1,5 +1,12 @@
 package com.example.havefun.models;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+
 public class Promotion {
     String [] order_type;
     Timestamp time_start;
@@ -7,7 +14,10 @@ public class Promotion {
     Timestamp created_at;
     String name,description,hotel_id,id,img;
     float discount_ratio;
-
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public long getRemainDay(){
+        return ChronoUnit.DAYS.between(time_end.toLocalDateTime(), LocalDateTime.now());
+    }
     public Promotion() {
     }
 

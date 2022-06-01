@@ -16,7 +16,11 @@ public class Timestamp {
         this.seconds = seconds;
         this.nanoseconds = nanoseconds;
     }
-
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public LocalDateTime toLocalDateTime(){
+        Instant instant = Instant.ofEpochSecond(this.seconds,this.nanoseconds);
+        return LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
+    }
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public String toString() {

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.havefun.R;
 import com.example.havefun.models.Hotel;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -34,10 +35,10 @@ public class HomeHotHotelAdapter extends RecyclerView.Adapter<HomeHotHotelAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-//        holder.TvHotelName.setText(modelArrayList.get(position).getName());
-//        holder.TvRate.setText(String.valueOf(modelArrayList.get(position).getRate()));
-//        holder.TvNumRate.setText(String.valueOf(modelArrayList.get(position).getNum_rate()));
-//        holder.IvImg.setImageResource(modelArrayList.get(position).getImage());
+        holder.TvHotelName.setText(modelArrayList.get(position).getName());
+        holder.TvRate.setText(String.valueOf(modelArrayList.get(position).getAvgStar()));
+        holder.TvNumRate.setText(String.valueOf(modelArrayList.get(position).getRatings().length));
+        Picasso.get().load(modelArrayList.get(position).getImgs()[0]).into( holder.IvImg);
     }
 
     @Override

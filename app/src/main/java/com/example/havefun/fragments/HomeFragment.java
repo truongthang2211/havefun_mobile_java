@@ -1,7 +1,9 @@
 package com.example.havefun.fragments;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,16 +21,32 @@ import androidx.viewpager2.widget.CompositePageTransformer;
 import androidx.viewpager2.widget.MarginPageTransformer;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.havefun.R;
 import com.example.havefun.adapters.HomeHotHotelAdapter;
 import com.example.havefun.adapters.HotDealSildeAdapter;
 import com.example.havefun.adapters.PromotionSlideAdapter;
 import com.example.havefun.databinding.FragmentHomeBinding;
 import com.example.havefun.models.Hotel;
+import com.example.havefun.models.Promotion;
+import com.example.havefun.utils.MySingleton;
 import com.example.havefun.viewmodels.HomeViewModel;
+import com.google.gson.Gson;
+import com.squareup.picasso.Picasso;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.NumberFormat;
 import java.util.ArrayList;
-
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Locale;
 public class HomeFragment extends Fragment {
     private ViewPager2 Promotion_viewpager;
     private ViewPager2 HotDeal_viewpager;
@@ -42,7 +61,8 @@ public class HomeFragment extends Fragment {
     private LinearLayout linearMoreHotel;
     private FragmentHomeBinding binding;
     private Context context;
-    int[] promotion_imgs = {R.drawable.home_promotion1,R.drawable.home_promotion2,R.drawable.home_promotion3};
+    ArrayList<String> promotion_imgs ;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         this.context = container.getContext();
@@ -66,9 +86,9 @@ public class HomeFragment extends Fragment {
         Promotion_viewpager = (ViewPager2) getView().findViewById(R.id.home_viewpager_promotion);
         Special_viewpager = (ViewPager2) getView().findViewById(R.id.home_viewpager_specialpromo);
 
-        linearHotHotel=getView().findViewById(R.id.home_linear_hothotel);
-        linearTopHotel=getView().findViewById(R.id.home_linear_toprate);
-        linearMoreHotel=getView().findViewById(R.id.home_linear_morehotel);
+        linearHotHotel = getView().findViewById(R.id.home_linear_hothotel);
+        linearTopHotel = getView().findViewById(R.id.home_linear_toprate);
+        linearMoreHotel = getView().findViewById(R.id.home_linear_morehotel);
 
 
         loadCard();
@@ -81,102 +101,199 @@ public class HomeFragment extends Fragment {
     }
 
     private void loadCard() {
-        modelArrayList = new ArrayList<>();
-//        Hotel test1 = new Hotel("Khách sạn ma ám 1","Nghĩa trang","Giảm ngay","Qua đêm",69000,50000,1,1,R.drawable.home_hotel1);
-//        Hotel test2 = new Hotel("Khách sạn ma ám 2","Nghĩa trang","Giảm ngay","Qua đêm",69000,50000,1,1,R.drawable.home_hotel2);
-//        Hotel test3 = new Hotel("Khách sạn ma ám 3","Nghĩa trang","Giảm ngay","Qua đêm",69000,50000,1,1,R.drawable.home_hotel3);
-//        modelArrayList.add(test1);
-//        modelArrayList.add(test2);
-//        modelArrayList.add(test3);
+        String ServerURL = getString(R.string.server_address);
+        String HotelURL = ServerURL + "/api/hotels";
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, HotelURL, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    int status = response.getInt("status");
 
-        LayoutInflater inflater = LayoutInflater.from(this.context);
-        for (Hotel item : modelArrayList) {
-            View view  = inflater.inflate(R.layout.home_small_card, linearHotHotel, false);
-            View view2  = inflater.inflate(R.layout.home_small_card, linearTopHotel, false);
-            View view3  = inflater.inflate(R.layout.home_normal_card, linearTopHotel, false);
-            // set item content in view
-//            SetSmallCard(view,item);
-//            SetSmallCard(view2,item);
-//            SetNormalCard(view3,item);
-//            linearHotHotel.addView(view);
-//            linearTopHotel.addView(view2);
-//            linearMoreHotel.addView(view3);
-        }
+                    if (status == 200) {
+                        modelArrayList = new ArrayList<>();
+                        JSONArray hotels = response.getJSONArray("data");
+                        for (int i = 0; i < hotels.length(); ++i) {
+                            Hotel hotel = new Gson().fromJson(hotels.getJSONObject(i).toString(), Hotel.class);
+                            modelArrayList.add(hotel);
+                        }
+                        LayoutInflater inflater = LayoutInflater.from(context);
+                        Collections.sort(modelArrayList, new Comparator<Hotel>() {
+                            @RequiresApi(api = Build.VERSION_CODES.O)
+                            @Override
+                            public int compare(Hotel lhs, Hotel rhs) {
+                                // -1 - less than, 1 - greater than, 0 - equal, all inversed for descending
+                                return lhs.getCreated_at().toLocalDateTime().isBefore(rhs.getCreated_at().toLocalDateTime()) ? 1 : lhs.getCreated_at().toLocalDateTime().isEqual(rhs.getCreated_at().toLocalDateTime()) ? 0 : -1;
+                            }
+                        });
+                        for (Hotel item : modelArrayList) {
+                            View view = inflater.inflate(R.layout.home_small_card, linearHotHotel, false);
+                            View view3 = inflater.inflate(R.layout.home_normal_card, linearTopHotel, false);
+                            // set item content in view
+                            SetSmallCard(view, item);
+                            SetNormalCard(view3, item);
+                            linearHotHotel.addView(view);
+                            linearMoreHotel.addView(view3);
+                        }
+                        Collections.sort(modelArrayList, new Comparator<Hotel>() {
+                            @RequiresApi(api = Build.VERSION_CODES.O)
+                            @Override
+                            public int compare(Hotel a, Hotel b) {
+                                // -1 - less than, 1 - greater than, 0 - equal, all inversed for descending
+                                return a.getAvgStar()>b.getAvgStar()?-1 : a.getAvgStar()<b.getAvgStar()?1:0;
+                            }
+                        });
+                        for (Hotel item : modelArrayList) {
+                            View view2 = inflater.inflate(R.layout.home_small_card, linearTopHotel, false);
+                            // set item content in view
+                            SetSmallCard(view2, item);
+                            linearTopHotel.addView(view2);
+                        }
 
-        hotDealAdapter = new HotDealSildeAdapter(this.context,modelArrayList);
-        HotDeal_viewpager.setAdapter(hotDealAdapter);
+                        ArrayList<Hotel> hotedeal_thisnight = new ArrayList<>();
+                        for (Hotel i : modelArrayList){
+                            Promotion iPromotes[] = i.getPromotions();
+                            for (Promotion p : iPromotes){
+                                for (String t : p.getOrder_type()){
+                                    if (t.equals("overnight")){
+                                        hotedeal_thisnight.add(i);
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        hotDealAdapter = new HotDealSildeAdapter(context, hotedeal_thisnight,true);
+                        HotDeal_viewpager.setAdapter(hotDealAdapter);
 
-        specialAdapter=new HotDealSildeAdapter(this.context,modelArrayList);
-        Special_viewpager.setAdapter(specialAdapter);
+                        specialAdapter = new HotDealSildeAdapter(context, modelArrayList,false);
+                        Special_viewpager.setAdapter(specialAdapter);
 
-        promotionAdapter = new PromotionSlideAdapter(promotion_imgs);
-        Promotion_viewpager.setAdapter(promotionAdapter);
 
-        hotHotelAdapter = new HomeHotHotelAdapter(this.context,modelArrayList);
-//        HotHotel_viewpager.setAdapter(hotHotelAdapter);
 
-        ProcessViewPager(Promotion_viewpager,false);
-        ProcessViewPager(HotDeal_viewpager,true);
-        ProcessViewPager(Special_viewpager,true);
+                        hotHotelAdapter = new HomeHotHotelAdapter(context, modelArrayList);
+
+
+                        ProcessViewPager(HotDeal_viewpager, true);
+                        ProcessViewPager(Special_viewpager, true);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // TODO: Handle error
+                Log.i("api", error.toString());
+            }
+        });
+        String promotionURL = ServerURL + "/api/promotions";
+        JsonObjectRequest request2 = new JsonObjectRequest(Request.Method.GET, promotionURL, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    int status = response.getInt("status");
+                    promotion_imgs = new ArrayList<>();
+                    JSONArray promotionsJS = response.getJSONArray("data");
+                    for (int i = 0; i < promotionsJS.length(); ++i) {
+                        Promotion promotion = new Gson().fromJson(promotionsJS.getJSONObject(i).toString(), Promotion.class);
+                        promotion_imgs.add(promotion.getImg());
+                    }
+                    TextView promotion_pos = getView().findViewById(R.id.home_tv_slidepos);
+                    promotion_pos.setText(1 + "/"+promotion_imgs.size());
+
+                    promotionAdapter = new PromotionSlideAdapter(promotion_imgs);
+                    Promotion_viewpager.setAdapter(promotionAdapter);
+                    ProcessViewPager(Promotion_viewpager, false);
+                    Promotion_viewpager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback(){
+                        @Override
+                        public void onPageScrollStateChanged(int state) {
+                            super.onPageScrollStateChanged(state);
+                            promotion_pos.setText(state+1 + "/"+promotion_imgs.size());
+                        }
+                    });
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // TODO: Handle error
+                Log.i("api", error.toString());
+            }
+        });
+        MySingleton.getInstance(this.context).addToRequestQueue(request);
+        MySingleton.getInstance(this.context).addToRequestQueue(request2);
+
+
 //        ProcessViewPager(HotHotel_viewpager,true);
 //        HotHotel_viewpager.setOffscreenPageLimit(5);
 //        HotHotel_viewpager.setUserInputEnabled(false);
     }
-//    private void SetSmallCard(View view,Hotel item){
-//        TextView title = view.findViewById(R.id.home_smallcard_name);
-//        TextView TvRate = (TextView) view.findViewById(R.id.home_smallcard_rate);
-//        TextView TvNumRate = (TextView) view.findViewById(R.id.home_smallcard_numrate);
-//        ImageView IvImg = (ImageView) view.findViewById(R.id.home_smallcard_img);
-//
-//        title.setText(item.getName());
-//        TvRate.setText(String.valueOf(item.getRate()));
-//        TvNumRate.setText(String.valueOf(item.getNum_rate()));
-//        IvImg.setImageResource(item.getImage());
-//    }
-//    private void SetNormalCard(View view,Hotel item){
-//        TextView title = view.findViewById(R.id.home_norcard_name);
-//        TextView TvRate = (TextView) view.findViewById(R.id.home_norcard_rate);
-//        TextView TvNumRate = (TextView) view.findViewById(R.id.home_normal_numrate);
-//        ImageView IvImg = (ImageView) view.findViewById(R.id.home_norcard_img);
-//        TextView TvPrice = (TextView)view.findViewById(R.id.home_norcard_price);
-//        TextView TvPromotion = (TextView)view.findViewById(R.id.home_norcard_promotion);
-//
-//        title.setText(item.getName());
-//        TvRate.setText(String.valueOf(item.getRate()));
-//        TvNumRate.setText(String.valueOf(item.getNum_rate()));
-//        IvImg.setImageResource(item.getImage());
-//        TvPrice.setText(String.valueOf(item.getPrice()));
-//        TvPromotion.setText(item.getPromotion());
-//    }
-    private void ProcessViewPager(ViewPager2 viewPager2,boolean showNext){
+
+    private void SetSmallCard(View view, Hotel item) {
+        TextView title = view.findViewById(R.id.home_smallcard_name);
+        TextView TvRate = (TextView) view.findViewById(R.id.home_smallcard_rate);
+        TextView TvNumRate = (TextView) view.findViewById(R.id.home_smallcard_numrate);
+        ImageView IvImg = (ImageView) view.findViewById(R.id.home_smallcard_img);
+
+        title.setText(item.getName());
+        if (item.getRatings() != null){
+            TvNumRate.setText(String.valueOf(item.getRatings().length));
+            TvRate.setText(String.valueOf(item.getAvgStar()));
+
+        }
+        Picasso.get().load(item.getImgs()[0]).into(IvImg);
+    }
+
+    private void SetNormalCard(View view, Hotel item) {
+        TextView title = view.findViewById(R.id.home_norcard_name);
+        TextView TvRate = (TextView) view.findViewById(R.id.home_norcard_rate);
+        TextView TvNumRate = (TextView) view.findViewById(R.id.home_normal_numrate);
+        ImageView IvImg = (ImageView) view.findViewById(R.id.home_norcard_img);
+        TextView TvPrice = (TextView) view.findViewById(R.id.home_norcard_price);
+        TextView TvPromotion = (TextView) view.findViewById(R.id.home_norcard_promotion);
+
+        title.setText(item.getName());
+        TvPromotion.setVisibility(View.INVISIBLE);
+        if (item.getRatings()!=null){
+            TvNumRate.setText(String.valueOf(item.getRatings().length));
+            TvRate.setText(String.valueOf(item.getAvgStar()));
+        }
+        Picasso.get().load(item.getImgs()[0]).into(IvImg);
+        NumberFormat currencyFormatter = NumberFormat.getInstance(new Locale("en", "EN"));
+        TvPrice.setText(currencyFormatter.format(item.getRooms()[0].getHour_price())+" đ");
+        if (item.getPromotions().length>0){
+            TvPromotion.setVisibility(View.VISIBLE);
+            TvPromotion.setText(String.valueOf(currencyFormatter.format(item.getPromotions()[0].getDiscount_ratio() * 100)) + "%");
+        }
+    }
+
+    private void ProcessViewPager(ViewPager2 viewPager2, boolean showNext) {
         viewPager2.setClipToPadding(false);
         viewPager2.setClipChildren(false);
         viewPager2.setOffscreenPageLimit(1);
         int pageMarginPx = getResources().getDimensionPixelOffset(R.dimen.card_margin);
         CompositePageTransformer transformer = new CompositePageTransformer();
-        if (showNext){
-
+        if (showNext) {
             int peekMarginPx = getResources().getDimensionPixelOffset(R.dimen.peek_offset_margin);
-
-
-
             RecyclerView rv = (RecyclerView) viewPager2.getChildAt(0);
             rv.setClipToPadding(false);
             int padding = peekMarginPx + pageMarginPx;
             rv.setPadding(0, 0, padding, 0);
             transformer.addTransformer(new MarginPageTransformer(pageMarginPx));
-
-
         }
-
         transformer.addTransformer(new ViewPager2.PageTransformer() {
             @Override
             public void transformPage(@NonNull View page, float position) {
-                float v = 1 -Math.abs(position);
-                page.setScaleY(0.8f + v*0.2f);
+                float v = 1 - Math.abs(position);
+                page.setScaleY(0.8f + v * 0.2f);
             }
         });
         viewPager2.setPageTransformer(transformer);
-
     }
 }
