@@ -1,14 +1,12 @@
 package com.example.havefun.models;
 
-import java.time.LocalDateTime;
-
 public class Hotel {
     String id,name,description;
     String [] imgs;
     Rating[] ratings;
     Room[] rooms;
     Promotion[] promotions;
-    LocalDateTime created_at;
+    Timestamp created_at;
     Location location;
 
     public Hotel() {
@@ -70,11 +68,11 @@ public class Hotel {
         this.promotions = promotions;
     }
 
-    public LocalDateTime getCreated_at() {
+    public Timestamp getCreated_at() {
         return created_at;
     }
 
-    public void setCreated_at(LocalDateTime created_at) {
+    public void setCreated_at(Timestamp created_at) {
         this.created_at = created_at;
     }
 
@@ -86,7 +84,7 @@ public class Hotel {
         this.location = location;
     }
 
-    public Hotel(String id, String name, String description, String[] imgs, Rating[] ratings, Room[] rooms, Promotion[] promotions, LocalDateTime created_at, Location location) {
+    public Hotel(String id, String name, String description, String[] imgs, Rating[] ratings, Room[] rooms, Promotion[] promotions, Timestamp created_at, Location location) {
         this.id = id;
         this.name = name;
         this.description = description;

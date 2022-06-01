@@ -1,17 +1,15 @@
 package com.example.havefun.models;
 
-import java.time.LocalDateTime;
-
 public class Rating {
     String comment;
     float start;
     User user;
-    LocalDateTime created_at;
+    Timestamp created_at;
 
     public Rating() {
     }
 
-    public Rating(String comment, float start, User user, LocalDateTime created_at) {
+    public Rating(String comment, float start, User user, Timestamp created_at) {
         this.comment = comment;
         this.start = start;
         this.user = user;
@@ -42,11 +40,11 @@ public class Rating {
         this.user = user;
     }
 
-    public LocalDateTime getCreated_at() {
+    public Timestamp getCreated_at() {
         return created_at;
     }
 
-    public void setCreated_at(LocalDateTime created_at) {
+    public void setCreated_at(Timestamp created_at) {
         this.created_at = created_at;
     }
 }

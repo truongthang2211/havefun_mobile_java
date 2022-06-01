@@ -1,16 +1,27 @@
 package com.example.havefun.models;
 
-import java.time.LocalDateTime;
-
 public class Room {
     String id,room_id,description,name,room_type;
     Facility facilities;
     float hour_price_bonus,overnight_price,daily_price,hour_price;
     String [] imgs;
-    RoomCondition room_condition;
-    LocalDateTime created_at;
+    RoomCondition room_conditions;
+    Timestamp created_at;
 
-    public Room() {
+    public Room(String id, String room_id, String description, String name, String room_type, Facility facilities, float hour_price_bonus, float overnight_price, float daily_price, float hour_price, String[] imgs, RoomCondition room_conditions, Timestamp created_at) {
+        this.id = id;
+        this.room_id = room_id;
+        this.description = description;
+        this.name = name;
+        this.room_type = room_type;
+        this.facilities = facilities;
+        this.hour_price_bonus = hour_price_bonus;
+        this.overnight_price = overnight_price;
+        this.daily_price = daily_price;
+        this.hour_price = hour_price;
+        this.imgs = imgs;
+        this.room_conditions = room_conditions;
+        this.created_at = created_at;
     }
 
     public String getId() {
@@ -101,19 +112,22 @@ public class Room {
         this.imgs = imgs;
     }
 
-    public RoomCondition getRoom_condition() {
-        return room_condition;
+    public RoomCondition getRoom_conditions() {
+        return room_conditions;
     }
 
-    public void setRoom_condition(RoomCondition room_condition) {
-        this.room_condition = room_condition;
+    public void setRoom_conditions(RoomCondition room_conditions) {
+        this.room_conditions = room_conditions;
     }
 
-    public LocalDateTime getCreated_at() {
+    public Timestamp getCreated_at() {
         return created_at;
     }
 
-    public void setCreated_at(LocalDateTime created_at) {
+    public void setCreated_at(Timestamp created_at) {
         this.created_at = created_at;
+    }
+
+    public Room() {
     }
 }

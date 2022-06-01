@@ -37,22 +37,22 @@ public class HotDealSildeAdapter extends RecyclerView.Adapter<HotDealSildeAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.TvHotelName.setText(modelArrayList.get(position).getName());
-        holder.TvPromotion.setText(modelArrayList.get(position).getPromotion());
-        holder.TvTimePromotion.setText(modelArrayList.get(position).getTimePromotion());
-        holder.TvPrice.setText(String.valueOf(modelArrayList.get(position).getPrice()));
-        holder.TvPriceDiscount.setText(String.valueOf(modelArrayList.get(position).getDiscount()));
-        holder.TvLocation.setText(modelArrayList.get(position).getLocation());
-        holder.TvRate.setText(String.valueOf(modelArrayList.get(position).getRate()));
-        holder.TvNumRate.setText(String.valueOf(modelArrayList.get(position).getNum_rate()));
-        holder.IvImg.setImageResource(modelArrayList.get(position).getImage());
-        holder.CVContainer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, HotelDetailActivity.class);
-                context.startActivity(intent);
-            }
-        });
+//        holder.TvHotelName.setText(modelArrayList.get(position).getName());
+//        holder.TvPromotion.setText(modelArrayList.get(position).getPromotion());
+//        holder.TvTimePromotion.setText(modelArrayList.get(position).getTimePromotion());
+//        holder.TvPrice.setText(String.valueOf(modelArrayList.get(position).getPrice()));
+//        holder.TvPriceDiscount.setText(String.valueOf(modelArrayList.get(position).getDiscount()));
+//        holder.TvLocation.setText(modelArrayList.get(position).getLocation());
+//        holder.TvRate.setText(String.valueOf(modelArrayList.get(position).getRate()));
+//        holder.TvNumRate.setText(String.valueOf(modelArrayList.get(position).getNum_rate()));
+//        holder.IvImg.setImageResource(modelArrayList.get(position).getImage());
+//        holder.CVContainer.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(context, HotelDetailActivity.class);
+//                context.startActivity(intent);
+//            }
+//        });
     }
 
     @Override

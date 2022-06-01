@@ -34,10 +34,10 @@ public class HomeHotHotelAdapter extends RecyclerView.Adapter<HomeHotHotelAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.TvHotelName.setText(modelArrayList.get(position).getName());
-        holder.TvRate.setText(String.valueOf(modelArrayList.get(position).getRate()));
-        holder.TvNumRate.setText(String.valueOf(modelArrayList.get(position).getNum_rate()));
-        holder.IvImg.setImageResource(modelArrayList.get(position).getImage());
+//        holder.TvHotelName.setText(modelArrayList.get(position).getName());
+//        holder.TvRate.setText(String.valueOf(modelArrayList.get(position).getRate()));
+//        holder.TvNumRate.setText(String.valueOf(modelArrayList.get(position).getNum_rate()));
+//        holder.IvImg.setImageResource(modelArrayList.get(position).getImage());
     }
 
     @Override
