@@ -33,7 +33,7 @@
         tools:ignore="MissingConstraints">
 
         <!--        BTN01-->
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <LinearLayout
             android:layout_width="116dp"
             android:layout_height="120dp"
             android:layout_margin="2dp"
@@ -48,6 +48,7 @@
                 android:src="@drawable/ticket"></ImageView>
 
             <TextView
+                android:id="@+id/promotion_numpre_Tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -67,12 +68,13 @@
                 android:textSize="12dp"></TextView>
         </LinearLayout>
         <!--        BTN02-->
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <LinearLayout
             android:layout_width="116dp"
             android:layout_height="120dp"
             android:layout_margin="2dp"
             android:background="@drawable/effect_shadow"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="invisible">
 
             <ImageView
                 android:layout_width="40dp"
@@ -101,12 +103,13 @@
                 android:textSize="12dp"></TextView>
         </LinearLayout>
         <!--        BTN03-->
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <LinearLayout
             android:layout_width="116dp"
             android:layout_height="120dp"
             android:layout_margin="2dp"
             android:background="@drawable/effect_shadow"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="invisible">
 
             <ImageView
                 android:layout_width="40dp"
@@ -148,27 +151,9 @@
 
         <!--        LIST VOUCHER LAYOUT CONTAINER-->
         <LinearLayout
+            android:id="@+id/promotion_listVoucher_Linear"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <!--        VOUCHER ITEM-->
-            <include
-                android:id="@+id/pro_item_promote_incl"
-                layout="@layout/voucher_item"></include>
-
-            <!--        VOUCHER ITEM-->
-            <include layout="@layout/voucher_item"></include>
-
-            <!--        VOUCHER ITEM-->
-            <include layout="@layout/voucher_item"></include>
-
-            <!--        VOUCHER ITEM-->
-            <include layout="@layout/voucher_item"></include>
-
-            <!--        VOUCHER ITEM-->
-            <include layout="@layout/voucher_item"></include>
-
-        </LinearLayout>
+            android:orientation="vertical"/>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
