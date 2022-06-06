@@ -1,12 +1,14 @@
 package com.example.havefun.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -26,6 +28,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.havefun.R;
+import com.example.havefun.activities.SearchActivity;
 import com.example.havefun.adapters.HomeHotHotelAdapter;
 import com.example.havefun.adapters.HotDealSildeAdapter;
 import com.example.havefun.adapters.PromotionSlideAdapter;
@@ -61,6 +64,7 @@ public class HomeFragment extends Fragment {
     private LinearLayout linearMoreHotel;
     private FragmentHomeBinding binding;
     private Context context;
+    private ImageButton search_btn;
     ArrayList<String> promotion_imgs ;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -89,6 +93,7 @@ public class HomeFragment extends Fragment {
         linearHotHotel = getView().findViewById(R.id.home_linear_hothotel);
         linearTopHotel = getView().findViewById(R.id.home_linear_toprate);
         linearMoreHotel = getView().findViewById(R.id.home_linear_morehotel);
+        search_btn=getView().findViewById(R.id.home_imgbutton_search);
 
 
         loadCard();
@@ -112,6 +117,14 @@ public class HomeFragment extends Fragment {
                     if (status == 200) {
                         modelArrayList = new ArrayList<>();
                         JSONArray hotels = response.getJSONArray("data");
+                        search_btn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(getActivity(), SearchActivity.class);
+                                intent.putExtra("listHotel",hotels.toString());
+                                startActivity(intent);
+                            }
+                        });
                         for (int i = 0; i < hotels.length(); ++i) {
                             Hotel hotel = new Gson().fromJson(hotels.getJSONObject(i).toString(), Hotel.class);
                             modelArrayList.add(hotel);
