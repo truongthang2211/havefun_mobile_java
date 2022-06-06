@@ -50,7 +50,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
         NumberFormat currencyFormatter = NumberFormat.getInstance(new Locale("en", "EN"));
         holder.name.setText(h.getName());
         holder.price.setText(currencyFormatter.format(h.getRooms()[0].getHour_price()) + " đ");
-
+        holder.location.setText(h.getLocation().getDistrict() + " - " +h.getLocation().getCity());
         if (h.getRatings() != null) {
             holder.rate.setText(currencyFormatter.format(h.getAvgStar()));
             holder.numrate.setText(String.valueOf(h.getRatings().length));
@@ -120,6 +120,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
         private TextView promotion;
         private TextView rate;
         private TextView numrate;
+        private TextView location;
         private ImageView img;
 
         public SearchViewHolder(@NonNull View itemView) {
@@ -132,6 +133,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
             numrate = itemView.findViewById(R.id.home_normal_numrate);
             discount_price = itemView.findViewById(R.id.home_price_discounted_Tv);
             img = itemView.findViewById(R.id.home_norcard_img);
+            location = itemView.findViewById(R.id.home_norcard_location);
         }
     }
 }

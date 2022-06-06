@@ -135,4 +135,13 @@
         android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/home_norcard_price"
         app:layout_constraintStart_toEndOf="@+id/home_norcard_price" />
+
+    <TextView
+        android:id="@+id/home_norcard_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/home_norcard_price"
+        app:layout_constraintStart_toEndOf="@+id/home_norcard_card"
+        app:layout_constraintTop_toBottomOf="@+id/home_norcard_name" />
 </androidx.constraintlayout.widget.ConstraintLayout>
