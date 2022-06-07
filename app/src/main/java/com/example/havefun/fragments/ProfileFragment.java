@@ -2,6 +2,7 @@ package com.example.havefun.fragments;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,6 +42,8 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         MaterialButton LogResBtn = view.findViewById(R.id.log_res_btn);
+        SharedPreferences pref = getActivity().getApplicationContext().getSharedPreferences("User", 0);
+        String name = pref.getString("userid", "No name defined");
         LogResBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
