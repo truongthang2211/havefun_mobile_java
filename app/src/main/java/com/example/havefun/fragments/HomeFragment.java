@@ -29,6 +29,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.havefun.R;
 import com.example.havefun.activities.SearchActivity;
+import com.example.havefun.activities.ShowMoreActivity;
 import com.example.havefun.adapters.HomeHotHotelAdapter;
 import com.example.havefun.adapters.HotDealSildeAdapter;
 import com.example.havefun.adapters.PromotionSlideAdapter;
@@ -67,6 +68,13 @@ public class HomeFragment extends Fragment {
     private ImageButton search_btn;
     ArrayList<String> promotion_imgs ;
 
+
+    private TextView home_tv_morehotdeal;
+    private TextView home_tv_morespecial;
+    private TextView home_tv_morehothotel;
+    private TextView home_tv_moretoprate;
+    private TextView home_tv_moremorehotel;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         this.context = container.getContext();
@@ -94,8 +102,11 @@ public class HomeFragment extends Fragment {
         linearTopHotel = getView().findViewById(R.id.home_linear_toprate);
         linearMoreHotel = getView().findViewById(R.id.home_linear_morehotel);
         search_btn=getView().findViewById(R.id.home_imgbutton_search);
-
-
+        home_tv_morehotdeal = getView().findViewById(R.id.home_tv_morehotdeal);
+        home_tv_morespecial = getView().findViewById(R.id.home_tv_morespecial);
+        home_tv_morehothotel = getView().findViewById(R.id.home_tv_morehothotel);
+        home_tv_moretoprate = getView().findViewById(R.id.home_tv_moretoprate);
+        home_tv_moremorehotel = getView().findViewById(R.id.home_tv_moremorehotel);
         loadCard();
     }
 
@@ -125,6 +136,17 @@ public class HomeFragment extends Fragment {
                                 startActivity(intent);
                             }
                         });
+                        home_tv_morehotdeal.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(getActivity(), ShowMoreActivity.class);
+                                intent.putExtra("listHotel",hotels.toString());
+                                intent.putExtra("TypeTitle","Giá sốc đêm nay");
+                                startActivity(intent);
+                            }
+                        });
+
+
                         for (int i = 0; i < hotels.length(); ++i) {
                             Hotel hotel = new Gson().fromJson(hotels.getJSONObject(i).toString(), Hotel.class);
                             modelArrayList.add(hotel);
