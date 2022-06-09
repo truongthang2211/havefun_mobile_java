@@ -145,7 +145,42 @@ public class HomeFragment extends Fragment {
                                 startActivity(intent);
                             }
                         });
-
+                        home_tv_morespecial.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(getActivity(), ShowMoreActivity.class);
+                                intent.putExtra("listHotel",hotels.toString());
+                                intent.putExtra("TypeTitle","Ưu đãi đặc biệt");
+                                startActivity(intent);
+                            }
+                        });
+                        home_tv_morehothotel.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(getActivity(), ShowMoreActivity.class);
+                                intent.putExtra("listHotel",hotels.toString());
+                                intent.putExtra("TypeTitle","Khách sạn mới");
+                                startActivity(intent);
+                            }
+                        });
+                        home_tv_moretoprate.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(getActivity(), ShowMoreActivity.class);
+                                intent.putExtra("listHotel",hotels.toString());
+                                intent.putExtra("TypeTitle","Top được bình chọn");
+                                startActivity(intent);
+                            }
+                        });
+                        home_tv_moremorehotel.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(getActivity(), ShowMoreActivity.class);
+                                intent.putExtra("listHotel",hotels.toString());
+                                intent.putExtra("TypeTitle","Khám phá thêm");
+                                startActivity(intent);
+                            }
+                        });
 
                         for (int i = 0; i < hotels.length(); ++i) {
                             Hotel hotel = new Gson().fromJson(hotels.getJSONObject(i).toString(), Hotel.class);

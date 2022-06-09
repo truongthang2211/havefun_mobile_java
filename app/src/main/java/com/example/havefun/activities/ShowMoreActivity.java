@@ -28,6 +28,7 @@ import com.google.gson.GsonBuilder;
 import com.squareup.picasso.Picasso;
 
 import java.text.NumberFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -40,7 +41,9 @@ public class ShowMoreActivity extends AppCompatActivity {
     LinearLayout ListHotelLinear;
     ImageView back;
     ImageView sort;
-    List<Hotel> listHotel ;
+    List<Hotel> listHotel;
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +69,9 @@ public class ShowMoreActivity extends AppCompatActivity {
         String hotelsStr = intent.getStringExtra("listHotel");
         TypeTitle.setText(intent.getStringExtra("TypeTitle"));
         listHotel = Arrays.asList(new GsonBuilder().create().fromJson(hotelsStr, Hotel[].class));
+        if (intent.getStringExtra("TypeTitle").equals("Khách sạn mới")){
+            listHotel.removeIf(s-> s.getCreated_at().toLocalDateTime().plusDays(60).isBefore(LocalDateTime.now()));
+        }
         ClearAndAddHotels();
     }
 
@@ -91,13 +97,13 @@ public class ShowMoreActivity extends AppCompatActivity {
                     public int compare(Hotel a, Hotel b) {
                         float a_price = a.getRooms()[0].getHour_price();
                         float b_price = b.getRooms()[0].getHour_price();
-                        if (a.getPromotions() != null && a.getPromotions().length>0){
-                            a_price *= (1-a.getPromotions()[0].getDiscount_ratio());
+                        if (a.getPromotions() != null && a.getPromotions().length > 0) {
+                            a_price *= (1 - a.getPromotions()[0].getDiscount_ratio());
                         }
-                        if (b.getPromotions() != null && b.getPromotions().length>0){
-                            b_price *= (1-b.getPromotions()[0].getDiscount_ratio());
+                        if (b.getPromotions() != null && b.getPromotions().length > 0) {
+                            b_price *= (1 - b.getPromotions()[0].getDiscount_ratio());
                         }
-                        return a_price>b_price?-1:a_price<b_price?1:0;
+                        return a_price > b_price ? -1 : a_price < b_price ? 1 : 0;
                     }
                 });
 
@@ -116,13 +122,13 @@ public class ShowMoreActivity extends AppCompatActivity {
                     public int compare(Hotel a, Hotel b) {
                         float a_price = a.getRooms()[0].getHour_price();
                         float b_price = b.getRooms()[0].getHour_price();
-                        if (a.getPromotions() != null && a.getPromotions().length>0){
-                            a_price *= (1-a.getPromotions()[0].getDiscount_ratio());
+                        if (a.getPromotions() != null && a.getPromotions().length > 0) {
+                            a_price *= (1 - a.getPromotions()[0].getDiscount_ratio());
                         }
-                        if (b.getPromotions() != null && b.getPromotions().length>0){
-                            b_price *= (1-b.getPromotions()[0].getDiscount_ratio());
+                        if (b.getPromotions() != null && b.getPromotions().length > 0) {
+                            b_price *= (1 - b.getPromotions()[0].getDiscount_ratio());
                         }
-                        return a_price>b_price?1:a_price<b_price?-1:0;
+                        return a_price > b_price ? 1 : a_price < b_price ? -1 : 0;
                     }
                 });
                 ClearAndAddHotels();
@@ -140,7 +146,7 @@ public class ShowMoreActivity extends AppCompatActivity {
                     @Override
                     public int compare(Hotel a, Hotel b) {
                         // -1 - less than, 1 - greater than, 0 - equal, all inversed for descending
-                        return a.getAvgStar()>b.getAvgStar()?-1 : a.getAvgStar()<b.getAvgStar()?1:0;
+                        return a.getAvgStar() > b.getAvgStar() ? -1 : a.getAvgStar() < b.getAvgStar() ? 1 : 0;
                     }
                 });
                 ClearAndAddHotels();
@@ -148,31 +154,33 @@ public class ShowMoreActivity extends AppCompatActivity {
         });
 
         dialog.show();
-        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         dialog.getWindow().setGravity(Gravity.BOTTOM);
     }
-    private void ClearAndAddHotels(){
+
+    private void ClearAndAddHotels() {
         ListHotelLinear.removeAllViews();
         LayoutInflater inflater = LayoutInflater.from(this);
-        for (Hotel h : listHotel){
+        for (Hotel h : listHotel) {
             View view = inflater.inflate(R.layout.home_large_card, ListHotelLinear, false);
-            SetHotelToCard(view,h);
+            SetHotelToCard(view, h);
             ListHotelLinear.addView(view);
         }
     }
-    private void SetHotelToCard(View itemView, Hotel hotel){
-         MaterialCardView CVContainer;
-         TextView TvHotelName;
-         TextView TvPromotion;
-         TextView TvTimePromotion;
-         TextView TvPrice;
-         TextView TvPriceDiscount;
-         TextView TvLocation;
-         TextView TvRate;
-         TextView TvNumRate;
-         ImageView IvImg;
+
+    private void SetHotelToCard(View itemView, Hotel hotel) {
+        MaterialCardView CVContainer;
+        TextView TvHotelName;
+        TextView TvPromotion;
+        TextView TvTimePromotion;
+        TextView TvPrice;
+        TextView TvPriceDiscount;
+        TextView TvLocation;
+        TextView TvRate;
+        TextView TvNumRate;
+        ImageView IvImg;
         CVContainer = (MaterialCardView) itemView.findViewById(R.id.home_large_card);
         TvHotelName = (TextView) itemView.findViewById(R.id.home_cardview_nameTv);
         TvPromotion = (TextView) itemView.findViewById(R.id.home_cardview_promotionTv);
@@ -184,30 +192,31 @@ public class ShowMoreActivity extends AppCompatActivity {
         TvNumRate = (TextView) itemView.findViewById(R.id.home_cardview_numRateTv);
         IvImg = (ImageView) itemView.findViewById(R.id.home_cardview_img);
 
-        Promotion promotion=new Promotion();
+        Promotion promotion = new Promotion();
         NumberFormat currencyFormatter = NumberFormat.getInstance(new Locale("en", "EN"));
         Room first_room = hotel.getRooms()[0];
         TvPromotion.setVisibility(View.INVISIBLE);
         TvHotelName.setText(hotel.getName());
         TvLocation.setText(hotel.getLocation().getDistrict());
-        TvPrice.setText(currencyFormatter.format(first_room.getHour_price())+" đ");
+        TvPrice.setText(currencyFormatter.format(first_room.getHour_price()) + " đ");
         TvTimePromotion.setText("Theo giờ");
-        if (hotel.getRatings()!=null&& hotel.getRatings().length > 0){
+        if (hotel.getRatings() != null && hotel.getRatings().length > 0) {
             TvRate.setText(String.valueOf(hotel.getAvgStar()));
             TvNumRate.setText(String.valueOf(hotel.getRatings().length));
 
         }
-        if (hotel.getPromotions().length>0){
+        if (hotel.getPromotions().length > 0) {
+            promotion = hotel.getPromotions()[0];
             TvPromotion.setVisibility(View.VISIBLE);
-            TvPromotion.setText(String.valueOf("-"+currencyFormatter.format(promotion.getDiscount_ratio()*100)+ "%"));
-                String type_pro = "Theo giờ";
-                float price = first_room.getHour_price();
-                TvPrice.setText(currencyFormatter.format(price*promotion.getDiscount_ratio())+" đ");
-                TvPriceDiscount.setText(currencyFormatter.format(price)+" đ");
-                TvPriceDiscount.setPaintFlags(TvPriceDiscount.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-                TvTimePromotion.setText(type_pro);
+            TvPromotion.setText(String.valueOf("-" + currencyFormatter.format(promotion.getDiscount_ratio() * 100) + "%"));
+            String type_pro = "Theo giờ";
+            float price = first_room.getHour_price();
+            TvPrice.setText(currencyFormatter.format(price * promotion.getDiscount_ratio()) + " đ");
+            TvPriceDiscount.setText(currencyFormatter.format(price) + " đ");
+            TvPriceDiscount.setPaintFlags(TvPriceDiscount.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            TvTimePromotion.setText(type_pro);
         }
-        Picasso.get().load(hotel.getImgs()[0]).into( IvImg);
+        Picasso.get().load(hotel.getImgs()[0]).into(IvImg);
 
 
         CVContainer.setOnClickListener(new View.OnClickListener() {
