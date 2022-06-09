@@ -14,9 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HaveFun">
         <activity
-            android:name=".activities.SearchActivity"
+            android:name=".activities.ShowMoreActivity"
             android:exported="false" />
-        <!-- suppress AndroidDomInspection -->
+        <activity
+            android:name=".activities.SearchActivity"
+            android:exported="false" /> <!-- suppress AndroidDomInspection -->
         <activity
             android:name=".activities.DetailPromotionActivity"
             android:exported="false" /> <!-- suppress AndroidDomInspection -->
