@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Order_Layout_Item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="0dp">
+
+    <ImageView
+        android:id="@+id/Order_Room_imgV"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_bedroom_parent_24" />
+
+    <TextView
+        android:id="@+id/Order_Room_Tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Phòng"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/Order_Room_imgV"
+        app:layout_constraintTop_toTopOf="@+id/Order_Room_imgV" />
+
+    <ImageView
+        android:id="@+id/Order_Ordertime_ImgV"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Order_Room_imgV"
+        app:srcCompat="@drawable/ic_baseline_alarm_24" />
+
+    <ImageView
+        android:id="@+id/Order_JoinTime_ImgV"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Order_Ordertime_ImgV"
+        app:srcCompat="@drawable/ic_baseline_alarm_on_24" />
+
+    <ImageView
+        android:id="@+id/Order_LeftTime_ImgV"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Order_JoinTime_ImgV"
+        app:srcCompat="@drawable/ic_baseline_alarm_off_24" />
+
+    <TextView
+        android:id="@+id/Order_orderTime_Tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Đặt phòng"
+        app:layout_constraintStart_toEndOf="@+id/Order_Ordertime_ImgV"
+        app:layout_constraintTop_toTopOf="@+id/Order_Ordertime_ImgV" />
+
+    <TextView
+        android:id="@+id/Order_Jointime_Tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Nhận phòng"
+        app:layout_constraintStart_toEndOf="@+id/Order_JoinTime_ImgV"
+        app:layout_constraintTop_toTopOf="@+id/Order_JoinTime_ImgV" />
+
+    <TextView
+        android:id="@+id/Order_Leftime_Tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Trả phòng"
+        app:layout_constraintStart_toEndOf="@+id/Order_LeftTime_ImgV"
+        app:layout_constraintTop_toTopOf="@+id/Order_LeftTime_ImgV" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/Order_Cancel_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:padding="0dp"
+        android:stateListAnimator="@null"
+        android:text="Hủy"
+        android:textColor="@color/colorPrimary"
+        app:backgroundTint="@android:color/transparent"
+        app:cornerRadius="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/Order_price_Tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:strokeColor="@color/colorPrimary"
+        app:strokeWidth="1dp"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/Order_Leftime_Tv_e"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="22:11 22/11/2022"
+        app:layout_constraintStart_toEndOf="@+id/Order_Leftime_Tv"
+        app:layout_constraintTop_toTopOf="@+id/Order_Leftime_Tv" />
+
+    <ImageView
+        android:id="@+id/Order_user_ImgV"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Order_LeftTime_ImgV"
+        app:srcCompat="@drawable/ic_baseline_attach_money_24" />
+
+    <TextView
+        android:id="@+id/Order_price_Tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/Order_user_ImgV"
+        app:layout_constraintTop_toTopOf="@+id/Order_user_ImgV"
+        tools:text="Số tiền" />
+
+    <TextView
+        android:id="@+id/Order_price_Tv_e"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/Order_price_Tv"
+        app:layout_constraintTop_toTopOf="@+id/Order_price_Tv" />
+
+    <TextView
+        android:id="@+id/Order_Room_Tv_e"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="C609"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/Order_Room_Tv"
+        app:layout_constraintTop_toTopOf="@+id/Order_Room_Tv" />
+
+    <TextView
+        android:id="@+id/Order_orderTime_Tv_e"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="22:11 22/11/2022"
+        app:layout_constraintStart_toEndOf="@+id/Order_orderTime_Tv"
+        app:layout_constraintTop_toTopOf="@+id/Order_orderTime_Tv" />
+
+    <TextView
+        android:id="@+id/Order_Jointime_Tv_e"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="22:11 22/11/2022"
+        app:layout_constraintStart_toEndOf="@+id/Order_Jointime_Tv"
+        app:layout_constraintTop_toTopOf="@+id/Order_Jointime_Tv" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/lightGrey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Order_price_Tv" />
+
+    <TextView
+        android:id="@+id/Order_status_Tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

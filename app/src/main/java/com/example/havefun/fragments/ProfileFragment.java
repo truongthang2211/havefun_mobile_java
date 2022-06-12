@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,6 +17,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.havefun.R;
 import com.example.havefun.activities.LoginActivity;
+import com.example.havefun.activities.MyOrderActivity;
 import com.example.havefun.databinding.FragmentProfileBinding;
 import com.example.havefun.viewmodels.ProfileViewModel;
 import com.google.android.material.button.MaterialButton;
@@ -43,7 +45,7 @@ public class ProfileFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         MaterialButton LogResBtn = view.findViewById(R.id.log_res_btn);
         SharedPreferences pref = getActivity().getApplicationContext().getSharedPreferences("User", 0);
-        String name = pref.getString("userid", "No name defined");
+        String name = pref.getString("userid", "undefined");
         LogResBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,6 +53,16 @@ public class ProfileFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        Button Myorders = view.findViewById(R.id.order_btn);
+        Myorders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), MyOrderActivity.class);
+                startActivity(intent);
+            }
+        });
+        TextView email = view.findViewById(R.id.usermail_txt);
+        email.setText(name);
     }
 
     @Override

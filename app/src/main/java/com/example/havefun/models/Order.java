@@ -5,8 +5,24 @@ public class Order {
     Hotel hotel;
     Room room;
     User user;
-    float overnight_price,daily_price,hour_price_bonus,hour_price;
+    float overnight_price,daily_price,hour_price_bonus,hour_price,total_price_estimate=0,total_price_real=0;
     Timestamp order_start,order_end,created_at,payment_time;
+
+    public float getTotal_price_real() {
+        return total_price_real;
+    }
+
+    public void setTotal_price_real(float total_price_real) {
+        this.total_price_real = total_price_real;
+    }
+
+    public float getTotal_price_estimate() {
+        return total_price_estimate;
+    }
+
+    public void setTotal_price_estimate(float total_price_estimate) {
+        this.total_price_estimate = total_price_estimate;
+    }
 
     public Order() {
     }
