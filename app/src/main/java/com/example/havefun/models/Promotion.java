@@ -12,7 +12,11 @@ public class Promotion {
     Timestamp time_start;
     Timestamp time_end;
     Timestamp created_at;
-    String name,description,hotel_id,id,img;
+    String name;
+    String description;
+    String hotel_id;
+    String id;
+    String img;
     float discount_ratio;
     @RequiresApi(api = Build.VERSION_CODES.O)
     public long getRemainDay(){

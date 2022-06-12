@@ -47,7 +47,6 @@ import org.json.JSONObject;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Locale;
@@ -66,7 +65,7 @@ public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
     private Context context;
     private ImageButton search_btn;
-    ArrayList<String> promotion_imgs ;
+    ArrayList<Promotion> promotionsList;
 
 
     private TextView home_tv_morehotdeal;
@@ -263,23 +262,23 @@ public class HomeFragment extends Fragment {
             public void onResponse(JSONObject response) {
                 try {
                     int status = response.getInt("status");
-                    promotion_imgs = new ArrayList<>();
+                    promotionsList = new ArrayList<>();
                     JSONArray promotionsJS = response.getJSONArray("data");
                     for (int i = 0; i < promotionsJS.length(); ++i) {
                         Promotion promotion = new Gson().fromJson(promotionsJS.getJSONObject(i).toString(), Promotion.class);
-                        promotion_imgs.add(promotion.getImg());
+                        promotionsList.add(promotion);
                     }
                     TextView promotion_pos = getView().findViewById(R.id.home_tv_slidepos);
-                    promotion_pos.setText(1 + "/"+promotion_imgs.size());
+                    promotion_pos.setText(1 + "/"+ promotionsList.size());
 
-                    promotionAdapter = new PromotionSlideAdapter(promotion_imgs);
+                    promotionAdapter = new PromotionSlideAdapter(context, promotionsList);
                     Promotion_viewpager.setAdapter(promotionAdapter);
                     ProcessViewPager(Promotion_viewpager, false);
                     Promotion_viewpager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback(){
                         @Override
                         public void onPageScrollStateChanged(int state) {
                             super.onPageScrollStateChanged(state);
-                            promotion_pos.setText(state+1 + "/"+promotion_imgs.size());
+                            promotion_pos.setText(state+1 + "/"+ promotionsList.size());
                         }
                     });
 
