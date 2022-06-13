@@ -76,7 +76,7 @@ public class RegisterActivity extends Activity {
                                 if (dataAccount != null){
                                     SharedPreferences pref =getApplicationContext().getSharedPreferences("User", 0);
                                     SharedPreferences.Editor edit = pref.edit();
-                                    edit.putString("userid",dataAccount.getString("id"));
+                                    edit.putString("userObject",dataAccount.toString());
                                     edit.apply();
                                     LoginActivity.LoginAct.finish();
                                     finish();
