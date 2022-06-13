@@ -50,6 +50,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Locale;
+
 public class HomeFragment extends Fragment {
     private ViewPager2 Promotion_viewpager;
     private ViewPager2 HotDeal_viewpager;
@@ -100,7 +101,7 @@ public class HomeFragment extends Fragment {
         linearHotHotel = getView().findViewById(R.id.home_linear_hothotel);
         linearTopHotel = getView().findViewById(R.id.home_linear_toprate);
         linearMoreHotel = getView().findViewById(R.id.home_linear_morehotel);
-        search_btn=getView().findViewById(R.id.home_imgbutton_search);
+        search_btn = getView().findViewById(R.id.home_imgbutton_search);
         home_tv_morehotdeal = getView().findViewById(R.id.home_tv_morehotdeal);
         home_tv_morespecial = getView().findViewById(R.id.home_tv_morespecial);
         home_tv_morehothotel = getView().findViewById(R.id.home_tv_morehothotel);
@@ -131,7 +132,7 @@ public class HomeFragment extends Fragment {
                             @Override
                             public void onClick(View view) {
                                 Intent intent = new Intent(getActivity(), SearchActivity.class);
-                                intent.putExtra("listHotel",hotels.toString());
+                                intent.putExtra("listHotel", hotels.toString());
                                 startActivity(intent);
                             }
                         });
@@ -139,8 +140,8 @@ public class HomeFragment extends Fragment {
                             @Override
                             public void onClick(View view) {
                                 Intent intent = new Intent(getActivity(), ShowMoreActivity.class);
-                                intent.putExtra("listHotel",hotels.toString());
-                                intent.putExtra("TypeTitle","Giá sốc đêm nay");
+                                intent.putExtra("listHotel", hotels.toString());
+                                intent.putExtra("TypeTitle", "Giá sốc đêm nay");
                                 startActivity(intent);
                             }
                         });
@@ -148,8 +149,8 @@ public class HomeFragment extends Fragment {
                             @Override
                             public void onClick(View view) {
                                 Intent intent = new Intent(getActivity(), ShowMoreActivity.class);
-                                intent.putExtra("listHotel",hotels.toString());
-                                intent.putExtra("TypeTitle","Ưu đãi đặc biệt");
+                                intent.putExtra("listHotel", hotels.toString());
+                                intent.putExtra("TypeTitle", "Ưu đãi đặc biệt");
                                 startActivity(intent);
                             }
                         });
@@ -157,8 +158,8 @@ public class HomeFragment extends Fragment {
                             @Override
                             public void onClick(View view) {
                                 Intent intent = new Intent(getActivity(), ShowMoreActivity.class);
-                                intent.putExtra("listHotel",hotels.toString());
-                                intent.putExtra("TypeTitle","Khách sạn mới");
+                                intent.putExtra("listHotel", hotels.toString());
+                                intent.putExtra("TypeTitle", "Khách sạn mới");
                                 startActivity(intent);
                             }
                         });
@@ -166,8 +167,8 @@ public class HomeFragment extends Fragment {
                             @Override
                             public void onClick(View view) {
                                 Intent intent = new Intent(getActivity(), ShowMoreActivity.class);
-                                intent.putExtra("listHotel",hotels.toString());
-                                intent.putExtra("TypeTitle","Top được bình chọn");
+                                intent.putExtra("listHotel", hotels.toString());
+                                intent.putExtra("TypeTitle", "Top được bình chọn");
                                 startActivity(intent);
                             }
                         });
@@ -175,8 +176,8 @@ public class HomeFragment extends Fragment {
                             @Override
                             public void onClick(View view) {
                                 Intent intent = new Intent(getActivity(), ShowMoreActivity.class);
-                                intent.putExtra("listHotel",hotels.toString());
-                                intent.putExtra("TypeTitle","Khám phá thêm");
+                                intent.putExtra("listHotel", hotels.toString());
+                                intent.putExtra("TypeTitle", "Khám phá thêm");
                                 startActivity(intent);
                             }
                         });
@@ -208,7 +209,7 @@ public class HomeFragment extends Fragment {
                             @Override
                             public int compare(Hotel a, Hotel b) {
                                 // -1 - less than, 1 - greater than, 0 - equal, all inversed for descending
-                                return a.getAvgStar()>b.getAvgStar()?-1 : a.getAvgStar()<b.getAvgStar()?1:0;
+                                return a.getAvgStar() > b.getAvgStar() ? -1 : a.getAvgStar() < b.getAvgStar() ? 1 : 0;
                             }
                         });
                         for (Hotel item : modelArrayList) {
@@ -219,23 +220,23 @@ public class HomeFragment extends Fragment {
                         }
 
                         ArrayList<Hotel> hotedeal_thisnight = new ArrayList<>();
-                        for (Hotel i : modelArrayList){
+                        for (Hotel i : modelArrayList) {
                             Promotion iPromotes[] = i.getPromotions();
-                            for (Promotion p : iPromotes){
-                                for (String t : p.getOrder_type()){
-                                    if (t.equals("overnight")){
-                                        hotedeal_thisnight.add(i);
-                                        break;
+                            for (Promotion p : iPromotes) {
+                                if (p.getOrder_type() != null)
+                                    for (String t : p.getOrder_type()) {
+                                        if (t.equals("overnight")) {
+                                            hotedeal_thisnight.add(i);
+                                            break;
+                                        }
                                     }
-                                }
                             }
                         }
-                        hotDealAdapter = new HotDealSildeAdapter(context, hotedeal_thisnight,true);
+                        hotDealAdapter = new HotDealSildeAdapter(context, hotedeal_thisnight, true);
                         HotDeal_viewpager.setAdapter(hotDealAdapter);
 
-                        specialAdapter = new HotDealSildeAdapter(context, modelArrayList,false);
+                        specialAdapter = new HotDealSildeAdapter(context, modelArrayList, false);
                         Special_viewpager.setAdapter(specialAdapter);
-
 
 
                         hotHotelAdapter = new HomeHotHotelAdapter(context, modelArrayList);
@@ -269,16 +270,16 @@ public class HomeFragment extends Fragment {
                         promotionsList.add(promotion);
                     }
                     TextView promotion_pos = getView().findViewById(R.id.home_tv_slidepos);
-                    promotion_pos.setText(1 + "/"+ promotionsList.size());
+                    promotion_pos.setText(1 + "/" + promotionsList.size());
 
                     promotionAdapter = new PromotionSlideAdapter(context, promotionsList);
                     Promotion_viewpager.setAdapter(promotionAdapter);
                     ProcessViewPager(Promotion_viewpager, false);
-                    Promotion_viewpager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback(){
+                    Promotion_viewpager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
                         @Override
                         public void onPageScrollStateChanged(int state) {
                             super.onPageScrollStateChanged(state);
-                            promotion_pos.setText(state+1 + "/"+ promotionsList.size());
+                            promotion_pos.setText(state + 1 + "/" + promotionsList.size());
                         }
                     });
 
@@ -311,7 +312,7 @@ public class HomeFragment extends Fragment {
         ImageView IvImg = (ImageView) view.findViewById(R.id.home_smallcard_img);
 
         title.setText(item.getName());
-        if (item.getRatings() != null){
+        if (item.getRatings() != null) {
             TvNumRate.setText(String.valueOf(item.getRatings().length));
             TvRate.setText(String.valueOf(item.getAvgStar()));
 
@@ -329,14 +330,14 @@ public class HomeFragment extends Fragment {
 
         title.setText(item.getName());
         TvPromotion.setVisibility(View.INVISIBLE);
-        if (item.getRatings()!=null){
+        if (item.getRatings() != null) {
             TvNumRate.setText(String.valueOf(item.getRatings().length));
             TvRate.setText(String.valueOf(item.getAvgStar()));
         }
         Picasso.get().load(item.getImgs()[0]).into(IvImg);
         NumberFormat currencyFormatter = NumberFormat.getInstance(new Locale("en", "EN"));
-        TvPrice.setText(currencyFormatter.format(item.getRooms()[0].getHour_price())+" đ");
-        if (item.getPromotions().length>0){
+        TvPrice.setText(currencyFormatter.format(item.getRooms()[0].getHour_price()) + " đ");
+        if (item.getPromotions().length > 0) {
             TvPromotion.setVisibility(View.VISIBLE);
             TvPromotion.setText(String.valueOf(currencyFormatter.format(item.getPromotions()[0].getDiscount_ratio() * 100)) + "%");
         }

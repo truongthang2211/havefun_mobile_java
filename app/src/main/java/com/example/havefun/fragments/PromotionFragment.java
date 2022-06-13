@@ -122,18 +122,21 @@ public class PromotionFragment extends Fragment {
         NumberFormat currencyFormatter = NumberFormat.getInstance(new Locale("en", "EN"));
         title.setText(p.getName());
         ratio.setText(currencyFormatter.format(p.getDiscount_ratio()*100)+"%");
-        for (int i = 0 ;i< p.getOrder_type().length;++i){
-            if (p.getOrder_type()[i].equals("hour")){
-                hour.setVisibility(View.VISIBLE);
-                hour.setText("Theo giờ");
-            }else if (p.getOrder_type()[i].equals("overnight")){
-                overnight.setVisibility(View.VISIBLE);
-                overnight.setText("Qua đêm");
-            }else{
-                daily.setVisibility(View.VISIBLE);
-                daily.setText("Theo ngày");
+        if (p.getOrder_type()!=null){
+            for (int i = 0 ;i< p.getOrder_type().length;++i){
+                if (p.getOrder_type()[i].equals("hour")){
+                    hour.setVisibility(View.VISIBLE);
+                    hour.setText("Theo giờ");
+                }else if (p.getOrder_type()[i].equals("overnight")){
+                    overnight.setVisibility(View.VISIBLE);
+                    overnight.setText("Qua đêm");
+                }else{
+                    daily.setVisibility(View.VISIBLE);
+                    daily.setText("Theo ngày");
+                }
             }
         }
+
         start.setText(p.getTime_start().toString());
         end.setText(p.getTime_end().toString());
 

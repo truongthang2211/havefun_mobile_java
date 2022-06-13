@@ -78,6 +78,8 @@ public class ProfileFragment extends Fragment {
                     @Override
                     public void onClick(View view) {
                         pref.edit().remove("userObject").commit();
+                        getActivity().finish();
+                        startActivity(getActivity().getIntent());
                     }
                 });
             } catch (JSONException e) {
