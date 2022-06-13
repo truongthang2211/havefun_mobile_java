@@ -9,43 +9,50 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 
-import com.example.havefun.R;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 
 public class ImageAdapter extends PagerAdapter {
-    Context context;
+    private Context context;
+    private ArrayList<String> imgUrls;
 
-    public ImageAdapter(Context context){
+    public ImageAdapter(Context context, ArrayList<String> imgUrls) {
         this.context = context;
-    }
-    @Override
-    public boolean isViewFromObject(View view, Object object) {
-        return view == ((ImageView) object);
-    }
-
-    private int[] sliderImageId = new int[]{
-            R.drawable.image1, R.drawable.image2, R.drawable.image3,R.drawable.image4, R.drawable.image5,
-    };
-
-    @NonNull
-    @Override
-    public Object instantiateItem(ViewGroup container, int position) {
-        ImageView imageView = new ImageView(context);
-        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        imageView.setImageResource(sliderImageId[position]);
-        ((ViewPager) container).addView(imageView, 0);
-        return imageView;
-    }
-
-    @Override
-    public void destroyItem(ViewGroup container, int position, Object object) {
-        ((ViewPager) container).removeView((ImageView) object);
+        this.imgUrls = imgUrls;
     }
 
     @Override
     public int getCount() {
-        return sliderImageId.length;
+        if (imgUrls != null)
+            return imgUrls.size();
+        return 0;
     }
+
+    @Override
+    public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
+        return view == object;
+    }
+
+    @NonNull
+    @Override
+    public Object instantiateItem(@NonNull ViewGroup container, int position) {
+        ImageView imageView = new ImageView(context);
+        Picasso.get()
+                .load(imgUrls.get(position))
+                .fit()
+                .centerCrop()
+                .into(imageView);
+        container.addView(imageView);
+        return imageView;
+    }
+
+    @Override
+    public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
+        container.removeView((View) object);
+    }
+
+
 }
