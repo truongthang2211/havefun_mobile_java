@@ -105,15 +105,27 @@ public class MyOrderActivity extends AppCompatActivity {
     private void LoadOrders() {
         String ServerURL = getString(R.string.server_address);
         SharedPreferences pref = context.getApplicationContext().getSharedPreferences("User", 0);
-        String userid = pref.getString("userid", "undefined");
-        if (userid.equals("undefined")) {
+        String userObjStr = pref.getString("userObject", "undefined");
+        if (userObjStr.equals("undefined")) {
             new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
                     .setTitleText("Oops...")
                     .setContentText("Có lỗi về xác thực tài khoản, hãy thử đăng nhập lại.")
                     .show();
             return;
         }
-        String OrderURL = ServerURL + "/api/orders/user/"+userid;
+        JSONObject userobj = null;
+        try {
+            userobj = new JSONObject(userObjStr);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        String OrderURL = null;
+        try {
+            OrderURL = ServerURL + "/api/orders/user/"+userobj.getString("id");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, OrderURL, null, new Response.Listener<JSONObject>() {
             @RequiresApi(api = Build.VERSION_CODES.O)
