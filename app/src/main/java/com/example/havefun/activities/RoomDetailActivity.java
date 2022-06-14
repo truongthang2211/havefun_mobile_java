@@ -1,13 +1,17 @@
 package com.example.havefun.activities;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +26,7 @@ import com.example.havefun.adapters.ImageAdapter;
 import com.example.havefun.models.Facility;
 import com.example.havefun.models.Promotion;
 import com.example.havefun.models.Room;
+import com.example.havefun.models.Timestamp;
 import com.example.havefun.utils.MySingleton;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
@@ -32,9 +37,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.NumberFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class RoomDetailActivity extends AppCompatActivity {
 
@@ -83,9 +92,78 @@ public class RoomDetailActivity extends AppCompatActivity {
 
 
         context = this;
-        ViewPager viewPager = findViewById(R.id.imgRoomDetailViewPager);
+        String ServerAddres = getString(R.string.server_address);
 
-        String url = "http://172.16.8.198:3000/api/hotels/k0N8OV6408ddA1ktDSdg";
+        Button orderRoom = findViewById(R.id.btnRoomDetailCheckOut);
+        orderRoom.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onClick(View view) {
+                String createOrderUrl =ServerAddres+ "/api/orders/create";
+                SharedPreferences pref = getApplicationContext().getSharedPreferences("User", 0);
+                String name = pref.getString("userObject", "undefined");
+                if (!name.equals("undefined")){
+                    try {
+                        JSONObject userObj = new JSONObject(name);
+                        JSONObject createOrder = new JSONObject();
+                        createOrder.put("hotelID","NfmlyyCa26QE0dtvdwmr");
+                        createOrder.put("roomID","Jr95IYklPieXywcIeaaf");
+                        createOrder.put("userID",userObj.getString("id"));
+                        createOrder.put("order_type","hour");
+                        Timestamp startTime = new Timestamp();
+                        startTime.setSeconds(LocalDateTime.now().atZone(ZoneId.systemDefault())
+                                .toEpochSecond());
+                        Timestamp endTime = new Timestamp();
+                        endTime.setSeconds(LocalDateTime.now().plusHours(3).atZone(ZoneId.systemDefault())
+                                .toEpochSecond());
+                        createOrder.put("order_start",startTime);
+                        createOrder.put("order_end",endTime);
+                        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, createOrderUrl, createOrder, new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                try {
+                                    if (response.getInt("status") == 200){
+                                         new SweetAlertDialog(context, SweetAlertDialog.SUCCESS_TYPE)
+                                                .setTitleText("Thành công")
+                                                .setContentText("Bạn đã đặt phòng thành công")
+                                                .show();
+                                    }else {
+                                        new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
+                                                .setTitleText("Oops...")
+                                                .setContentText("Có lỗi xảy ra, hãy thử lại")
+                                                .show();
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                error.printStackTrace();
+                                Log.e("GGG",error.toString());
+                            }
+                        });
+
+                        MySingleton.getInstance(RoomDetailActivity.this).addToRequestQueue(request);
+                    } catch (JSONException e) {
+                        new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
+                                .setTitleText("Oops...")
+                                .setContentText("Có lỗi xảy ra, hãy thử đăng xuất và đăng nhập lại")
+                                .show();
+                    }
+
+                }else{
+                    new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
+                            .setTitleText("Oops...")
+                            .setContentText("Bạn cần đăng nhập để thực hiện đặt phòng")
+                            .show();
+                }
+            }
+        });
+
+        ViewPager viewPager = findViewById(R.id.imgRoomDetailViewPager);
+        String url = ServerAddres+ "/api/hotels/NfmlyyCa26QE0dtvdwmr";
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
@@ -94,8 +172,7 @@ public class RoomDetailActivity extends AppCompatActivity {
                     JSONObject jsonDataObject = response.getJSONObject("data");
                     imgRoomUrls = new ArrayList<>();
                     JSONArray jsonRoomArray = jsonDataObject.getJSONArray("rooms");
-                    for( int i = 0; i< jsonRoomArray.length(); i++){
-                        JSONObject roomItems = jsonRoomArray.getJSONObject(i);
+                        JSONObject roomItems = jsonRoomArray.getJSONObject(0);
 
 
                         JSONArray jsonRoomImgUrl = roomItems.getJSONArray("imgs");
@@ -210,7 +287,7 @@ public class RoomDetailActivity extends AppCompatActivity {
                         }
 
 
-                    }
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                     Log.e("GG",e.toString());
