@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,13 +48,14 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 public class LoginActivity extends AppCompatActivity {
     Context context;
     public static Activity LoginAct;
+    private boolean isShow= false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         context = this;
         LoginAct = this;
+        Button eye_p = findViewById(R.id.eye_pass);
         TextView username = (TextView) findViewById(R.id.email_sign);
         TextView password = (TextView) findViewById(R.id.pass_sign);
         MaterialButton loginbtn = (MaterialButton) findViewById(R.id.log_sign_btn);
@@ -108,6 +111,22 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+//        eye_p.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(!isShow) {
+//                    eye_p.setSelected(true);
+//                    isShow = true;
+//                    //Password visible
+//                    password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+//                }else{
+//                    eye_p.setSelected(false);
+//                    isShow= false;
+//                    //Password not visible
+//                    password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+//                }
+//            }
+//        });
         resbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -115,5 +134,6 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 }

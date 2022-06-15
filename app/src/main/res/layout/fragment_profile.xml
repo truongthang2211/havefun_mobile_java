@@ -263,21 +263,21 @@
                 app:layout_constraintStart_toStartOf="@+id/more_txt"
                 app:layout_constraintTop_toBottomOf="@+id/version_txt"
                 app:layout_constraintVertical_bias="0" />
+
             <Button
                 android:id="@+id/logout_btn"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="50dp"
+                android:drawableLeft="@drawable/ic_log_out"
                 android:text="Đăng xuất"
-                android:textSize="16sp"
-                android:layout_marginLeft="40dp"
                 android:textAlignment="textStart"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1"
-                app:layout_constraintStart_toStartOf="@+id/contact_btn"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="@+id/more_txt"
                 app:layout_constraintTop_toBottomOf="@+id/contact_btn"
                 app:layout_constraintVertical_bias="0" />
 
