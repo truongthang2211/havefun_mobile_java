@@ -104,6 +104,7 @@
         android:id="@+id/eye_pass_reg"
         android:layout_width="150px"
         android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
         android:background="@android:color/transparent"
         android:drawableRight="@drawable/ic_baseline_remove_red_eye_24"
         app:layout_constraintBottom_toBottomOf="@+id/pass_reg"

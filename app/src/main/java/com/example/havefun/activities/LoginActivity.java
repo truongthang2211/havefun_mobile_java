@@ -111,22 +111,22 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-//        eye_p.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if(!isShow) {
-//                    eye_p.setSelected(true);
-//                    isShow = true;
-//                    //Password visible
-//                    password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-//                }else{
-//                    eye_p.setSelected(false);
-//                    isShow= false;
-//                    //Password not visible
-//                    password.setTransformationMethod(PasswordTransformationMethod.getInstance());
-//                }
-//            }
-//        });
+        eye_p.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!isShow) {
+                    eye_p.setSelected(true);
+                    isShow = true;
+                    //Password visible
+                    password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                }else{
+                    eye_p.setSelected(false);
+                    isShow= false;
+                    //Password not visible
+                    password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
+            }
+        });
         resbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

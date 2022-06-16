@@ -5,8 +5,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -32,6 +35,7 @@ public class RegisterActivity extends Activity {
     Context context;
     MaterialButton res_log_btn;
     MaterialButton res_resg_btn;
+    private boolean isShow= false;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +44,7 @@ public class RegisterActivity extends Activity {
         email_reg = findViewById(R.id.email_reg);
         phone_reg = findViewById(R.id.phone_reg);
         password_reg = findViewById(R.id.pass_reg);
-
+        Button eye_p = findViewById(R.id.eye_pass_reg);
         res_resg_btn = findViewById(R.id.res_resg_btn);
         res_log_btn = findViewById(R.id.res_log_btn);
         res_log_btn.setOnClickListener(new View.OnClickListener() {
@@ -100,6 +104,22 @@ public class RegisterActivity extends Activity {
                     }
                 });
                 MySingleton.getInstance(context).addToRequestQueue(request);
+            }
+        });
+        eye_p.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!isShow) {
+                    eye_p.setSelected(true);
+                    isShow = true;
+                    //Password visible
+                    password_reg.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                }else{
+                    eye_p.setSelected(false);
+                    isShow= false;
+                    //Password not visible
+                    password_reg.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
             }
         });
     }
