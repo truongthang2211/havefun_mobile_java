@@ -6,6 +6,7 @@ import androidx.viewpager.widget.ViewPager;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
@@ -59,6 +60,9 @@ public class RoomDetailActivity extends AppCompatActivity {
     private Context context;
     private ArrayList<String> imgRoomUrls;
 
+     String timeStartString, timeStopString;
+     long lTimeStart,lTimeStop;
+
     Locale vn = new Locale("vi", "VN");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,6 +97,13 @@ public class RoomDetailActivity extends AppCompatActivity {
 
         context = this;
         String ServerAddres = getString(R.string.server_address);
+        Intent intent = getIntent();
+        timeStartString= intent.getStringExtra("timestart");
+        timeStopString = intent.getStringExtra("timestop");
+
+        lTimeStart = Long.parseLong(timeStartString);
+        lTimeStop = Long.parseLong(timeStopString);
+
 
         Button orderRoom = findViewById(R.id.btnRoomDetailCheckOut);
         orderRoom.setOnClickListener(new View.OnClickListener() {
@@ -111,11 +122,9 @@ public class RoomDetailActivity extends AppCompatActivity {
                         createOrder.put("userID",userObj.getString("id"));
                         createOrder.put("order_type","hour");
                         Timestamp startTime = new Timestamp();
-                        startTime.setSeconds(LocalDateTime.now().atZone(ZoneId.systemDefault())
-                                .toEpochSecond());
+                        startTime.setSeconds(lTimeStart);
                         Timestamp endTime = new Timestamp();
-                        endTime.setSeconds(LocalDateTime.now().plusHours(3).atZone(ZoneId.systemDefault())
-                                .toEpochSecond());
+                        endTime.setSeconds(lTimeStop);
                         createOrder.put("order_start",startTime);
                         createOrder.put("order_end",endTime);
                         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, createOrderUrl, createOrder, new Response.Listener<JSONObject>() {

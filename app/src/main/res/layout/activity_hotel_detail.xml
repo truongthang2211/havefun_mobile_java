@@ -61,10 +61,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="45dp"
             android:fontFamily="sans-serif"
-
-            android:text="HOTEL VICTORY"
             android:textAlignment="viewStart"
-
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@id/view_pager_2"
@@ -75,8 +72,7 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:text="| 255 đường 30/4,Phường 3,Tây Ninh"
+            android:layout_marginStart="10dp"
             app:layout_constraintLeft_toRightOf="@id/img_location"
             app:layout_constraintTop_toTopOf="@id/img_location"
             tools:ignore="HardcodedText" />
@@ -136,7 +132,7 @@
 
         <View
             android:id="@+id/divider5"
-            android:layout_width="409dp"
+            android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="280dp"
             android:background="?android:attr/listDivider"
@@ -148,7 +144,7 @@
             android:id="@+id/divider6"
             android:layout_width="409dp"
             android:layout_height="1dp"
-            android:layout_marginTop="240dp"
+            android:layout_marginTop="440dp"
             android:background="?android:attr/listDivider"
             app:layout_constraintStart_toStartOf="@id/divider5"
             app:layout_constraintTop_toBottomOf="@id/divider5"
@@ -280,7 +276,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="9dp"
-                android:text="Standard Room"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="@id/imageView"
                 app:layout_constraintTop_toBottomOf="@+id/imageView"
@@ -291,7 +286,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:text="Giường đơn | 15m2"
                 android:textSize="10sp"
                 app:layout_constraintStart_toStartOf="@id/textView6"
                 app:layout_constraintTop_toBottomOf="@+id/textView6"
@@ -302,7 +296,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="44dp"
-                android:text="Qua đêm"
                 android:textSize="10sp"
                 app:layout_constraintStart_toStartOf="@id/textView6"
                 app:layout_constraintTop_toBottomOf="@+id/textView6"
@@ -313,7 +306,6 @@
                 android:layout_width="79dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="60dp"
-                android:text="700,000 đ"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@id/textView6"
                 app:layout_constraintTop_toBottomOf="@+id/textView6"
@@ -368,7 +360,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <!--<androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="380dp"
             android:layout_height="280dp"
             android:layout_marginStart="4dp"
@@ -377,7 +369,6 @@
             app:layout_constraintStart_toStartOf="@id/detailhotel_contrain_roomitem"
             app:layout_constraintTop_toBottomOf="@+id/divider2"
             tools:ignore="MissingConstraints">
-
             <ImageView
                 android:id="@+id/imageView1"
                 android:layout_width="match_parent"
@@ -389,7 +380,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:riv_corner_radius="10dp"
                 tools:ignore="ContentDescription,MissingConstraints,NotSibling,RtlHardcoded" />
-
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="wrap_content"
@@ -401,7 +391,6 @@
                 app:layout_constraintStart_toStartOf="@id/imageView1"
                 app:layout_constraintTop_toBottomOf="@+id/imageView1"
                 tools:ignore="HardcodedText,MissingConstraints" />
-
             <TextView
                 android:id="@+id/textView12"
                 android:layout_width="wrap_content"
@@ -412,7 +401,6 @@
                 app:layout_constraintStart_toStartOf="@id/textView11"
                 app:layout_constraintTop_toBottomOf="@+id/textView11"
                 tools:ignore="HardcodedText,MissingConstraints,SmallSp" />
-
             <TextView
                 android:id="@+id/textView13"
                 android:layout_width="46dp"
@@ -427,7 +415,6 @@
                 app:layout_constraintStart_toStartOf="@+id/textView12"
                 app:layout_constraintTop_toBottomOf="@+id/textView12"
                 tools:ignore="HardcodedText,SmallSp,TextContrastCheck" />
-
             <TextView
                 android:id="@+id/textView14"
                 android:layout_width="69dp"
@@ -443,7 +430,6 @@
                 app:layout_constraintStart_toStartOf="@+id/textView12"
                 app:layout_constraintTop_toBottomOf="@+id/textView12"
                 tools:ignore="HardcodedText,SmallSp,TextContrastCheck" />
-
             <TextView
                 android:id="@+id/textView15"
                 android:layout_width="wrap_content"
@@ -454,7 +440,6 @@
                 app:layout_constraintStart_toStartOf="@id/textView11"
                 app:layout_constraintTop_toBottomOf="@+id/textView11"
                 tools:ignore="HardcodedText,MissingConstraints,SmallSp" />
-
             <TextView
                 android:id="@+id/textView16"
                 android:layout_width="79dp"
@@ -465,7 +450,6 @@
                 app:layout_constraintStart_toStartOf="@id/textView11"
                 app:layout_constraintTop_toBottomOf="@+id/textView11"
                 tools:ignore="HardcodedText,MissingConstraints,SmallSp" />
-
             <Button
                 android:id="@+id/button1"
                 android:layout_width="90dp"
@@ -480,8 +464,7 @@
                 app:layout_constraintStart_toEndOf="@+id/textView12"
                 app:layout_constraintTop_toBottomOf="@+id/imageView1"
                 tools:ignore="HardcodedText,SmallSp" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>-->
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraint_NDBinhLuan"
@@ -500,7 +483,6 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
                 android:background="@color/white"
-                android:text="l*****5 | 12/04/2022"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -512,7 +494,6 @@
                 android:layout_width="220dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="50dp"
-                android:text="nhân viên chu đáo lịch sự, nằm ở trung tâm mà giá cực kỳ tốt hehe"
                 app:layout_constraintStart_toStartOf="@id/Topic_BinhLuan"
                 app:layout_constraintTop_toBottomOf="@+id/TT_BinhLuan"
                 tools:ignore="HardcodedText,NotSibling" />
@@ -544,179 +525,237 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             app:layout_constraintTop_toBottomOf="@+id/divider5"
             tools:layout_editor_absoluteX="-2dp"
             tools:ignore="MissingConstraints">
 
             <TextView
-                android:id="@+id/txtTienIch"
+                android:id="@+id/tvTextHotelFeatureTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="28dp"
                 android:text="Tiện ích"
-                android:textSize="20sp"
                 android:textStyle="bold"
+                android:textSize="24sp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/tvHotelDetailSubTitle"
+                android:layout_marginTop="30dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvHotelDetailSubTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvTextHotelFeatureTitle"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/tvHotelDetailSubFeature1"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:textSize="16sp"
+                android:text="Tiện ích khác nhau tùy thuộc vào từng loại phòng."/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvHotelDetailSubFeature1"
+                app:layout_constraintTop_toBottomOf="@+id/tvHotelDetailSubTitle"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:text="Sàn gỗ/gỗ miếng"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/divider3"
-                tools:ignore="HardcodedText,NotSibling" />
+                app:layout_constraintBottom_toTopOf="@+id/tvHotelDetailSubFeature2"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/imgHotelDetailViewIconFeature1"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"/>
+            <ImageView
+                android:id="@+id/imgHotelDetailViewIconFeature1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/tatami"
+                app:layout_constraintLeft_toRightOf="@+id/tvHotelDetailSubFeature1"
+                app:layout_constraintTop_toBottomOf="@+id/tvHotelDetailSubTitle"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginRight="20dp"/>
 
             <TextView
-                android:id="@+id/txt_tienich"
-                android:layout_width="match_parent"
-                android:layout_height="240dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="24dp"
-                android:text="Tiện ích khác nhau tuỳ thuộc vào từng loại phòng."
-                app:layout_constraintLeft_toRightOf="@id/txtTienIch"
-                app:layout_constraintStart_toStartOf="@id/txtTienIch"
-                app:layout_constraintTop_toTopOf="@id/txtTienIch"
-                tools:ignore="HardcodedText" />
-
-            <TextView
-                android:id="@+id/txt_Internet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="24dp"
+                android:id="@+id/tvHotelDetailSubFeature2"
+                app:layout_constraintTop_toBottomOf="@+id/tvHotelDetailSubFeature1"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="16sp"
                 android:text="Internet không dây (WIFI)"
-                app:layout_constraintStart_toStartOf="@id/txtTienIch"
-                app:layout_constraintTop_toBottomOf="@+id/txtTienIch" />
-
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/tvHotelDetailSubFeature3"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/imgHotelDetailViewIconFeature2"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"/>
             <ImageView
-                android:id="@+id/imageTienich"
-                android:layout_width="30dp"
-                android:layout_height="21dp"
-                android:layout_marginStart="140dp"
-                android:layout_marginTop="50dp"
-                app:layout_constraintStart_toEndOf="@+id/txt_Internet"
-                app:layout_constraintTop_toTopOf="@id/txtTienIch"
-                app:srcCompat="@drawable/wifi" />
-
-            <ImageView
-                android:id="@+id/imageNuocsuoi"
-                android:layout_width="30dp"
-                android:layout_height="21dp"
-                android:layout_marginStart="235dp"
-                android:layout_marginTop="125dp"
-                app:layout_constraintStart_toEndOf="@+id/txtNuocsuoi"
-                app:layout_constraintTop_toTopOf="@id/txtTienIch"
-                app:srcCompat="@drawable/nuocsuoi" />
-
-            <ImageView
-                android:id="@+id/imageLetan"
-                android:layout_width="30dp"
-                android:layout_height="21dp"
-                android:layout_marginStart="220dp"
-                android:layout_marginTop="150dp"
-                app:layout_constraintStart_toEndOf="@+id/txtLetan"
-                app:layout_constraintTop_toTopOf="@id/txtTienIch"
-                app:srcCompat="@drawable/letan" />
-
-            <ImageView
-                android:id="@+id/imageNetflix"
-                android:layout_width="30dp"
-                android:layout_height="21dp"
-                android:layout_marginStart="245dp"
-                android:layout_marginTop="175dp"
-                app:layout_constraintStart_toEndOf="@+id/txtNetflix"
-                app:layout_constraintTop_toTopOf="@id/txtTienIch"
-                app:srcCompat="@drawable/netflix"
-                tools:ignore="UnknownId" />
-
-            <ImageView
-                android:id="@+id/imageGhetinhnhan"
-                android:layout_width="30dp"
-                android:layout_height="21dp"
-                android:layout_marginStart="215dp"
-                android:layout_marginTop="75dp"
-                app:layout_constraintStart_toEndOf="@+id/txt_Ghetinhnhan"
-                app:layout_constraintTop_toTopOf="@id/txtTienIch"
-                app:srcCompat="@drawable/ghe"
-                tools:ignore="ContentDescription" />
-
-            <ImageView
-                android:id="@+id/imageBontam"
-                android:layout_width="30dp"
-                android:layout_height="21dp"
-                android:layout_marginStart="220dp"
-                android:layout_marginTop="98dp"
-                app:layout_constraintStart_toEndOf="@+id/txtBontam"
-                app:layout_constraintTop_toTopOf="@id/txtTienIch"
-                app:srcCompat="@drawable/bontam"
-                tools:ignore="UnknownId" />
+                android:id="@+id/imgHotelDetailViewIconFeature2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/wifi_router"
+                app:layout_constraintLeft_toRightOf="@+id/tvHotelDetailSubFeature2"
+                app:layout_constraintTop_toBottomOf="@+id/tvHotelDetailSubFeature1"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginRight="20dp"/>
 
             <TextView
-                android:id="@+id/txt_Ghetinhnhan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ghế tình nhân"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="48dp"
-                app:layout_constraintStart_toStartOf="@id/txtTienIch"
-                app:layout_constraintTop_toBottomOf="@+id/txtTienIch"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="83dp"
-                tools:ignore="HardcodedText" />
-
-            <TextView
-                android:id="@+id/txtBontam"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bồn tắm sục"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="73dp"
-                app:layout_constraintStart_toStartOf="@id/txtTienIch"
-                app:layout_constraintTop_toBottomOf="@+id/txtTienIch"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="83dp" />
-
-            <TextView
-                android:id="@+id/txtNuocsuoi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nước suối"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="99dp"
-                app:layout_constraintStart_toStartOf="@id/txtTienIch"
-                app:layout_constraintTop_toBottomOf="@+id/txtTienIch"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="83dp"/>
-
-            <TextView
-                android:id="@+id/txtLetan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/tvHotelDetailSubFeature3"
+                app:layout_constraintTop_toBottomOf="@+id/tvHotelDetailSubFeature2"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="16sp"
                 android:text="Lễ tân 24/24"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="125dp"
-                app:layout_constraintStart_toStartOf="@id/txtTienIch"
-                app:layout_constraintTop_toBottomOf="@+id/txtTienIch"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="83dp"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/tvHotelDetailSubFeature4"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/imgHotelDetailViewIconFeature3"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"/>
+            <ImageView
+                android:id="@+id/imgHotelDetailViewIconFeature3"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/winner"
+                app:layout_constraintLeft_toRightOf="@+id/tvHotelDetailSubFeature3"
+                app:layout_constraintTop_toBottomOf="@+id/tvHotelDetailSubFeature2"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginRight="20dp"/>
 
             <TextView
-                android:id="@+id/txtNetflix"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="NETFLIX"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="150dp"
-                app:layout_constraintStart_toStartOf="@id/txtTienIch"
-                app:layout_constraintTop_toBottomOf="@+id/txtTienIch"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="83dp" />
+                android:id="@+id/tvHotelDetailSubFeature4"
+                app:layout_constraintTop_toBottomOf="@+id/tvHotelDetailSubFeature3"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:text="Máy lạnh"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/tvHotelDetailSubFeature5"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/imgHotelDetailViewIconFeature4"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"/>
+            <ImageView
+                android:id="@+id/imgHotelDetailViewIconFeature4"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/air_conditioner"
+                app:layout_constraintLeft_toRightOf="@+id/tvHotelDetailSubFeature4"
+                app:layout_constraintTop_toBottomOf="@+id/tvHotelDetailSubFeature3"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginRight="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvHotelDetailSubFeature5"
+                app:layout_constraintTop_toBottomOf="@+id/tvHotelDetailSubFeature4"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:text="TV"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/tvHotelDetailSubFeature6"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/imgHotelDetailViewIconFeature5"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"/>
+            <ImageView
+                android:id="@+id/imgHotelDetailViewIconFeature5"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/pc"
+                app:layout_constraintLeft_toRightOf="@+id/tvHotelDetailSubFeature5"
+                app:layout_constraintTop_toBottomOf="@+id/tvHotelDetailSubFeature4"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginRight="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvHotelDetailSubFeature6"
+                app:layout_constraintTop_toBottomOf="@+id/tvHotelDetailSubFeature5"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:text="Thang máy"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/tvHotelDetailSubFeature7"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/imgHotelDetailViewIconFeature6"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"/>
+            <ImageView
+                android:id="@+id/imgHotelDetailViewIconFeature6"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/elevator"
+                android:scaleType="fitXY"
+                app:layout_constraintLeft_toRightOf="@+id/tvHotelDetailSubFeature6"
+                app:layout_constraintTop_toBottomOf="@+id/tvHotelDetailSubFeature5"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginRight="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvHotelDetailSubFeature7"
+                app:layout_constraintTop_toBottomOf="@+id/tvHotelDetailSubFeature6"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:text="Truyền hình Cáp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/imgHotelDetailViewIconFeature7"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"/>
+            <ImageView
+                android:id="@+id/imgHotelDetailViewIconFeature7"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/responsive"
+                app:layout_constraintLeft_toRightOf="@+id/tvHotelDetailSubFeature7"
+                app:layout_constraintTop_toBottomOf="@+id/tvHotelDetailSubFeature6"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginRight="20dp"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="650dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             app:layout_constraintTop_toBottomOf="@+id/divider6"
             tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="0dp">
+            tools:layout_editor_absoluteX="0dp"
+            >
 
             <TextView
                 android:id="@+id/txtGioiThieu"
@@ -736,11 +775,7 @@
                 android:layout_width="398dp"
                 android:layout_height="514dp"
                 android:layout_marginTop="16dp"
-                android:text="Khách sạn Victory cung cấp những dịch vụ và tiện nghi tốt nhất để giúp du khách luôn cảm thấy thoải mái. Giữ kết nối trong suốt thời gian của bạn với truy cập Internet miễn phí được cung cấp. Để giúp sắp xếp trước thời gian đến và đi của bạn, dịch vụ đưa đón sân bay có thể được đặt trước khi bạn nhận phòng. Bãi đậu xe được cung cấp miễn phí cho khách.
-Bạn sẽ không gặp vấn đề gì khi lên kế hoạch cho các ngày và nhu cầu đi lại của mình với các dịch vụ lễ tân bao gồm dịch vụ trợ giúp đặc biệt, giữ hành lý và két an toàn. Dịch vụ đặt vé và các tour du lịch của khách sạn thậm chí có thể giúp bạn đặt vé và đặt chỗ để giải trí và khám phá. Hãy mặc đi mặc lại những bộ trang phục yêu thích của bạn nhờ dịch vụ giặt hấp và giặt là được cung cấp tại Victory Hotel. Những tiện nghi trong phòng như dịch vụ phòng và dọn phòng hàng ngày sẽ làm cho kỳ nghỉ trở thành một lựa chọn tuyệt vời.
-Hút thuốc chỉ có thể diễn ra trong các khu vực được chỉ định hạn chế.
-Phòng khách được trang bị tất cả các tiện nghi cần thiết cho một đêm ngon giấc. Để nâng cao thời gian lưu trú của bạn, các phòng tại khách sạn đi kèm dịch vụ bộ khăn trải giường, rèm cản sáng và máy lạnh. Các phòng được thiết kế đặc biệt tại Victory Hotel cung cấp nhiều lựa chọn bài trí, bao gồm các phòng có phòng khách riêng biệt. Giải trí trong phòng của khách sạn không ai sánh kịp, với tivi và truyền hình cáp được cung cấp cho tất cả các du khách.
-Bạn có thể yên tâm khi biết rằng một số phòng chọn lọc có tủ lạnh, nước đóng chai, trà hòa tan và tủ lạnh mini. Bạn có thể luôn sạch sẽ và tươi mới với máy sấy tóc, đồ vệ sinh cá nhân, áo choàng tắm và khăn tắm được cung cấp trong một số phòng tắm của khách."
+
                 app:layout_constraintStart_toStartOf="@id/txtGioiThieu"
                 app:layout_constraintTop_toBottomOf="@id/txtGioiThieu" />
 
@@ -888,7 +923,6 @@ Bạn có thể yên tâm khi biết rằng một số phòng chọn lọc có t
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="10dp"
-            android:text="4.6"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/img_Start"
@@ -910,18 +944,18 @@ Bạn có thể yên tâm khi biết rằng một số phòng chọn lọc có t
             app:layout_constraintTop_toBottomOf="@+id/circle_indicator_3"
             tools:ignore="MissingConstraints" />
 
-        <TextView
-            android:id="@+id/txt_km"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="3km"
-            android:textSize="15sp"
-            app:layout_constraintEnd_toStartOf="@+id/textView3"
-            app:layout_constraintStart_toEndOf="@+id/img_location"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            tools:ignore="MissingConstraints" />
+        <!--        <TextView
+                    android:id="@+id/txt_km"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="3km"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toStartOf="@+id/textView3"
+                    app:layout_constraintStart_toEndOf="@+id/img_location"
+                    app:layout_constraintTop_toBottomOf="@+id/textView"
+                    tools:ignore="MissingConstraints" />-->
 
         <TextView
             android:id="@+id/txt_BinhLuan1"
