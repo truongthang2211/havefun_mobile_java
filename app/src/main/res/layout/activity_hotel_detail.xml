@@ -191,8 +191,12 @@
             android:id="@+id/detailhotel_listroom_linear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:divider="@drawable/empty_width_divider"
             android:orientation="vertical"
+            android:showDividers="middle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvSelectedDate">
@@ -311,6 +315,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/constraintLayout3">
 
             <RatingBar
@@ -349,6 +354,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:orientation="vertical"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:showDividers="middle"
+            android:divider="@drawable/empty_width_divider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_BinhLuan1">
@@ -806,7 +815,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="(2550 đánh giá)"
+            android:text="(0 đánh giá)"
             android:textColor="#C2C2C2"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/img_Start"
@@ -818,7 +827,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="(2550)"
+            android:text="0"
             android:textColor="#C2C2C2"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/txt_BinhLuan1"

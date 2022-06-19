@@ -59,7 +59,6 @@ public class HomeFragment extends Fragment {
     private HotDealSildeAdapter hotDealAdapter;
     private HotDealSildeAdapter specialAdapter;
     private PromotionSlideAdapter promotionAdapter;
-    private HomeHotHotelAdapter hotHotelAdapter;
     private LinearLayout linearHotHotel;
     private LinearLayout linearTopHotel;
     private LinearLayout linearMoreHotel;
@@ -239,7 +238,6 @@ public class HomeFragment extends Fragment {
                         Special_viewpager.setAdapter(specialAdapter);
 
 
-                        hotHotelAdapter = new HomeHotHotelAdapter(context, modelArrayList);
 
 
                         ProcessViewPager(HotDeal_viewpager, true);

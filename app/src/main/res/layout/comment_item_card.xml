@@ -2,14 +2,16 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    app:strokeColor="@color/lightGrey"
+    app:strokeWidth="1px"
+
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraint_NDBinhLuan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/text_bg"
         app:layout_constraintTop_toBottomOf="@+id/divider4">
 
         <TextView
@@ -37,9 +39,12 @@
 
         <RatingBar
             android:id="@+id/ratingBar"
+            style="?android:attr/ratingBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:progressTint="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/nd_BinhLuan"
             app:layout_constraintTop_toBottomOf="@+id/nd_BinhLuan" />

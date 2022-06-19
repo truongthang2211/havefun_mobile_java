@@ -118,7 +118,7 @@ public class HotelDetailActivity extends AppCompatActivity {
         detailhotel_listcmt_linear = findViewById(R.id.detailhotel_listcmt_linear);
         mViewPager2 = findViewById(R.id.view_pager_2);
         mCircleIndicator3 = findViewById(R.id.circle_indicator_3);
-
+        context = this;
         tvName = findViewById(R.id.textView);
         tvStart = findViewById(R.id.txt_star);
         tvStartComment = findViewById(R.id.tv_LuotBinhLuan);
@@ -330,30 +330,39 @@ public class HotelDetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String hotelStr = intent.getStringExtra("hotel");
         Hotel h = new Gson().fromJson(hotelStr,Hotel.class);
-        txt_SLDanhgia.setText("("+ h.getRatings().length + " đánh giá)");
         tvName.setText(h.getName());
         tvLocation.setText(h.getLocation().getAddress() + ", " +  h.getLocation().getDistrict()+ ", " + h.getLocation().getCity());
         SliderImageAdapter adapter = new SliderImageAdapter(new ArrayList<>(Arrays.asList(h.getImgs())),this);
         mViewPager2.setAdapter(adapter);
+        tvDescription.setText(h.getDescription());
         mCircleIndicator3.setViewPager(mViewPager2);
+        if (h.getRatings()!=null){
+            tvStartComment.setText(String.valueOf(h.getRatings().length));
+            txt_SLDanhgia.setText("("+ h.getRatings().length + " đánh giá)");
 
-        tvStartComment.setText(h.getRatings().length);
+        }
 
         LayoutInflater inflater = LayoutInflater.from(context);
 
         detailhotel_listroom_linear.removeAllViews();
         for (Room r : h.getRooms()){
             View view = inflater.inflate(R.layout.room_card_item,detailhotel_listroom_linear,false);
-
-            RenderRooms(view,r,h.getPromotions()[0],option );
+            Promotion p = null;
+            if (h.getPromotions() != null && h.getPromotions().length>0){
+                p = h.getPromotions()[0];
+            }
+            RenderRooms(view,r,p,option );
             detailhotel_listroom_linear.addView(view);
 
         }
-        for (Rating ra : h.getRatings()){
-            View view  = inflater.inflate(R.layout.comment_item_card,detailhotel_listcmt_linear,false);
-            RenderComment(view,ra);
-            detailhotel_listcmt_linear.addView(view);
+        if (h.getRatings()!=null){
+            for (Rating ra : h.getRatings()){
+                View view  = inflater.inflate(R.layout.comment_item_card,detailhotel_listcmt_linear,false);
+                RenderComment(view,ra);
+                detailhotel_listcmt_linear.addView(view);
+            }
         }
+
     }
     private void RenderRooms(View view, Room r, Promotion pro,String option){
         ImageView img = (ImageView)view.findViewById(R.id.imageView);
