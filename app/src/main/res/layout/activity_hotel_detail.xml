@@ -16,9 +16,8 @@
             android:id="@+id/img_Start2"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_marginStart="140dp"
-            app:layout_constraintLeft_toRightOf="@id/txt_BinhLuan1"
-            app:layout_constraintStart_toStartOf="@id/txt_BinhLuan1"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/tv_LuotBinhLuan"
             app:layout_constraintTop_toTopOf="@id/txt_BinhLuan1"
             app:srcCompat="@drawable/ic_star_orange"
             tools:ignore="MissingConstraints" />
@@ -26,25 +25,25 @@
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/view_pager_2"
             android:layout_width="match_parent"
-            android:layout_height="179dp"
+            android:layout_height="200dp"
             tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="1dp"
-            tools:layout_editor_absoluteY="-31dp" />
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="-32dp" />
 
         <me.relex.circleindicator.CircleIndicator3
             android:id="@+id/circle_indicator_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="160dp"
-            android:layout_marginTop="170dp"
+            android:layout_marginBottom="16dp"
             app:ci_drawable="@drawable/bd_indicator"
+            app:layout_constraintBottom_toBottomOf="@+id/view_pager_2"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/view_pager_2"
             tools:ignore="MissingConstraints,RtlHardcoded" />
 
         <ImageView
             android:id="@+id/img_location"
-            android:layout_width="35dp"
+            android:layout_width="25dp"
             android:layout_height="30dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
@@ -56,23 +55,24 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="189dp"
+            android:layout_width="wrap_content"
             android:layout_height="25dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="45dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="sans-serif"
             android:textAlignment="viewStart"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@id/view_pager_2"
-            app:layout_constraintTop_toTopOf="@id/circle_indicator_3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_Start"
             tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/img_location"
             app:layout_constraintLeft_toRightOf="@id/img_location"
             app:layout_constraintTop_toTopOf="@id/img_location"
             tools:ignore="HardcodedText" />
@@ -91,78 +91,35 @@
             tools:ignore="HardcodedText" />
 
         <View
-            android:id="@+id/divider"
-            android:layout_width="409dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="16dp"
-            android:background="?android:attr/listDivider"
-            app:layout_constraintTop_toBottomOf="@id/textView3"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="1dp" />
-
-        <View
-            android:id="@+id/divider2"
-            android:layout_width="409dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="185dp"
-            android:background="?android:attr/listDivider"
-            app:layout_constraintTop_toBottomOf="@id/divider"
-            tools:ignore="MissingConstraints,UnknownId"
-            tools:layout_editor_absoluteX="28dp" />
-
-        <View
-            android:id="@+id/divider3"
-            android:layout_width="409dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="310dp"
-            android:background="?android:attr/listDivider"
-            app:layout_constraintStart_toStartOf="@id/divider2"
-            app:layout_constraintTop_toBottomOf="@id/divider2"
-            tools:ignore="MissingConstraints,UnknownId" />
-
-        <View
             android:id="@+id/divider4"
-            android:layout_width="409dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="340dp"
-            android:background="?android:attr/listDivider"
-            app:layout_constraintStart_toStartOf="@id/divider3"
-            app:layout_constraintTop_toBottomOf="@id/divider3"
-            tools:ignore="MissingConstraints,UnknownId" />
-
-        <View
-            android:id="@+id/divider5"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="280dp"
+            android:layout_marginTop="8dp"
             android:background="?android:attr/listDivider"
-            app:layout_constraintStart_toStartOf="@id/divider4"
-            app:layout_constraintTop_toBottomOf="@id/divider4"
-            tools:ignore="MissingConstraints,UnknownId" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_cmtbox_contraint" />
 
         <View
             android:id="@+id/divider6"
-            android:layout_width="409dp"
+            android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="440dp"
+            android:layout_marginTop="8dp"
             android:background="?android:attr/listDivider"
-            app:layout_constraintStart_toStartOf="@id/divider5"
-            app:layout_constraintTop_toBottomOf="@id/divider5"
+            app:layout_constraintTop_toBottomOf="@id/constraintLayout2"
             tools:ignore="MissingConstraints,UnknownId" />
 
         <View
             android:id="@+id/divider7"
-            android:layout_width="409dp"
+            android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="580dp"
+            android:layout_marginTop="16dp"
             android:background="?android:attr/listDivider"
-            app:layout_constraintStart_toStartOf="@id/divider6"
-            app:layout_constraintTop_toBottomOf="@id/divider6"
-            tools:ignore="MissingConstraints,UnknownId" />
+
+            app:layout_constraintTop_toBottomOf="@+id/detailhotel_listcmt_linear" />
 
         <View
             android:id="@+id/divider8"
-            android:layout_width="409dp"
+            android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="150dp"
             android:background="?android:attr/listDivider"
@@ -172,9 +129,9 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_Theogio"
-            android:layout_width="127dp"
+            android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:layout_marginStart="-5dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
             android:backgroundTint="@color/darkWhite"
             android:fontFamily="sans-serif-medium"
@@ -186,15 +143,14 @@
             app:iconPadding="2dp"
             app:iconSize="15dp"
             app:iconTint="@color/colorPrimary"
-            app:layout_constraintStart_toStartOf="@id/textView5"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textView5"
             tools:ignore="MissingConstraints" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_Quadem"
-            android:layout_width="127dp"
+            android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:layout_marginStart="135dp"
             android:layout_marginTop="12dp"
             android:backgroundTint="@color/darkWhite"
             android:fontFamily="sans-serif-medium"
@@ -206,16 +162,17 @@
             app:iconPadding="2dp"
             app:iconSize="15dp"
             app:iconTint="@color/colorPrimary"
-            app:layout_constraintStart_toStartOf="@id/btn_Theogio"
+            app:layout_constraintEnd_toStartOf="@+id/btn_Theongay"
+            app:layout_constraintStart_toEndOf="@+id/btn_Theogio"
             app:layout_constraintTop_toBottomOf="@id/textView5"
             tools:ignore="MissingConstraints" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_Theongay"
-            android:layout_width="127dp"
+            android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:layout_marginStart="135dp"
             android:layout_marginTop="12dp"
+            android:layout_marginEnd="8dp"
             android:backgroundTint="@color/darkWhite"
             android:fontFamily="sans-serif-medium"
             android:text="Theo Ngày"
@@ -226,139 +183,22 @@
             app:iconPadding="2dp"
             app:iconSize="15dp"
             app:iconTint="@color/colorPrimary"
-            app:layout_constraintStart_toStartOf="@id/btn_Quadem"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textView5"
             tools:ignore="MissingConstraints" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/detailhotel_contrain_roomitem"
-            android:layout_width="380dp"
-            android:layout_height="280dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/text_bg"
-            app:layout_constraintStart_toStartOf="@id/divider2"
-            app:layout_constraintTop_toBottomOf="@+id/divider2"
-            tools:ignore="MissingConstraints">
+        <LinearLayout
+            android:id="@+id/detailhotel_listroom_linear"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSelectedDate"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="68dp"
-                android:layout_height="15dp"
-                android:layout_marginStart="136dp"
-                android:layout_marginTop="4dp"
-                android:background="@android:color/holo_orange_dark"
-                android:backgroundTint="@color/white"
-                android:text="Tặng Giờ"
-                android:textColor="#FF5622"
-                android:textSize="10sp"
-                app:drawableTint="#FF5622"
-                app:layout_constraintStart_toStartOf="@+id/textView7"
-                app:layout_constraintTop_toBottomOf="@+id/textView7"
-                tools:ignore="HardcodedText,SmallSp,TextContrastCheck" />
+        </LinearLayout>
 
-            <com.makeramen.roundedimageview.RoundedImageView
-                android:id="@+id/imageView"
-                android:layout_width="match_parent"
-                android:layout_height="148dp"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="16dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/standard"
-                app:layout_constraintStart_toStartOf="@id/detailhotel_contrain_roomitem"
-                app:layout_constraintTop_toTopOf="@id/constraintLayout"
-                app:riv_corner_radius="10dp"
-                tools:ignore="ContentDescription,MissingConstraints,NotSibling,RtlHardcoded" />
-
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="9dp"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/imageView"
-                tools:ignore="HardcodedText,MissingConstraints,RtlHardcoded" />
-
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:textSize="10sp"
-                app:layout_constraintStart_toStartOf="@id/textView6"
-                app:layout_constraintTop_toBottomOf="@+id/textView6"
-                tools:ignore="HardcodedText,MissingConstraints,SmallSp" />
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="44dp"
-                android:textSize="10sp"
-                app:layout_constraintStart_toStartOf="@id/textView6"
-                app:layout_constraintTop_toBottomOf="@+id/textView6"
-                tools:ignore="HardcodedText,MissingConstraints,SmallSp" />
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="79dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="60dp"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@id/textView6"
-                app:layout_constraintTop_toBottomOf="@+id/textView6"
-                tools:ignore="HardcodedText,MissingConstraints,SmallSp" />
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="46dp"
-                android:layout_height="16dp"
-                android:layout_marginTop="4dp"
-                android:background="@android:color/holo_orange_dark"
-                android:backgroundTint="@color/white"
-                android:text="Ưu đãi"
-                android:textColor="#FF5622"
-                android:textSize="10sp"
-                app:drawableTint="#FF5622"
-                app:layout_constraintStart_toStartOf="@+id/textView7"
-                app:layout_constraintTop_toBottomOf="@+id/textView7"
-                tools:ignore="HardcodedText,SmallSp,TextContrastCheck" />
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="69dp"
-                android:layout_height="16dp"
-                android:layout_marginStart="56dp"
-                android:layout_marginTop="4dp"
-                android:background="@android:color/holo_orange_dark"
-                android:backgroundTint="@color/white"
-                android:text="Giảm Ngay"
-                android:textColor="#FF5622"
-                android:textSize="10sp"
-                app:drawableTint="#FF5622"
-                app:layout_constraintStart_toStartOf="@+id/textView7"
-                app:layout_constraintTop_toBottomOf="@+id/textView7"
-                tools:ignore="HardcodedText,SmallSp,TextContrastCheck" />
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="90dp"
-                android:layout_height="35dp"
-                android:layout_marginStart="170dp"
-                android:layout_marginTop="82dp"
-                android:backgroundTint="@android:color/holo_orange_dark"
-                android:paddingLeft="4dp"
-                android:paddingRight="4dp"
-                android:text="Chọn phòng"
-                android:textSize="10sp"
-                app:layout_constraintStart_toEndOf="@+id/textView10"
-                app:layout_constraintTop_toBottomOf="@+id/imageView"
-                tools:ignore="HardcodedText,SmallSp" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!--<androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="380dp"
@@ -465,297 +305,217 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageView1"
                 tools:ignore="HardcodedText,SmallSp" />
         </androidx.constraintlayout.widget.ConstraintLayout>-->
-
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraint_NDBinhLuan"
-            android:layout_width="290dp"
-            android:layout_height="220dp"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/text_bg"
-            app:layout_constraintTop_toBottomOf="@+id/divider4"
-            tools:layout_editor_absoluteX="-2dp"
-            tools:ignore="MissingConstraints">
+            android:id="@+id/detail_cmtbox_contraint"
 
-            <TextView
-                android:id="@+id/TT_BinhLuan"
-                android:layout_width="140dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
-                android:background="@color/white"
-                android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="HardcodedText,NotSibling" />
-
-
-            <TextView
-                android:id="@+id/nd_BinhLuan"
-                android:layout_width="220dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="50dp"
-                app:layout_constraintStart_toStartOf="@id/Topic_BinhLuan"
-                app:layout_constraintTop_toBottomOf="@+id/TT_BinhLuan"
-                tools:ignore="HardcodedText,NotSibling" />
-
-            <ImageButton
-                android:id="@+id/img_like"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="-5dp"
-                android:layout_marginTop="6dp"
-                android:backgroundTint="#FFFFFF"
-                app:layout_constraintStart_toStartOf="@id/TT_BinhLuan"
-                app:layout_constraintTop_toBottomOf="@+id/nd_BinhLuan"
-                app:srcCompat="@drawable/like"
-                tools:ignore="NotSibling" />
-
-            <TextView
-                android:id="@+id/Topic_BinhLuan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="38dp"
-                android:text="Superior Double Lovely"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/TT_BinhLuan"
-                app:layout_constraintTop_toTopOf="@id/TT_BinhLuan"
-                tools:ignore="HardcodedText,NotSibling" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/divider5"
-            tools:layout_editor_absoluteX="-2dp"
-            tools:ignore="MissingConstraints">
+            app:layout_constraintTop_toBottomOf="@id/constraintLayout3">
 
-            <TextView
-                android:id="@+id/tvTextHotelFeatureTitle"
+            <RatingBar
+                android:id="@+id/detailhotel_ratingbar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tiện ích"
-                android:textStyle="bold"
-                android:textSize="24sp"
-                android:textColor="@color/black"
-                android:layout_marginLeft="20dp"
-                app:layout_constraintBottom_toTopOf="@+id/tvHotelDetailSubTitle"
-                android:layout_marginTop="30dp"
+                app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"/>
+                tools:ignore="SpeakableTextPresentCheck" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/detailhotel_cmt_edText"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvHotelDetailSubTitle"
-                app:layout_constraintTop_toBottomOf="@+id/tvTextHotelFeatureTitle"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/tvHotelDetailSubFeature1"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:textSize="16sp"
-                android:text="Tiện ích khác nhau tùy thuộc vào từng loại phòng."/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvHotelDetailSubFeature1"
-                app:layout_constraintTop_toBottomOf="@+id/tvHotelDetailSubTitle"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:text="Sàn gỗ/gỗ miếng"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/tvHotelDetailSubFeature2"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/imgHotelDetailViewIconFeature1"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"/>
-            <ImageView
-                android:id="@+id/imgHotelDetailViewIconFeature1"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/tatami"
-                app:layout_constraintLeft_toRightOf="@+id/tvHotelDetailSubFeature1"
-                app:layout_constraintTop_toBottomOf="@+id/tvHotelDetailSubTitle"
-                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginRight="20dp"/>
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detailhotel_ratingbar" />
 
-            <TextView
+            <com.google.android.material.button.MaterialButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvHotelDetailSubFeature2"
-                app:layout_constraintTop_toBottomOf="@+id/tvHotelDetailSubFeature1"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Nhận xét"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detailhotel_cmt_edText" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:id="@+id/detailhotel_listcmt_linear"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_BinhLuan1"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/detailhotel_listroom_linear"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="-2dp">
+
+            <TextView
+                android:id="@+id/txtTienIch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="28dp"
+                android:text="Tiện ích"
+                android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
-                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detailhotel_listroom_linear"
+                tools:ignore="HardcodedText,NotSibling" />
+
+            <TextView
+                android:id="@+id/txt_tienich"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Tiện ích khác nhau tuỳ thuộc vào từng loại phòng."
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtTienIch"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/txt_Internet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:text="Internet không dây (WIFI)"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/tvHotelDetailSubFeature3"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/imgHotelDetailViewIconFeature2"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"/>
+                app:layout_constraintTop_toBottomOf="@+id/txt_tienich" />
+
             <ImageView
-                android:id="@+id/imgHotelDetailViewIconFeature2"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/wifi_router"
-                app:layout_constraintLeft_toRightOf="@+id/tvHotelDetailSubFeature2"
-                app:layout_constraintTop_toBottomOf="@+id/tvHotelDetailSubFeature1"
+                android:id="@+id/imageTienich"
+                android:layout_width="30dp"
+                android:layout_height="21dp"
+                app:layout_constraintTop_toTopOf="@id/txt_Internet"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginRight="20dp"/>
+                android:layout_marginRight="96dp"
+                app:srcCompat="@drawable/wifi" />
+
+            <ImageView
+                android:id="@+id/imageNuocsuoi"
+                android:layout_width="30dp"
+                android:layout_height="21dp"
+                app:layout_constraintTop_toTopOf="@id/txtNuocsuoi"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginRight="96dp"
+                app:srcCompat="@drawable/nuocsuoi" />
+
+            <ImageView
+                android:id="@+id/imageLetan"
+                android:layout_width="30dp"
+                android:layout_height="21dp"
+                app:layout_constraintTop_toTopOf="@id/txtLetan"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginRight="96dp"
+                app:srcCompat="@drawable/letan" />
+
+            <ImageView
+                android:id="@+id/imageNetflix"
+                android:layout_width="30dp"
+                android:layout_height="21dp"
+                app:layout_constraintTop_toTopOf="@id/txtNetflix"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginRight="96dp"
+                app:srcCompat="@drawable/netflix"
+                tools:ignore="UnknownId" />
+
+            <ImageView
+                android:id="@+id/imageGhetinhnhan"
+                android:layout_width="30dp"
+                android:layout_height="21dp"
+                app:layout_constraintTop_toTopOf="@id/txt_Ghetinhnhan"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginRight="96dp"
+                app:srcCompat="@drawable/ghe"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/imageBontam"
+                android:layout_width="30dp"
+                android:layout_height="21dp"
+                app:layout_constraintTop_toTopOf="@id/txtBontam"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginRight="96dp"
+                app:srcCompat="@drawable/bontam"
+                tools:ignore="UnknownId" />
 
             <TextView
+                android:id="@+id/txt_Ghetinhnhan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvHotelDetailSubFeature3"
-                app:layout_constraintTop_toBottomOf="@+id/tvHotelDetailSubFeature2"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:textSize="16sp"
+                android:text="Ghế tình nhân"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_Internet"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="83dp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/txtBontam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bồn tắm sục"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="@id/txt_Ghetinhnhan"
+                app:layout_constraintTop_toBottomOf="@+id/txt_Ghetinhnhan"
+                 />
+
+            <TextView
+                android:id="@+id/txtNuocsuoi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nước suối"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="@id/txtBontam"
+                app:layout_constraintTop_toBottomOf="@+id/txtBontam"
+               />
+
+            <TextView
+                android:id="@+id/txtLetan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="Lễ tân 24/24"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/tvHotelDetailSubFeature4"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/imgHotelDetailViewIconFeature3"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"/>
-            <ImageView
-                android:id="@+id/imgHotelDetailViewIconFeature3"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/winner"
-                app:layout_constraintLeft_toRightOf="@+id/tvHotelDetailSubFeature3"
-                app:layout_constraintTop_toBottomOf="@+id/tvHotelDetailSubFeature2"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginRight="20dp"/>
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="@id/txtNuocsuoi"
+                app:layout_constraintTop_toBottomOf="@+id/txtNuocsuoi"
+                />
 
             <TextView
+                android:id="@+id/txtNetflix"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvHotelDetailSubFeature4"
-                app:layout_constraintTop_toBottomOf="@+id/tvHotelDetailSubFeature3"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:text="Máy lạnh"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/tvHotelDetailSubFeature5"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/imgHotelDetailViewIconFeature4"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"/>
-            <ImageView
-                android:id="@+id/imgHotelDetailViewIconFeature4"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/air_conditioner"
-                app:layout_constraintLeft_toRightOf="@+id/tvHotelDetailSubFeature4"
-                app:layout_constraintTop_toBottomOf="@+id/tvHotelDetailSubFeature3"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginRight="20dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvHotelDetailSubFeature5"
-                app:layout_constraintTop_toBottomOf="@+id/tvHotelDetailSubFeature4"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:text="TV"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/tvHotelDetailSubFeature6"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/imgHotelDetailViewIconFeature5"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"/>
-            <ImageView
-                android:id="@+id/imgHotelDetailViewIconFeature5"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/pc"
-                app:layout_constraintLeft_toRightOf="@+id/tvHotelDetailSubFeature5"
-                app:layout_constraintTop_toBottomOf="@+id/tvHotelDetailSubFeature4"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginRight="20dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvHotelDetailSubFeature6"
-                app:layout_constraintTop_toBottomOf="@+id/tvHotelDetailSubFeature5"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:text="Thang máy"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/tvHotelDetailSubFeature7"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/imgHotelDetailViewIconFeature6"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"/>
-            <ImageView
-                android:id="@+id/imgHotelDetailViewIconFeature6"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/elevator"
-                android:scaleType="fitXY"
-                app:layout_constraintLeft_toRightOf="@+id/tvHotelDetailSubFeature6"
-                app:layout_constraintTop_toBottomOf="@+id/tvHotelDetailSubFeature5"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginRight="20dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvHotelDetailSubFeature7"
-                app:layout_constraintTop_toBottomOf="@+id/tvHotelDetailSubFeature6"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:text="Truyền hình Cáp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/imgHotelDetailViewIconFeature7"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"/>
-            <ImageView
-                android:id="@+id/imgHotelDetailViewIconFeature7"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/responsive"
-                app:layout_constraintLeft_toRightOf="@+id/tvHotelDetailSubFeature7"
-                app:layout_constraintTop_toBottomOf="@+id/tvHotelDetailSubFeature6"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginRight="20dp"/>
+                android:text="NETFLIX"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="@id/txtLetan"
+                app:layout_constraintTop_toBottomOf="@+id/txtLetan"
+                />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             app:layout_constraintTop_toBottomOf="@+id/divider6"
             tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="0dp"
-            >
+            tools:layout_editor_absoluteX="0dp">
 
             <TextView
                 android:id="@+id/txtGioiThieu"
@@ -772,10 +532,11 @@
 
             <TextView
                 android:id="@+id/txt_ndGT"
-                android:layout_width="398dp"
-                android:layout_height="514dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
 
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/txtGioiThieu"
                 app:layout_constraintTop_toBottomOf="@id/txtGioiThieu" />
 
@@ -783,59 +544,57 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/detail_chínhach_contraint"
             android:layout_width="match_parent"
             android:layout_height="130dp"
-            android:layout_marginTop="4dp"
-            app:layout_constraintTop_toBottomOf="@+id/divider7"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="-1dp">
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/divider7">
 
             <TextView
                 android:id="@+id/txtCSKS"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="28dp"
                 android:text="Chính sách khách sạn"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/divider5"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="HardcodedText,NotSibling" />
 
             <TextView
                 android:id="@+id/txtTheoGio_CSKS"
-                android:layout_width="74dp"
+                android:layout_width="wrap_content"
                 android:layout_height="27dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="8dp"
                 android:text="Theo giờ"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/txtCSKS"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtCSKS"
                 tools:ignore="HardcodedText" />
 
             <TextView
                 android:id="@+id/txtTheoDem_CSKS"
-                android:layout_width="74dp"
+                android:layout_width="wrap_content"
                 android:layout_height="27dp"
-                android:layout_marginStart="120dp"
                 android:layout_marginTop="8dp"
                 android:text="Theo đêm"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/txtCSKS"
+                app:layout_constraintEnd_toStartOf="@+id/txtTheoNgay_CSKS"
+                app:layout_constraintStart_toEndOf="@+id/txtTheoGio_CSKS"
                 app:layout_constraintTop_toBottomOf="@+id/txtCSKS"
                 tools:ignore="HardcodedText" />
 
             <TextView
                 android:id="@+id/txtTheoNgay_CSKS"
-                android:layout_width="74dp"
+                android:layout_width="wrap_content"
                 android:layout_height="27dp"
-                android:layout_marginStart="230dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
                 android:text="Theo ngày"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/txtCSKS"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtCSKS"
                 tools:ignore="HardcodedText" />
 
@@ -843,31 +602,31 @@
                 android:id="@+id/txt_Theogio_CSDK_gio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="16dp"
                 android:text="Từ 6:00"
-                app:layout_constraintStart_toStartOf="@id/txtTheoGio_CSKS"
+                app:layout_constraintEnd_toEndOf="@+id/txtTheoGio_CSKS"
+                app:layout_constraintStart_toStartOf="@+id/txtTheoGio_CSKS"
                 app:layout_constraintTop_toBottomOf="@+id/txtTheoGio_CSKS" />
 
             <TextView
                 android:id="@+id/txt_Theodem_CSDK_gio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="110dp"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="16dp"
                 android:text="22:00 - 12:00"
-                app:layout_constraintStart_toStartOf="@id/txtTheoGio_CSKS"
-                app:layout_constraintTop_toBottomOf="@+id/txtTheoGio_CSKS" />
+                app:layout_constraintEnd_toEndOf="@+id/txtTheoDem_CSKS"
+                app:layout_constraintStart_toStartOf="@+id/txtTheoDem_CSKS"
+                app:layout_constraintTop_toBottomOf="@+id/txtTheoDem_CSKS" />
 
             <TextView
                 android:id="@+id/txt_Theongay_CSDK_gio"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="220dp"
-                android:layout_marginTop="18dp"
+                android:layout_height="19dp"
+                android:layout_marginTop="16dp"
                 android:text="14:00 – 12:00"
-                app:layout_constraintStart_toStartOf="@id/txtTheoGio_CSKS"
-                app:layout_constraintTop_toBottomOf="@+id/txtTheoGio_CSKS" />
+                app:layout_constraintEnd_toEndOf="@+id/txtTheoNgay_CSKS"
+                app:layout_constraintStart_toStartOf="@+id/txtTheoNgay_CSKS"
+                app:layout_constraintTop_toBottomOf="@+id/txtTheoNgay_CSKS" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -897,10 +656,9 @@
                 android:id="@+id/txt_CSHP"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
                 android:layout_marginTop="6dp"
                 android:text="Hủy phòng miễn phí trước 1 tiếng trước khi nhận phòng"
-                app:layout_constraintStart_toStartOf="@id/txtCSHP"
+                app:layout_constraintStart_toStartOf="@+id/txtCSHP"
                 app:layout_constraintTop_toBottomOf="@+id/txtCSHP" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -908,11 +666,9 @@
             android:id="@+id/img_Start"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_marginStart="-3dp"
-            android:layout_marginTop="60dp"
-            android:layout_marginBottom="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/circle_indicator_3"
-            app:layout_constraintStart_toStartOf="@+id/textView"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view_pager_2"
             app:srcCompat="@drawable/ic_star_orange"
             tools:ignore="MissingConstraints" />
@@ -922,26 +678,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="10dp"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/img_Start"
-            app:layout_constraintTop_toBottomOf="@+id/circle_indicator_3"
+            app:layout_constraintTop_toTopOf="@+id/img_Start"
             tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/txt_NoiBat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="270dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:background="#FF0000"
             android:backgroundTint="#FF0000"
+            android:paddingLeft="8dp"
+            android:paddingTop="2dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="2dp"
             android:text="Nổi bật"
-            android:textColor="#000000"
+            android:textColor="#FFFFFF"
             android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@+id/txt_star"
-            app:layout_constraintTop_toBottomOf="@+id/circle_indicator_3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_pager_2"
             tools:ignore="MissingConstraints" />
 
         <!--        <TextView
@@ -961,12 +720,12 @@
             android:id="@+id/txt_BinhLuan1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="9dp"
             android:text="Bình luận"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/constraint_NDBinhLuan"
-            app:layout_constraintStart_toStartOf="@id/textView5"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider4"
             tools:ignore="NotSibling" />
 
@@ -974,7 +733,8 @@
             android:id="@+id/btnDate"
             android:layout_width="130dp"
             android:layout_height="48dp"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
             android:text="Nhận phòng"
             android:textColor="@color/black"
             android:textSize="10sp"
@@ -983,8 +743,8 @@
             app:iconPadding="5dp"
             app:iconSize="15dp"
             app:iconTint="#FF9800"
-            app:layout_constraintStart_toStartOf="@+id/textView5"
-            app:layout_constraintTop_toBottomOf="@+id/btn_Theogio"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_Quadem"
             app:srcCompat="@color/colorPrimary"
             tools:ignore="MissingConstraints" />
 
@@ -992,7 +752,7 @@
             android:id="@+id/btnDate1"
             android:layout_width="130dp"
             android:layout_height="48dp"
-            android:layout_marginStart="200dp"
+            android:layout_marginEnd="32dp"
             android:text="Trả phòng"
             android:textColor="@color/black"
             android:textSize="10sp"
@@ -1001,41 +761,41 @@
             app:iconPadding="5dp"
             app:iconSize="15dp"
             app:iconTint="#FF9800"
-            app:layout_constraintStart_toStartOf="@id/btnDate"
-            app:layout_constraintTop_toBottomOf="@id/btn_Theongay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnDate"
             app:srcCompat="@color/colorPrimary"
             tools:ignore="MissingConstraints,RtlHardcoded" />
 
         <TextView
             android:id="@+id/tvSelectedDate"
-            android:layout_width="160dp"
-            android:layout_height="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/btnDate"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
             android:textAlignment="viewStart"
             android:textColor="@color/black"
             android:textSize="14sp"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/btnDate"
             app:layout_constraintStart_toStartOf="@id/btnDate"
             app:layout_constraintTop_toBottomOf="@id/btnDate"
             tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/tvSelectedDate1"
-            android:layout_width="160dp"
-            android:layout_height="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/btnDate1"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
             android:textAlignment="viewStart"
             android:textColor="@color/black"
             android:textSize="14sp"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/btnDate1"
             app:layout_constraintStart_toStartOf="@id/btnDate1"
             app:layout_constraintTop_toBottomOf="@id/btnDate1"
             tools:ignore="MissingConstraints" />
@@ -1045,24 +805,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="6dp"
             android:text="(2550 đánh giá)"
             android:textColor="#C2C2C2"
             android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/img_Start"
             app:layout_constraintStart_toEndOf="@+id/txt_star"
-            app:layout_constraintTop_toBottomOf="@+id/view_pager_2" />
+            app:layout_constraintTop_toTopOf="@+id/img_Start" />
 
         <TextView
             android:id="@+id/tv_LuotBinhLuan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginStart="8dp"
             android:text="(2550)"
             android:textColor="#C2C2C2"
             android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_BinhLuan1"
             app:layout_constraintStart_toEndOf="@+id/txt_BinhLuan1"
-            app:layout_constraintTop_toBottomOf="@+id/divider4" />
+            app:layout_constraintTop_toTopOf="@+id/txt_BinhLuan1" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

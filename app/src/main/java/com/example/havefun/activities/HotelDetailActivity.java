@@ -118,21 +118,7 @@ public class HotelDetailActivity extends AppCompatActivity {
         selectDateOrTimeStart = findViewById(R.id.tvSelectedDate);
         selectDateOrTimeStop = findViewById(R.id.tvSelectedDate1);
 
-        tvitem7 = findViewById(R.id.tvHotelDetailSubFeature7);
-        tvitem6 = findViewById(R.id.tvHotelDetailSubFeature6);
-        tvitem5 = findViewById(R.id.tvHotelDetailSubFeature5);
-        tvitem4 = findViewById(R.id.tvHotelDetailSubFeature4);
-        tvitem3 = findViewById(R.id.tvHotelDetailSubFeature3);
-        tvitem2 = findViewById(R.id.tvHotelDetailSubFeature2);
-        tvitem1 = findViewById(R.id.tvHotelDetailSubFeature1);
 
-        img1 = findViewById(R.id.imgHotelDetailViewIconFeature1);
-        img2 = findViewById(R.id.imgHotelDetailViewIconFeature2);
-        img3 = findViewById(R.id.imgHotelDetailViewIconFeature3);
-        img4 = findViewById(R.id.imgHotelDetailViewIconFeature4);
-        img5 = findViewById(R.id.imgHotelDetailViewIconFeature5);
-        img6 = findViewById(R.id.imgHotelDetailViewIconFeature6);
-        img7 = findViewById(R.id.imgHotelDetailViewIconFeature7);
 
         String ServerAddres = getString(R.string.server_address);
 
@@ -460,7 +446,7 @@ public class HotelDetailActivity extends AppCompatActivity {
             }
         });
 
-        requestqueue.add(request);
+//        requestqueue.add(request);
 
 
         //Hàm  nhập ngày
@@ -492,16 +478,16 @@ public class HotelDetailActivity extends AppCompatActivity {
         mViewPager2.setAdapter(photoAdapter);
         mCircleIndicator3.setViewPager(mViewPager2);
         ConstraintLayout room_item = findViewById(R.id.detailhotel_contrain_roomitem);
-        room_item.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HotelDetailActivity.this, RoomDetailActivity.class);
-                intent.putExtra("timestart",lTimeStart);
-                Log.e("thn", String.valueOf(lTimeStart));
-                intent.putExtra("timestop", lTimeStop);
-                startActivity(intent);
-            }
-        });
+//        room_item.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(HotelDetailActivity.this, RoomDetailActivity.class);
+//                intent.putExtra("timestart",lTimeStart);
+//                Log.e("thn", String.valueOf(lTimeStart));
+//                intent.putExtra("timestop", lTimeStop);
+//                startActivity(intent);
+//            }
+//        });
 
     }
 

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/detailhotel_contrain_roomitem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/text_bg"
+        android:paddingBottom="16dp">
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="68dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="136dp"
+            android:layout_marginTop="4dp"
+            android:background="@android:color/holo_orange_dark"
+            android:backgroundTint="@color/white"
+            android:text="Tặng Giờ"
+            android:textColor="#FF5622"
+            android:textSize="10sp"
+            app:drawableTint="#FF5622"
+            app:layout_constraintStart_toStartOf="@+id/textView7"
+            app:layout_constraintTop_toBottomOf="@+id/textView7"
+            tools:ignore="HardcodedText,SmallSp,TextContrastCheck" />
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginStart="0dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/standard"
+            app:layout_constraintStart_toStartOf="@id/detailhotel_contrain_roomitem"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius="10dp"
+            tools:ignore="ContentDescription,MissingConstraints,NotSibling,RtlHardcoded" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="9dp"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            tools:ignore="HardcodedText,MissingConstraints,RtlHardcoded" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            tools:ignore="HardcodedText,MissingConstraints,SmallSp" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            tools:ignore="HardcodedText,MissingConstraints,SmallSp" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="79dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            tools:ignore="HardcodedText,MissingConstraints,SmallSp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="46dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="4dp"
+            android:background="@android:color/holo_orange_dark"
+            android:backgroundTint="@color/white"
+            android:text="Ưu đãi"
+            android:textColor="#FF5622"
+            android:textSize="10sp"
+            app:drawableTint="#FF5622"
+            app:layout_constraintStart_toStartOf="@+id/textView7"
+            app:layout_constraintTop_toBottomOf="@+id/textView7"
+            tools:ignore="HardcodedText,SmallSp,TextContrastCheck" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="69dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="4dp"
+            android:background="@android:color/holo_orange_dark"
+            android:backgroundTint="@color/white"
+            android:text="Giảm Ngay"
+            android:textColor="#FF5622"
+            android:textSize="10sp"
+            app:drawableTint="#FF5622"
+            app:layout_constraintStart_toStartOf="@+id/textView7"
+            app:layout_constraintTop_toBottomOf="@+id/textView7"
+            tools:ignore="HardcodedText,SmallSp,TextContrastCheck" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
