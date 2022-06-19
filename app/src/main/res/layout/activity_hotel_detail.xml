@@ -190,12 +190,12 @@
         <LinearLayout
             android:id="@+id/detailhotel_listroom_linear"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvSelectedDate"
-            android:orientation="vertical">
+            app:layout_constraintTop_toBottomOf="@+id/tvSelectedDate">
 
         </LinearLayout>
 
@@ -342,15 +342,16 @@
                 app:layout_constraintTop_toBottomOf="@id/detailhotel_cmt_edText" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <LinearLayout
             android:id="@+id/detailhotel_listcmt_linear"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_BinhLuan1"
-            android:orientation="vertical">
+            app:layout_constraintTop_toBottomOf="@+id/txt_BinhLuan1">
 
         </LinearLayout>
 

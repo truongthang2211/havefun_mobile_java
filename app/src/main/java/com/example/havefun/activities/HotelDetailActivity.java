@@ -12,13 +12,17 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -32,22 +36,34 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.havefun.R;
+import com.example.havefun.adapters.ImageAdapter;
 import com.example.havefun.adapters.PhotoAdapter;
+import com.example.havefun.adapters.SliderImageAdapter;
+import com.example.havefun.models.Hotel;
 import com.example.havefun.models.Location;
 import com.example.havefun.models.Photo;
+import com.example.havefun.models.Promotion;
 import com.example.havefun.models.Rating;
+import com.example.havefun.models.Room;
 import com.example.havefun.utils.MySingleton;
+import com.google.gson.Gson;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
+import java.sql.Array;
 import java.sql.Date;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
+import java.util.zip.Inflater;
 
 import me.relex.circleindicator.CircleIndicator3;
 
@@ -56,7 +72,7 @@ public class HotelDetailActivity extends AppCompatActivity {
     private CircleIndicator3 mCircleIndicator3;
 
 
-    private TextView tvName,tvRoomName, tvRoomType, tvStart, tvStartComment, tvComment, tvOvernightPrice, tvDescription, tvLocation,tvitem1,tvitem2,tvitem3,tvitem4,tvitem5,tvitem6,tvitem7;
+    private TextView tvName,tvRoomName, tvRoomType, tvStart, tvStartComment, tvComment, tvOvernightPrice, tvDescription, tvLocation,tvitem1,tvitem2,tvitem3,tvitem4,tvitem5,tvitem6,tvitem7,txt_SLDanhgia;
     private ImageView img1, img2, img3, img4, img5, img6,img7;
     private boolean wood_floor;
     private boolean air_conditioning;
@@ -66,6 +82,9 @@ public class HotelDetailActivity extends AppCompatActivity {
     private boolean elevator;
     private boolean tv;
     private Context context;
+    private LinearLayout detailhotel_listroom_linear;
+    private LinearLayout detailhotel_listcmt_linear;
+
     int hourStart, minuStart, hourStop, minuStop;
 
     private Button btnTheoGio, btnQuaDem, btnTheoNgay, btnNhanPhong, btnTraPhong;
@@ -95,7 +114,8 @@ public class HotelDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hotel_detail);
-
+        detailhotel_listroom_linear = findViewById(R.id.detailhotel_listroom_linear);
+        detailhotel_listcmt_linear = findViewById(R.id.detailhotel_listcmt_linear);
         mViewPager2 = findViewById(R.id.view_pager_2);
         mCircleIndicator3 = findViewById(R.id.circle_indicator_3);
 
@@ -117,10 +137,9 @@ public class HotelDetailActivity extends AppCompatActivity {
         btnTraPhong = findViewById(R.id.btnDate1);
         selectDateOrTimeStart = findViewById(R.id.tvSelectedDate);
         selectDateOrTimeStop = findViewById(R.id.tvSelectedDate1);
+        txt_SLDanhgia = findViewById(R.id.txt_SLDanhgia);
 
 
-
-        String ServerAddres = getString(R.string.server_address);
 
         TimePickerDialog.OnTimeSetListener mTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
@@ -305,199 +324,96 @@ public class HotelDetailActivity extends AppCompatActivity {
                 });
             }
         });
-
-
-
-
-/*        selectDate.setOnClickListener(new View.OnClickListener(){
-           public void onClick(View v){
-               jsonParse();
-           }
-        });*/
-
-        RequestQueue requestqueue = Volley.newRequestQueue(this);
-
-        /*String url = "http://192.168.1.2:3000/api/hotels";*/
-        String url = ServerAddres+"/api/hotels";
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url,null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            JSONArray jsondataArray = response.getJSONArray("data");
-
-                            for(int i=0; i<jsondataArray.length();i++) {
-                                JSONObject hotelItem = jsondataArray.getJSONObject(i);
-
-                                String name = hotelItem.getString("name");
-                                String description = hotelItem.getString("description");
-
-                                JSONArray jsonRatingArray = hotelItem.getJSONArray("ratings");
-                                for(int m =0;m<jsonRatingArray.length();m++) {
-                                    JSONObject ratingsItem = jsonRatingArray.getJSONObject(m);
-                                    String ratings = ratingsItem.getString("start");
-                                    String comment = ratingsItem.getString("comment");
-
-                                    tvComment.setText(comment);
-                                    tvStart.setText(ratings);
-                                    tvStartComment.setText(ratings);
-                                }
-
-                                JSONObject jsonLocationObject = hotelItem.getJSONObject("location");
-                                String address = jsonLocationObject.getString("address");
-                                String village = jsonLocationObject.getString("village");
-                                String district = jsonLocationObject.getString("district");
-                                String city = jsonLocationObject.getString("city");
-
-                                tvLocation.append(address + ',' + village + ',' + district + ',' + city);
-
-                                JSONArray jsonRoomArray = hotelItem.getJSONArray("rooms");
-                                JSONObject roomItems = jsonRoomArray.getJSONObject(0);
-                                for (int j=0;j<jsonRoomArray.length();j++) {
-                                    JSONObject roomItem = jsonRoomArray.getJSONObject(j);
-
-                                    String RoomName = roomItem.getString("name");
-                                    String RoomType = roomItem.getString("room_type");
-                                    String OvernightPrice = roomItem.getString("overnight_price");
-
-                                    tvName.setText(name);
-                                    tvDescription.setText(description);
-                                    tvRoomName.setText(RoomName);
-                                    tvRoomType.setText(RoomType);
-                                    tvOvernightPrice.setText(OvernightPrice);
-
-                                }
-                                JSONObject facilitiesJSON = roomItems.getJSONObject("facilities");
-
-                                wood_floor = facilitiesJSON.getBoolean("wood_floor");
-                                air_conditioning = facilitiesJSON.getBoolean("air_conditioning");
-                                reception24 = facilitiesJSON.getBoolean("reception24");
-                                wifi = facilitiesJSON.getBoolean("wifi");
-                                cable_tv=facilitiesJSON.getBoolean("cable_tv");
-                                elevator = facilitiesJSON.getBoolean("elevator");
-                                tv = facilitiesJSON.getBoolean("tv");
-
-                                if(wood_floor){
-                                    img1.setVisibility(View.VISIBLE);
-                                    tvitem1.setVisibility(TextView.VISIBLE);
-                                }else{
-                                    img1.setVisibility(View.INVISIBLE);
-                                    tvitem1.setVisibility(TextView.GONE);
-                                }
-
-                                if(wifi){
-                                    img2.setVisibility(View.VISIBLE);
-                                    tvitem2.setVisibility(TextView.VISIBLE);
-                                }else{
-                                    img2.setVisibility(View.INVISIBLE);
-                                    tvitem2.setVisibility(TextView.GONE);
-                                }
-
-                                if(reception24){
-                                    img3.setVisibility(View.VISIBLE);
-                                    tvitem3.setVisibility(TextView.VISIBLE);
-                                }else{
-                                    img3.setVisibility(View.INVISIBLE);
-                                    tvitem3.setVisibility(TextView.GONE);
-                                }
-
-                                if(air_conditioning){
-                                    img4.setVisibility(View.VISIBLE);
-                                    tvitem4.setVisibility(TextView.VISIBLE);
-                                }else{
-                                    img4.setVisibility(View.INVISIBLE);
-                                    tvitem4.setVisibility(TextView.GONE);
-                                }
-
-                                if(tv){
-                                    img5.setVisibility(View.VISIBLE);
-                                    tvitem5.setVisibility(TextView.VISIBLE);
-                                }else{
-                                    img5.setVisibility(View.INVISIBLE);
-                                    tvitem5.setVisibility(TextView.GONE);
-                                }
-//
-                                if(elevator){
-                                    img6.setVisibility(View.VISIBLE);
-                                    tvitem6.setVisibility(TextView.VISIBLE);
-
-                                }else{
-                                    img6.setVisibility(View.INVISIBLE);
-                                    tvitem6.setVisibility(TextView.GONE);
-                                }
-//
-                                if(cable_tv){
-                                    img7.setVisibility(View.VISIBLE);
-                                    tvitem7.setVisibility(TextView.VISIBLE);
-                                }else{
-                                    img7.setVisibility(View.INVISIBLE);
-                                    tvitem7.setVisibility(TextView.GONE);
-                                }
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-                Log.e("Error", error.toString());
-            }
-        });
-
-//        requestqueue.add(request);
-
-
-        //Hàm  nhập ngày
-//        date = findViewById(R.id.tvSelectedDate);
-//        selectDate = findViewById(R.id.btnDate);
-//        selectDate.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                calendar = Calendar.getInstance();
-//                year = calendar.get(Calendar.YEAR);
-//                month = calendar.get(Calendar.MONTH);
-//                dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
-//
-//                datePickerDialog = new DatePickerDialog(HotelDetailActivity.this,
-//                        new DatePickerDialog.OnDateSetListener() {
-//                            @SuppressLint("SetTextI18n")
-//                            @Override
-//                            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-//                                date.setText(day + "/" + month + "/" + year);
-//                            }
-//                        }, year,
-//                        month,
-//                        dayOfMonth);
-//                datePickerDialog.show();
-//            }
-//        });
-
-        PhotoAdapter photoAdapter = new PhotoAdapter(this, getListPhoto());
-        mViewPager2.setAdapter(photoAdapter);
+        FetchData("hour");
+    }
+    private void FetchData(String option){
+        Intent intent = getIntent();
+        String hotelStr = intent.getStringExtra("hotel");
+        Hotel h = new Gson().fromJson(hotelStr,Hotel.class);
+        txt_SLDanhgia.setText("("+ h.getRatings().length + " đánh giá)");
+        tvName.setText(h.getName());
+        tvLocation.setText(h.getLocation().getAddress() + ", " +  h.getLocation().getDistrict()+ ", " + h.getLocation().getCity());
+        SliderImageAdapter adapter = new SliderImageAdapter(new ArrayList<>(Arrays.asList(h.getImgs())),this);
+        mViewPager2.setAdapter(adapter);
         mCircleIndicator3.setViewPager(mViewPager2);
-        ConstraintLayout room_item = findViewById(R.id.detailhotel_contrain_roomitem);
-//        room_item.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(HotelDetailActivity.this, RoomDetailActivity.class);
-//                intent.putExtra("timestart",lTimeStart);
-//                Log.e("thn", String.valueOf(lTimeStart));
-//                intent.putExtra("timestop", lTimeStop);
-//                startActivity(intent);
-//            }
-//        });
+
+        tvStartComment.setText(h.getRatings().length);
+
+        LayoutInflater inflater = LayoutInflater.from(context);
+
+        detailhotel_listroom_linear.removeAllViews();
+        for (Room r : h.getRooms()){
+            View view = inflater.inflate(R.layout.room_card_item,detailhotel_listroom_linear,false);
+
+            RenderRooms(view,r,h.getPromotions()[0],option );
+            detailhotel_listroom_linear.addView(view);
+
+        }
+        for (Rating ra : h.getRatings()){
+            View view  = inflater.inflate(R.layout.comment_item_card,detailhotel_listcmt_linear,false);
+            RenderComment(view,ra);
+            detailhotel_listcmt_linear.addView(view);
+        }
+    }
+    private void RenderRooms(View view, Room r, Promotion pro,String option){
+        ImageView img = (ImageView)view.findViewById(R.id.imageView);
+        Picasso.get().load(r.getImgs()[0]).into(img);
+        TextView name = (TextView)view.findViewById(R.id.textView6);
+        name.setText(r.getName());
+        String condition = "";
+        if (r.getRoom_conditions().isDouble_bed()){
+            condition += "Giường đôi ";
+        }
+        if (r.getRoom_conditions().isArea_20m2()){
+            condition += "20m2 ";
+        }
+        if (r.getRoom_conditions().isWindow()){
+            condition += "Cửa sổ";
+        }
+        TextView conditionTv = view.findViewById(R.id.textView7);
+        conditionTv.setText(condition);
+        NumberFormat currencyFormatter = NumberFormat.getInstance(new Locale("en", "EN"));
+        TextView price = view.findViewById(R.id.textView10);
+        TextView price_pro = view.findViewById(R.id.tv_promotion_price_room);
+        TextView ordertype = view.findViewById(R.id.textView9);
+        price_pro.setPaintFlags(price_pro.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+        if (option.equals("hour")){
+            price.setText(currencyFormatter.format(r.getHour_price()) + " đ");
+            ordertype.setText("Theo giờ");
+        }else if (option.equals("daily")){
+            price.setText(currencyFormatter.format(r.getDaily_price()) + " đ");
+            ordertype.setText("Theo ngày");
+        }else{
+            price.setText(currencyFormatter.format(r.getOvernight_price()) + " đ");
+            ordertype.setText("Qua đêm");
+        }
+        if (pro== null){
+            TextView uudai = view.findViewById(R.id.textView2);
+            TextView giamngay = view.findViewById(R.id.textView4);
+            uudai.setVisibility(View.INVISIBLE);
+            giamngay.setVisibility(View.INVISIBLE);
+
+        }else{
+            ArrayList<String> orderstype = new ArrayList<String>(Arrays.asList(pro.getOrder_type()));
+            if (orderstype.contains(option)){
+                if (option.equals("hour")){
+                    price.setText(currencyFormatter.format(r.getHour_price()*(1-pro.getDiscount_ratio())) + " đ");
+                }else if (option.equals("daily")){
+                    price.setText(currencyFormatter.format(r.getDaily_price()*(1-pro.getDiscount_ratio())) + " đ");
+                }else{
+                    price.setText(currencyFormatter.format(r.getOvernight_price()*(1-pro.getDiscount_ratio())) + " đ");
+                }
+            }
+        }
 
     }
-
-    private List<Photo> getListPhoto() {
-        List<Photo> list = new ArrayList<>();
-        list.add(new Photo(R.drawable.victory1));
-        list.add(new Photo(R.drawable.victory));
-        list.add(new Photo(R.drawable.victory2));
-
-        return list;
+    private void RenderComment(View view, Rating rating){
+        TextView user = view.findViewById(R.id.TT_BinhLuan);
+        TextView content = view.findViewById(R.id.nd_BinhLuan);
+        RatingBar ratingBar = view.findViewById(R.id.ratingBar);
+        ratingBar.setRating(rating.getStart());
+        user.setText(rating.getUser().getPhone().substring(0,6)+"****");
+        content.setText(rating.getComment());
     }
     private void updateLabel(){
         String myFormat="HH:mm:ss dd-MM-yyyy";
