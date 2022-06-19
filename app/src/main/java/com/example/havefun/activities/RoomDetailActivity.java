@@ -41,6 +41,7 @@ import java.text.NumberFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
@@ -48,8 +49,8 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class RoomDetailActivity extends AppCompatActivity {
 
-    private TextView tvSubDes,tvRoomTypeBig, tvRoomTypeSmall, tvName, tvRoomPrice, tvFirstHour, tvFirstHourBonus, tvOvernight, tvAllday, tvitem7, tvitem6, tvitem5, tvitem4, tvitem3, tvitem2, tvitem1;
-    private ImageView img1, img2, img3, img4, img5, img6,img7;
+    private TextView tvSubDes, tvRoomTypeBig, tvRoomTypeSmall, tvName, tvRoomPrice, tvFirstHour, tvFirstHourBonus, tvOvernight, tvAllday, tvitem7, tvitem6, tvitem5, tvitem4, tvitem3, tvitem2, tvitem1;
+    private ImageView img1, img2, img3, img4, img5, img6, img7;
     private boolean wood_floor;
     private boolean air_conditioning;
     private boolean reception24;
@@ -59,11 +60,13 @@ public class RoomDetailActivity extends AppCompatActivity {
     private boolean tv;
     private Context context;
     private ArrayList<String> imgRoomUrls;
-
-     String timeStartString, timeStopString;
-     long lTimeStart,lTimeStop;
+    private Timestamp time_start, time_stop;
+    private Room currentRoom;
+    String hotelID,order_type;
 
     Locale vn = new Locale("vi", "VN");
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,11 +101,14 @@ public class RoomDetailActivity extends AppCompatActivity {
         context = this;
         String ServerAddres = getString(R.string.server_address);
         Intent intent = getIntent();
-        timeStartString= intent.getStringExtra("timestart");
-        timeStopString = intent.getStringExtra("timestop");
-
-        lTimeStart = Long.parseLong(timeStartString);
-        lTimeStop = Long.parseLong(timeStopString);
+        String timeStartString = intent.getStringExtra("time_start");
+        String timeStopString = intent.getStringExtra("time_stop");
+        String roomStr = intent.getStringExtra("room");
+        hotelID = intent.getStringExtra("hotel_id");
+        order_type = intent.getStringExtra("order_type");
+        time_start = new Gson().fromJson(timeStartString, Timestamp.class);
+        time_stop = new Gson().fromJson(timeStopString, Timestamp.class);
+        currentRoom = new Gson().fromJson(roomStr, Room.class);
 
 
         Button orderRoom = findViewById(R.id.btnRoomDetailCheckOut);
@@ -110,33 +116,30 @@ public class RoomDetailActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
-                String createOrderUrl =ServerAddres+ "/api/orders/create";
+                String createOrderUrl = ServerAddres + "/api/orders/create";
                 SharedPreferences pref = getApplicationContext().getSharedPreferences("User", 0);
                 String name = pref.getString("userObject", "undefined");
-                if (!name.equals("undefined")){
+                if (!name.equals("undefined")) {
                     try {
                         JSONObject userObj = new JSONObject(name);
                         JSONObject createOrder = new JSONObject();
-                        createOrder.put("hotelID","NfmlyyCa26QE0dtvdwmr");
-                        createOrder.put("roomID","Jr95IYklPieXywcIeaaf");
-                        createOrder.put("userID",userObj.getString("id"));
-                        createOrder.put("order_type","hour");
-                        Timestamp startTime = new Timestamp();
-                        startTime.setSeconds(lTimeStart);
-                        Timestamp endTime = new Timestamp();
-                        endTime.setSeconds(lTimeStop);
-                        createOrder.put("order_start",startTime);
-                        createOrder.put("order_end",endTime);
+                        createOrder.put("hotelID", hotelID);
+                        createOrder.put("roomID", currentRoom.getId());
+                        createOrder.put("userID", userObj.getString("id"));
+                        createOrder.put("order_type", order_type);
+
+                        createOrder.put("order_start", time_start);
+                        createOrder.put("order_end", time_stop);
                         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, createOrderUrl, createOrder, new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {
                                 try {
-                                    if (response.getInt("status") == 200){
-                                         new SweetAlertDialog(context, SweetAlertDialog.SUCCESS_TYPE)
+                                    if (response.getInt("status") == 200) {
+                                        new SweetAlertDialog(context, SweetAlertDialog.SUCCESS_TYPE)
                                                 .setTitleText("Thành công")
                                                 .setContentText("Bạn đã đặt phòng thành công")
                                                 .show();
-                                    }else {
+                                    } else {
                                         new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
                                                 .setTitleText("Oops...")
                                                 .setContentText("Có lỗi xảy ra, hãy thử lại")
@@ -150,7 +153,7 @@ public class RoomDetailActivity extends AppCompatActivity {
                             @Override
                             public void onErrorResponse(VolleyError error) {
                                 error.printStackTrace();
-                                Log.e("GGG",error.toString());
+                                Log.e("GGG", error.toString());
                             }
                         });
 
@@ -162,7 +165,7 @@ public class RoomDetailActivity extends AppCompatActivity {
                                 .show();
                     }
 
-                }else{
+                } else {
                     new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
                             .setTitleText("Oops...")
                             .setContentText("Bạn cần đăng nhập để thực hiện đặt phòng")
@@ -172,145 +175,96 @@ public class RoomDetailActivity extends AppCompatActivity {
         });
 
         ViewPager viewPager = findViewById(R.id.imgRoomDetailViewPager);
-        String url = ServerAddres+ "/api/hotels/NfmlyyCa26QE0dtvdwmr";
 
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    JSONObject jsonDataObject = response.getJSONObject("data");
-                    imgRoomUrls = new ArrayList<>();
-                    JSONArray jsonRoomArray = jsonDataObject.getJSONArray("rooms");
-                        JSONObject roomItems = jsonRoomArray.getJSONObject(0);
+        ImageAdapter imageAdapter = new ImageAdapter(context, new ArrayList<String>(Arrays.asList(currentRoom.getImgs())));
+
+        viewPager.setAdapter(imageAdapter);
+
+        NumberFormat numberFormatVN = NumberFormat.getCurrencyInstance(vn);
 
 
-                        JSONArray jsonRoomImgUrl = roomItems.getJSONArray("imgs");
+        String daily_price = numberFormatVN.format(currentRoom.getDaily_price());
+        String hour_price_bonus = numberFormatVN.format(currentRoom.getHour_price_bonus());
+        String overnight_price = numberFormatVN.format(currentRoom.getOvernight_price());
+        String hour_price = numberFormatVN.format(currentRoom.getHour_price());
 
-                        for( int m = 0; m < jsonRoomImgUrl.length(); m++) {
+        TextView tvRoomDetailTimeCheckIn = findViewById(R.id.tvRoomDetailTimeCheckIn);
+        TextView tvRoomDetailTimeCheckOut = findViewById(R.id.tvRoomDetailTimeCheckOut);
 
+        TextView tvRoomDetailDayCheckIn = findViewById(R.id.tvRoomDetailDayCheckIn);
+        TextView tvRoomDetailDayCheckOut = findViewById(R.id.tvRoomDetailDayCheckOut);
 
-                            imgRoomUrls.add(jsonRoomImgUrl.getString(m));
-                        }
-                        ImageAdapter imageAdapter = new ImageAdapter(context,imgRoomUrls);
+        tvRoomDetailTimeCheckIn.setText(time_start.toString().split(" ")[1]);
+        tvRoomDetailTimeCheckOut.setText(time_stop.toString().split(" ")[1]);
+        tvRoomDetailDayCheckIn.setText(time_start.toString().split(" ")[0]);
+        tvRoomDetailDayCheckOut.setText(time_stop.toString().split(" ")[0]);
 
-                        viewPager.setAdapter(imageAdapter);
+        tvSubDes.setText(currentRoom.getDescription());
+        tvRoomTypeBig.setText(currentRoom.getRoom_type());
+        tvRoomTypeSmall.setText(currentRoom.getRoom_type());
+        tvName.setText(currentRoom.getName());
+        tvRoomPrice.setText(daily_price);
+        tvFirstHour.setText(hour_price);
+        tvFirstHourBonus.setText(hour_price_bonus);
+        tvOvernight.setText(overnight_price);
+        tvAllday.setText(daily_price);
 
-                        NumberFormat numberFormatVN = NumberFormat.getCurrencyInstance(vn);
+        if (currentRoom.getFacilities().isWood_floor()) {
+            img1.setVisibility(View.VISIBLE);
+            tvitem1.setVisibility(TextView.VISIBLE);
+        } else {
+            img1.setVisibility(View.INVISIBLE);
+            tvitem1.setVisibility(TextView.GONE);
+        }
 
+        if (currentRoom.getFacilities().isWifi()) {
+            img2.setVisibility(View.VISIBLE);
+            tvitem2.setVisibility(TextView.VISIBLE);
+        } else {
+            img2.setVisibility(View.INVISIBLE);
+            tvitem2.setVisibility(TextView.GONE);
+        }
 
-                        String daily_price = roomItems.getString("daily_price");
-                        Double d_daily_price = Double.parseDouble(daily_price);
-                        daily_price=numberFormatVN.format(d_daily_price);
-//                        Log.e("qq",daily_price);
-                        String description=roomItems.getString("description");
-                        String name = roomItems.getString("name");
-                        String room_type =roomItems.getString("room_type");
+        if (currentRoom.getFacilities().isReception24()) {
+            img3.setVisibility(View.VISIBLE);
+            tvitem3.setVisibility(TextView.VISIBLE);
+        } else {
+            img3.setVisibility(View.INVISIBLE);
+            tvitem3.setVisibility(TextView.GONE);
+        }
 
-                        JSONObject facilitiesJSON = roomItems.getJSONObject("facilities");
+        if (currentRoom.getFacilities().isAir_conditioning()) {
+            img4.setVisibility(View.VISIBLE);
+            tvitem4.setVisibility(TextView.VISIBLE);
+        } else {
+            img4.setVisibility(View.INVISIBLE);
+            tvitem4.setVisibility(TextView.GONE);
+        }
 
-                        wood_floor = facilitiesJSON.getBoolean("wood_floor");
-                        air_conditioning = facilitiesJSON.getBoolean("air_conditioning");
-                        reception24 = facilitiesJSON.getBoolean("reception24");
-                        wifi = facilitiesJSON.getBoolean("wifi");
-                        cable_tv=facilitiesJSON.getBoolean("cable_tv");
-                        elevator = facilitiesJSON.getBoolean("elevator");
-                        tv = facilitiesJSON.getBoolean("tv");
-
-
-                        String hour_price = roomItems.getString("hour_price");
-                        Double d_hour_price = Double.parseDouble(hour_price);
-                        hour_price=numberFormatVN.format(d_hour_price);
-                        String hour_price_bonus = roomItems.getString("hour_price_bonus");
-                        Double d_hour_price_bonus = Double.parseDouble(hour_price_bonus);
-                        hour_price_bonus=numberFormatVN.format(d_hour_price_bonus);
-                        String overnight_price = roomItems.getString("overnight_price");
-                        Double d_overnight_price = Double.parseDouble(overnight_price);
-                        overnight_price=numberFormatVN.format(d_overnight_price);
-
-
-                        tvSubDes.setText(description);
-                        tvRoomTypeBig.setText(room_type);
-                        tvRoomTypeSmall.setText(room_type);
-                        tvName.setText(name);
-                        tvRoomPrice.setText(daily_price);
-                        tvFirstHour.setText(hour_price);
-                        tvFirstHourBonus.setText(hour_price_bonus);
-                        tvOvernight.setText(overnight_price);
-                        tvAllday.setText(daily_price);
-
-                        if(wood_floor){
-                            img1.setVisibility(View.VISIBLE);
-                            tvitem1.setVisibility(TextView.VISIBLE);
-                        }else{
-                            img1.setVisibility(View.INVISIBLE);
-                            tvitem1.setVisibility(TextView.GONE);
-                        }
-
-                        if(wifi){
-                            img2.setVisibility(View.VISIBLE);
-                            tvitem2.setVisibility(TextView.VISIBLE);
-                        }else{
-                            img2.setVisibility(View.INVISIBLE);
-                            tvitem2.setVisibility(TextView.GONE);
-                        }
-
-                        if(reception24){
-                            img3.setVisibility(View.VISIBLE);
-                            tvitem3.setVisibility(TextView.VISIBLE);
-                        }else{
-                            img3.setVisibility(View.INVISIBLE);
-                            tvitem3.setVisibility(TextView.GONE);
-                        }
-
-                        if(air_conditioning){
-                            img4.setVisibility(View.VISIBLE);
-                            tvitem4.setVisibility(TextView.VISIBLE);
-                        }else{
-                            img4.setVisibility(View.INVISIBLE);
-                            tvitem4.setVisibility(TextView.GONE);
-                        }
-
-                        if(tv){
-                            img5.setVisibility(View.VISIBLE);
-                            tvitem5.setVisibility(TextView.VISIBLE);
-                        }else{
-                            img5.setVisibility(View.INVISIBLE);
-                            tvitem5.setVisibility(TextView.GONE);
-                        }
+        if (currentRoom.getFacilities().isTv()) {
+            img5.setVisibility(View.VISIBLE);
+            tvitem5.setVisibility(TextView.VISIBLE);
+        } else {
+            img5.setVisibility(View.INVISIBLE);
+            tvitem5.setVisibility(TextView.GONE);
+        }
 //
-                        if(elevator){
-                            img6.setVisibility(View.VISIBLE);
-                            tvitem6.setVisibility(TextView.VISIBLE);
+        if (currentRoom.getFacilities().isElevator()) {
+            img6.setVisibility(View.VISIBLE);
+            tvitem6.setVisibility(TextView.VISIBLE);
 
-                        }else{
-                            img6.setVisibility(View.INVISIBLE);
-                            tvitem6.setVisibility(TextView.GONE);
-                        }
+        } else {
+            img6.setVisibility(View.INVISIBLE);
+            tvitem6.setVisibility(TextView.GONE);
+        }
 //
-                        if(cable_tv){
-                            img7.setVisibility(View.VISIBLE);
-                            tvitem7.setVisibility(TextView.VISIBLE);
-                        }else{
-                            img7.setVisibility(View.INVISIBLE);
-                            tvitem7.setVisibility(TextView.GONE);
-                        }
-
-
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    Log.e("GG",e.toString());
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-                Log.e("GGG",error.toString());
-            }
-        });
-
-        MySingleton.getInstance(RoomDetailActivity.this).addToRequestQueue(request);
+        if (currentRoom.getFacilities().isCable_tv()) {
+            img7.setVisibility(View.VISIBLE);
+            tvitem7.setVisibility(TextView.VISIBLE);
+        } else {
+            img7.setVisibility(View.INVISIBLE);
+            tvitem7.setVisibility(TextView.GONE);
+        }
 
 
     }
