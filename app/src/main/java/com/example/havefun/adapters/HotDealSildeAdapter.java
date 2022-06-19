@@ -20,6 +20,7 @@ import com.example.havefun.models.Hotel;
 import com.example.havefun.models.Promotion;
 import com.example.havefun.models.Room;
 import com.google.android.material.card.MaterialCardView;
+import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
 import java.text.NumberFormat;
@@ -85,11 +86,12 @@ public class HotDealSildeAdapter extends RecyclerView.Adapter<HotDealSildeAdapte
         }
         Picasso.get().load(modelArrayList.get(position).getImgs()[0]).into( holder.IvImg);
 
-
+        Hotel currentHotel = modelArrayList.get(position);
         holder.CVContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, HotelDetailActivity.class);
+                intent.putExtra("hotel",new Gson().toJson(currentHotel));
                 context.startActivity(intent);
             }
         });
