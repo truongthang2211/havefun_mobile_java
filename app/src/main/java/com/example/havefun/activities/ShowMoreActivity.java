@@ -24,6 +24,7 @@ import com.example.havefun.models.Hotel;
 import com.example.havefun.models.Promotion;
 import com.example.havefun.models.Room;
 import com.google.android.material.card.MaterialCardView;
+import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.squareup.picasso.Picasso;
 
@@ -223,7 +224,8 @@ public class ShowMoreActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ShowMoreActivity.this, HotelDetailActivity.class);
-                ShowMoreActivity.this.startActivity(intent);
+                intent.putExtra("hotel",new Gson().toJson(hotel));
+                startActivity(intent);
             }
         });
     }

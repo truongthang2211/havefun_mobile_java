@@ -1,147 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="8dp">
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/home_norcard_card"
-        android:layout_width="128dp"
-        android:layout_height="148dp"
-        android:layout_marginBottom="16dp"
-        app:cardCornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/home_norcard_img"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop" />
-    </com.google.android.material.card.MaterialCardView>
-
-    <TextView
-        android:id="@+id/home_norcard_tv_new"
-        android:layout_width="wrap_content"
+    android:id="@+id/home_norcard_cardview"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:background="@color/red"
-        android:paddingLeft="8dp"
-        android:paddingTop="2dp"
-        android:paddingRight="8dp"
-        android:paddingBottom="2dp"
-        android:text="Mới"
-        android:textColor="@color/white"
-        android:textSize="14sp"
-        android:visibility="gone"
-        app:layout_constraintStart_toEndOf="@+id/home_norcard_card"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TextContrastCheck" />
+        android:layout_width="match_parent"
+        android:paddingTop="8dp">
 
-    <TextView
-        android:id="@+id/home_norcard_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="8dp"
-        android:text=""
-        android:textColor="@color/lightBlack"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/home_norcard_card"
-        app:layout_constraintTop_toBottomOf="@+id/home_norcard_tv_new" />
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/home_norcard_card"
+            android:layout_width="128dp"
+            android:layout_height="148dp"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/home_norcard_promotion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/border_home_textview"
-        android:paddingLeft="8dp"
-        android:paddingTop="2dp"
-        android:paddingRight="8dp"
-        android:paddingBottom="2dp"
-        android:text=""
-        android:textColor="@color/colorPrimary"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/home_norcard_card" />
+            <ImageView
+                android:id="@+id/home_norcard_img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop" />
+        </com.google.android.material.card.MaterialCardView>
 
-    <TextView
-        android:id="@+id/home_norcard_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginBottom="8dp"
-        android:textColor="@color/lightBlack"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/home_norcard_promotion"
-        app:layout_constraintStart_toEndOf="@+id/home_norcard_card" />
+        <TextView
+            android:id="@+id/home_norcard_tv_new"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:background="@color/red"
+            android:paddingLeft="8dp"
+            android:paddingTop="2dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="2dp"
+            android:text="Mới"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="@+id/home_norcard_card"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TextContrastCheck" />
 
-    <ImageButton
-        android:id="@+id/home_norcard_imgbtn_rate"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginEnd="@dimen/activity_horizontal_margin"
-        android:layout_marginBottom="16dp"
-        android:background="@android:color/transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        <TextView
+            android:id="@+id/home_norcard_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="8dp"
+            android:text=""
+            android:textColor="@color/lightBlack"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/home_norcard_card"
+            app:layout_constraintTop_toBottomOf="@+id/home_norcard_tv_new" />
 
-        app:srcCompat="@drawable/ic_baseline_star_24"
-        app:tint="@color/colorPrimary"
-        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+        <TextView
+            android:id="@+id/home_norcard_promotion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/border_home_textview"
+            android:paddingLeft="8dp"
+            android:paddingTop="2dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="2dp"
+            android:text=""
+            android:textColor="@color/colorPrimary"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/home_norcard_card" />
 
-    <TextView
-        android:id="@+id/home_normal_numrate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
-        android:text=""
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/home_norcard_imgbtn_rate" />
+        <TextView
+            android:id="@+id/home_norcard_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/lightBlack"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/home_norcard_promotion"
+            app:layout_constraintStart_toEndOf="@+id/home_norcard_card" />
 
-    <TextView
-        android:id="@+id/home_norcard_rate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
-        android:text=""
-        android:textColor="@color/lightBlack"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/home_normal_numrate" />
+        <ImageButton
+            android:id="@+id/home_norcard_imgbtn_rate"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="16dp"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:background="#ccc"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+            app:srcCompat="@drawable/ic_baseline_star_24"
+            app:tint="@color/colorPrimary"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
-    <TextView
-        android:id="@+id/home_price_discounted_Tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/home_norcard_price"
-        app:layout_constraintStart_toEndOf="@+id/home_norcard_price" />
+        <TextView
+            android:id="@+id/home_normal_numrate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/home_norcard_imgbtn_rate" />
 
-    <TextView
-        android:id="@+id/home_norcard_location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/home_norcard_price"
-        app:layout_constraintStart_toEndOf="@+id/home_norcard_card"
-        app:layout_constraintTop_toBottomOf="@+id/home_norcard_name" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/home_norcard_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:text=""
+            android:textColor="@color/lightBlack"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/home_normal_numrate" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="#ccc"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/home_price_discounted_Tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/home_norcard_price"
+            app:layout_constraintStart_toEndOf="@+id/home_norcard_price" />
+
+        <TextView
+            android:id="@+id/home_norcard_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/home_norcard_price"
+            app:layout_constraintStart_toEndOf="@+id/home_norcard_card"
+            app:layout_constraintTop_toBottomOf="@+id/home_norcard_name" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

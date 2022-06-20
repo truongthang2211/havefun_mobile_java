@@ -82,7 +82,9 @@ public class RegisterActivity extends Activity {
                                     SharedPreferences.Editor edit = pref.edit();
                                     edit.putString("userObject",dataAccount.toString());
                                     edit.apply();
-                                    LoginActivity.LoginAct.finish();
+                                    Intent returnIntent = new Intent();
+                                    returnIntent.putExtra("result","signup");
+                                    setResult(Activity.RESULT_OK,returnIntent);
                                     finish();
                                 }
                             }else if (status == 201){

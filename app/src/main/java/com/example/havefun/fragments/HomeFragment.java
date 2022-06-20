@@ -28,6 +28,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.havefun.R;
+import com.example.havefun.activities.HotelDetailActivity;
 import com.example.havefun.activities.SearchActivity;
 import com.example.havefun.activities.ShowMoreActivity;
 import com.example.havefun.adapters.HomeHotHotelAdapter;
@@ -277,7 +278,7 @@ public class HomeFragment extends Fragment {
                         @Override
                         public void onPageScrollStateChanged(int state) {
                             super.onPageScrollStateChanged(state);
-                            promotion_pos.setText(state + 1 + "/" + promotionsList.size());
+                            promotion_pos.setText(Promotion_viewpager.getCurrentItem() +1+ "/" + promotionsList.size());
                         }
                     });
 
@@ -316,6 +317,14 @@ public class HomeFragment extends Fragment {
 
         }
         Picasso.get().load(item.getImgs()[0]).into(IvImg);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, HotelDetailActivity.class);
+                intent.putExtra("hotel",new Gson().toJson(item));
+                context.startActivity(intent);
+            }
+        });
     }
 
     private void SetNormalCard(View view, Hotel item) {
@@ -339,6 +348,14 @@ public class HomeFragment extends Fragment {
             TvPromotion.setVisibility(View.VISIBLE);
             TvPromotion.setText(String.valueOf(currencyFormatter.format(item.getPromotions()[0].getDiscount_ratio() * 100)) + "%");
         }
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, HotelDetailActivity.class);
+                intent.putExtra("hotel",new Gson().toJson(item));
+                context.startActivity(intent);
+            }
+        });
     }
 
     private void ProcessViewPager(ViewPager2 viewPager2, boolean showNext) {

@@ -186,12 +186,14 @@
             android:layout_height="160dp"
             android:background="@drawable/effect_shadow_noradius_noleft"
             android:gravity="center">
+
             <TextView
+                android:id="@+id/voucher_use_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sử dụng"
-                android:textStyle="bold"
-                android:textColor="#ed6028"></TextView>
+                android:textColor="#ed6028"
+                android:textStyle="bold"></TextView>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

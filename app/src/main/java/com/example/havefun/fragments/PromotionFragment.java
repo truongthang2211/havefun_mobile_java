@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.havefun.R;
 import com.example.havefun.activities.DetailPromotionActivity;
+import com.example.havefun.activities.HotelDetailActivity;
 import com.example.havefun.databinding.FragmentPromotionBinding;
 import com.example.havefun.models.Promotion;
 import com.example.havefun.utils.MySingleton;
@@ -38,7 +40,7 @@ import java.util.Locale;
 
 public class PromotionFragment extends Fragment {
     private Context context;
-
+    String HotelURL;
     private FragmentPromotionBinding binding;
     private LinearLayout ListVoucherLinear;
     private LinearLayout ListTypeLinear;
@@ -59,6 +61,8 @@ public class PromotionFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        String ServerURL = getString(R.string.server_address);
+        HotelURL = ServerURL + "/api/hotels/";
 
         ListVoucherLinear = getView().findViewById(R.id.promotion_listVoucher_Linear);
         num_pro= getView().findViewById(R.id.promotion_numpre_Tv);
@@ -136,9 +140,42 @@ public class PromotionFragment extends Fragment {
                 }
             }
         }
-
+        TextView voucher_use_tv = view.findViewById(R.id.voucher_use_tv);
+        voucher_use_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                StartHotelDetailAct(HotelURL + p.getHotel_id());
+            }
+        });
         start.setText(p.getTime_start().toString());
         end.setText(p.getTime_end().toString());
 
+    }
+    private void StartHotelDetailAct(String hotelURL){
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, hotelURL, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    int status = response.getInt("status");
+                    if (status == 200){
+                        JSONObject hotel = response.getJSONObject("data");
+                        Intent intent = new Intent(context, HotelDetailActivity.class);
+                        intent.putExtra("hotel",hotel.toString());
+                        startActivity(intent);
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // TODO: Handle error
+                Log.i("api", error.toString());
+            }
+        });
+        MySingleton.getInstance(context).addToRequestQueue(request);
     }
 }

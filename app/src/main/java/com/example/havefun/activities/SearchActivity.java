@@ -68,7 +68,7 @@ public class SearchActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String hotelsStr = intent.getStringExtra("listHotel");
         ListHotel = Arrays.asList(new GsonBuilder().create().fromJson(hotelsStr, Hotel[].class));
-        searchAdapter = new SearchAdapter(ListHotel);
+        searchAdapter = new SearchAdapter(context, ListHotel);
         ListHotelRecyler.setAdapter(searchAdapter);
         ListHotelRecyler.setLayoutManager(new LinearLayoutManager(context));
 

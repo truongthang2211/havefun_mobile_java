@@ -1,5 +1,7 @@
 package com.example.havefun.adapters;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Build;
 import android.view.LayoutInflater;
@@ -15,7 +17,10 @@ import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.havefun.R;
+import com.example.havefun.activities.HotelDetailActivity;
 import com.example.havefun.models.Hotel;
+import com.google.android.material.card.MaterialCardView;
+import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
 import java.text.NumberFormat;
@@ -27,8 +32,9 @@ import java.util.Locale;
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchViewHolder> implements Filterable {
     private List<Hotel> listHotel;
     private List<Hotel> listHotelOld;
-
-    public SearchAdapter(List<Hotel> listHotel) {
+    Context context;
+    public SearchAdapter(Context context,List<Hotel> listHotel) {
+        this.context = context;
         this.listHotel = listHotel;
         this.listHotelOld = listHotel;
 
@@ -68,6 +74,14 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
         if (h.getCreated_at().toLocalDateTime().plusDays(60).isAfter(LocalDateTime.now())) {
             holder.newHotel.setVisibility(View.VISIBLE);
         }
+        holder.home_norcard_cardview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, HotelDetailActivity.class);
+                intent.putExtra("hotel",new Gson().toJson(h));
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -122,7 +136,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
         private TextView numrate;
         private TextView location;
         private ImageView img;
-
+        private MaterialCardView home_norcard_cardview;
         public SearchViewHolder(@NonNull View itemView) {
             super(itemView);
             newHotel = itemView.findViewById(R.id.home_norcard_tv_new);
@@ -134,6 +148,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
             discount_price = itemView.findViewById(R.id.home_price_discounted_Tv);
             img = itemView.findViewById(R.id.home_norcard_img);
             location = itemView.findViewById(R.id.home_norcard_location);
+            home_norcard_cardview = itemView.findViewById(R.id.home_norcard_cardview);
         }
     }
 }

@@ -98,7 +98,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent,3);
             }
         });
         Button Myorders = view.findViewById(R.id.order_btn);
@@ -116,5 +116,19 @@ public class ProfileFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+    @Override
+    public  void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 3) {
+            String result=data.getStringExtra("result");
+            if (result.equals("login")) {
+                Intent returnIntent = new Intent();
+                returnIntent.putExtra("result","login");
+                getActivity().finish();
+                startActivity(getActivity().getIntent());
+            }
+        }
     }
 }

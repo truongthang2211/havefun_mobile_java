@@ -87,6 +87,9 @@ public class LoginActivity extends AppCompatActivity {
                                     SharedPreferences.Editor edit = pref.edit();
                                     edit.putString("userObject",dataAccount.toString());
                                     edit.apply();
+                                    Intent returnIntent = new Intent();
+                                    returnIntent.putExtra("result","login");
+                                    setResult(Activity.RESULT_OK,returnIntent);
                                     finish();
                                 }
                             }else if (status == 201){
@@ -131,9 +134,24 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent,4);
             }
         });
 
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 4) {
+            String result=data.getStringExtra("result");
+            if (result.equals("signup")) {
+                Intent returnIntent = new Intent();
+                returnIntent.putExtra("result","login");
+                setResult(Activity.RESULT_OK,returnIntent);
+                finish();
+
+            }
+        }
     }
 }
