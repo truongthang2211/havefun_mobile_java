@@ -498,6 +498,7 @@ public class HotelDetailActivity extends AppCompatActivity {
                 intent.putExtra("room",new Gson().toJson(r));
                 intent.putExtra("hotel_id",currentHotel.getId());
                 intent.putExtra("order_type",currentOrderType);
+                intent.putExtra("price",price.getText());
                 startActivity(intent);
             }
         });

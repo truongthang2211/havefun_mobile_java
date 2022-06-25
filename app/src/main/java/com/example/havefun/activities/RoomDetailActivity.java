@@ -104,6 +104,7 @@ public class RoomDetailActivity extends AppCompatActivity {
         String timeStartString = intent.getStringExtra("time_start");
         String timeStopString = intent.getStringExtra("time_stop");
         String roomStr = intent.getStringExtra("room");
+        String price = intent.getStringExtra("price");
         hotelID = intent.getStringExtra("hotel_id");
         order_type = intent.getStringExtra("order_type");
         time_start = new Gson().fromJson(timeStartString, Timestamp.class);
@@ -128,8 +129,8 @@ public class RoomDetailActivity extends AppCompatActivity {
                         createOrder.put("userID", userObj.getString("id"));
                         createOrder.put("order_type", order_type);
 
-                        createOrder.put("order_start", time_start);
-                        createOrder.put("order_end", time_stop);
+                        createOrder.put("order_start",new JSONObject(new Gson().toJson(time_start)));
+                        createOrder.put("order_end",new JSONObject(new Gson().toJson(time_stop)));
                         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, createOrderUrl, createOrder, new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {
@@ -203,7 +204,7 @@ public class RoomDetailActivity extends AppCompatActivity {
         tvRoomTypeBig.setText(currentRoom.getRoom_type());
         tvRoomTypeSmall.setText(currentRoom.getRoom_type());
         tvName.setText(currentRoom.getName());
-        tvRoomPrice.setText(daily_price);
+        tvRoomPrice.setText(price);
         tvFirstHour.setText(hour_price);
         tvFirstHourBonus.setText(hour_price_bonus);
         tvOvernight.setText(overnight_price);

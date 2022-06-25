@@ -69,7 +69,7 @@ public class HotDealSildeAdapter extends RecyclerView.Adapter<HotDealSildeAdapte
             if (overnight_type){
 
                 float price =first_room.getOvernight_price();
-                holder.TvPrice.setText(currencyFormatter.format(price*promotion.getDiscount_ratio())+" đ");
+                holder.TvPrice.setText(currencyFormatter.format(price*(1-promotion.getDiscount_ratio()))+" đ");
                 holder.TvPriceDiscount.setText(currencyFormatter.format(price)+" đ");
                 holder.TvPriceDiscount.setPaintFlags(holder.TvPriceDiscount.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
                 holder.TvTimePromotion.setText("Qua đêm");
@@ -77,7 +77,7 @@ public class HotDealSildeAdapter extends RecyclerView.Adapter<HotDealSildeAdapte
             }else{
                 String type_pro = promotion.getOrder_type()[0] == "overnight"?"Qua đêm": promotion.getOrder_type()[0] == "daily"?"Theo ngày":"Theo giờ";
                 float price = type_pro=="Qua đêm"?first_room.getOvernight_price():type_pro=="Theo ngày"?first_room.getDaily_price():first_room.getHour_price();
-                holder.TvPrice.setText(currencyFormatter.format(price*promotion.getDiscount_ratio())+" đ");
+                holder.TvPrice.setText(currencyFormatter.format(price*(1-promotion.getDiscount_ratio()))+" đ");
                 holder.TvPriceDiscount.setText(currencyFormatter.format(price)+" đ");
                 holder.TvPriceDiscount.setPaintFlags(holder.TvPriceDiscount.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
                 holder.TvTimePromotion.setText(type_pro);

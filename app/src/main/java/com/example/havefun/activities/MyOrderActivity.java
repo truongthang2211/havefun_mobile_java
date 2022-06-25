@@ -49,7 +49,14 @@ public class MyOrderActivity extends AppCompatActivity {
     LinearLayout listOrdersLinear;
     ArrayList<Order> orderlist;
     Context context;
-
+    String ServerURL;
+    TextView status;
+    TextView roomid ;
+    TextView orderTime ;
+    TextView JoinTime ;
+    TextView LeftTime;
+    TextView price;
+    MaterialButton cancel_btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,13 +76,13 @@ public class MyOrderActivity extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void setOrderToCard(View view, Order order) {
-        TextView status = view.findViewById(R.id.Order_status_Tv);
-        TextView roomid = view.findViewById(R.id.Order_Room_Tv_e);
-        TextView orderTime = view.findViewById(R.id.Order_orderTime_Tv_e);
-        TextView JoinTime = view.findViewById(R.id.Order_Jointime_Tv_e);
-        TextView LeftTime = view.findViewById(R.id.Order_Leftime_Tv_e);
-        TextView price = view.findViewById(R.id.Order_price_Tv);
-        MaterialButton cancel_btn = view.findViewById(R.id.Order_Cancel_Button);
+         status = view.findViewById(R.id.Order_status_Tv);
+         roomid = view.findViewById(R.id.Order_Room_Tv_e);
+         orderTime = view.findViewById(R.id.Order_orderTime_Tv_e);
+         JoinTime = view.findViewById(R.id.Order_Jointime_Tv_e);
+         LeftTime = view.findViewById(R.id.Order_Leftime_Tv_e);
+         price = view.findViewById(R.id.Order_price_Tv);
+         cancel_btn = view.findViewById(R.id.Order_Cancel_Button);
 
         roomid.setText(order.getRoom().getRoom_id() + " - "+ order.getHotel().getName());
         orderTime.setText(order.getCreated_at().toString());
@@ -89,9 +96,26 @@ public class MyOrderActivity extends AppCompatActivity {
             if (order.getOrder_start().toLocalDateTime().plusHours(1).isBefore(LocalDateTime.now())){
                 cancel_btn.setVisibility(View.GONE);
             }
+            cancel_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    new SweetAlertDialog(context, SweetAlertDialog.WARNING_TYPE)
+                            .setTitleText("Bạn có muốn hủy đơn đặt phòng này?")
+                            .setConfirmText("Hủy!")
+                            .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                @Override
+                                public void onClick(SweetAlertDialog sDialog) {
+                                    UpdateOrder("canceled", order.getId());
+
+                                    sDialog.dismissWithAnimation();
+                                }
+                            })
+                            .show();
+                }
+            });
         }else if (order.getOrder_status().equals("complete")){
             status.setText("Đã thanh toán");
-            price.setText(currencyFormatter.format(order.getTotal_price_real())+" đ");
+            price.setText(currencyFormatter.format(order.getTotal_price_estimate())+" đ");
             status.setTextColor(Color.parseColor("#a0ffa0"));
             cancel_btn.setVisibility(View.GONE);
         }else{
@@ -103,7 +127,7 @@ public class MyOrderActivity extends AppCompatActivity {
     }
 
     private void LoadOrders() {
-        String ServerURL = getString(R.string.server_address);
+        ServerURL = getString(R.string.server_address);
         SharedPreferences pref = context.getApplicationContext().getSharedPreferences("User", 0);
         String userObjStr = pref.getString("userObject", "undefined");
         if (userObjStr.equals("undefined")) {
@@ -146,6 +170,44 @@ public class MyOrderActivity extends AppCompatActivity {
                             setOrderToCard(view, o);
                             listOrdersLinear.addView(view);
                         }
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // TODO: Handle error
+                Log.i("apiapi", error.toString());
+            }
+        });
+        MySingleton.getInstance(this.context).addToRequestQueue(request);
+    }
+    private void UpdateOrder(String order_status, String orderId) {
+        String orderURL = ServerURL + "/api/orders/update";
+        JSONObject putOrder = new JSONObject();
+        try {
+            putOrder.put("order_status", order_status);
+            putOrder.put("id", orderId);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.PUT, orderURL, putOrder, new Response.Listener<JSONObject>() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    int statuss = response.getInt("status");
+
+                    if (statuss == 200) {
+                        status.setText("Đã bị hủy");
+                        price.setText("0 đ");
+                        status.setTextColor(Color.parseColor("#ff2337"));
+                        cancel_btn.setVisibility(View.GONE);
+
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
